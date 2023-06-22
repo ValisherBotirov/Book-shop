@@ -26,8 +26,11 @@
         </li>
       </ul>
 
-      <div class="text-[#F4F6F9] flex items-center gap-1">
+      <div class="text-[#F4F6F9] flex items-center gap-2">
+        <ShopCart/>
         <LangCompVue />
+
+
 
         <span class="hidden md:inline">
           <svg class="w-[1px] h-7" viewBox="0 0 1 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -112,15 +115,14 @@ import RegisterModalVue from "../modals/RegisterModal.vue";
 import LoginModalVue from "../modals/LoginModal.vue";
 import LangCompVue from "./LangComp.vue";
 import SideBar from "../sideBar/SideBar.vue";
+import ShopCart from "@/components/card/ShopCart.vue";
 
 const store = useUserRegister();
 const router = useRouter();
 const { t } = useI18n();
 
 const routeNav = ref([
-  { name: ("header.service"), link: "/services" },
   { name: ("header.magazin"), link: "/shop" },
-  { name: ("header.about"), link: "/about" },
   { name: ("header.contact"), link: "/contact" },
 ]);
 
