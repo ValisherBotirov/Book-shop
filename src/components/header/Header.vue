@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full fixed z-[999] top-0  backdrop-blur-sm">
-    <div class="px-4 bg-[#444444BF] drop-shadow-lg rounded-b-2xl flex justify-between items-center shadow-lg">
+  <div class="w-full fixed z-[999] top-0  backdrop-blur-sm ">
+    <div class="px-4 py-2 bg-[#444444BF] drop-shadow-lg rounded-b-2xl gap-4 flex justify-between items-center shadow-lg">
       <span @click="isOpenSidebar = true" class="md:hidden text-white">
         <i class="fa-solid fa-bars p-3 text-xl"></i>
       </span>
@@ -15,21 +15,15 @@
         </span>
       </RouterLink>
 
-      <ul class="hidden md:flex gap-6 [&>li]:inline-block [&>li]:py-3">
-        <li
-          v-for="(val, i) in routeNav"
-          :key="i"
-          class="relative before:duration-300 before:absolute before:bottom-0 before:opacity-0 hover:before:opacity-100 hover:before:bottom-3 before:left-1/2 hover:before:left-0 hover:before: before:w-2 hover:before:w-full before:h-[1px] before:bg-white"
-          :class="router.currentRoute.value.path === val.link ? 'text-primary' : 'text-[#F4F6F9]'"
-        >
-          <RouterLink class="capitalize" :to="val.link">{{ $t(val.name) }}</RouterLink>
-        </li>
-      </ul>
+      <div class="hidden md:flex mx-4 grow">
+          <SearchInput class="w-full"/>
+
+      </div>
 
       <div class="text-[#F4F6F9] flex items-center gap-2">
         <ShopCart  @click="openShopModal = true"/>
         <LangCompVue />
-          <BasketModal :isOpen="openShopModal" @closeModal="e=> openShopModal = e"/>
+         <BasketModal :isOpen="openShopModal" @closeModal="e=> openShopModal = e"/>
 
 
 
@@ -118,6 +112,7 @@ import LangCompVue from "./LangComp.vue";
 import SideBar from "../sideBar/SideBar.vue";
 import ShopCart from "@/components/card/ShopCart.vue";
 import BasketModal from "@/components/modals/BasketModal.vue";
+import SearchInput from "@/components/form/SearchInput.vue";
 
 
 
@@ -125,10 +120,7 @@ const store = useUserRegister();
 const router = useRouter();
 const { t } = useI18n();
 
-const routeNav = ref([
-  { name: ("header.magazin"), link: "/shop" },
-  { name: ("header.contact"), link: "/contact" },
-]);
+
 
 const isLoginModal = ref(false);
 const isRegisterationModal = ref(false);
