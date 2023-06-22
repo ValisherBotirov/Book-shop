@@ -2,11 +2,10 @@
 
      <div class="group relative transition-all fill-white group hover:fill-primary active:fill-primary cursor-pointer">
               <span class="relative">
-      <svg
+      <svg class="w-7 h-7" :class="customClass"
           enable-background="new 0 0 26 26"
           id="Слой_1"
-          width="34px"
-          height="34px"
+
           version="1.1"
           viewBox="0 0 26 26"
           xml:space="preserve"
@@ -18,7 +17,7 @@
         />
       </svg>
       <span
-          class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-black group-hover:bg-primary hover:bg-primary text-gray-100 text-[10px] flex items-center justify-center"
+          class="absolute flex flex-shrink-0 bottom-0 right-0 w-4 h-4 rounded-full bg-black group-hover:bg-primary hover:bg-primary text-gray-100 text-[10px]  items-center justify-center" :class="customCircleClass"
       >
        20
       </span>
@@ -29,3 +28,10 @@
 
 </template>
 
+<script setup>
+
+defineProps({
+    customClass:String,
+    customCircleClass:String
+})
+</script>

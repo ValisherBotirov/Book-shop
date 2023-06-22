@@ -1,14 +1,13 @@
 <template>
     <div>
-        <div class="relative search-box w-full sm:w-auto">
+        <div class="relative search-box w-full sm:w-auto flex items-center">
           <span
                   class="
               fa-sharp fa-solid fa-magnifying-glass
               text-xl text-[#7D7E8D]
               absolute
               ml-3
-              sm:mt-2
-              mt-1
+
             "
                   :class="{ 'search-icon': focused }"
           />
