@@ -27,8 +27,9 @@
       </ul>
 
       <div class="text-[#F4F6F9] flex items-center gap-2">
-        <ShopCart/>
+        <ShopCart  @click="openShopModal = true"/>
         <LangCompVue />
+          <BasketModal :isOpen="openShopModal" @closeModal="e=> openShopModal = e"/>
 
 
 
@@ -116,6 +117,9 @@ import LoginModalVue from "../modals/LoginModal.vue";
 import LangCompVue from "./LangComp.vue";
 import SideBar from "../sideBar/SideBar.vue";
 import ShopCart from "@/components/card/ShopCart.vue";
+import BasketModal from "@/components/modals/BasketModal.vue";
+
+
 
 const store = useUserRegister();
 const router = useRouter();
@@ -129,6 +133,8 @@ const routeNav = ref([
 const isLoginModal = ref(false);
 const isRegisterationModal = ref(false);
 const isOpenSidebar = ref(false);
+
+const openShopModal = ref(false)
 
 const changeLoginToRegister = () => {
   isRegisterationModal.value = true;

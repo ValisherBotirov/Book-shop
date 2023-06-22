@@ -1,4 +1,5 @@
 <template>
+
      <div class="group relative transition-all fill-white group hover:fill-primary active:fill-primary cursor-pointer">
               <span class="relative">
       <svg
@@ -22,13 +23,9 @@
        20
       </span>
     </span>
+
+
 </div>
 
 </template>
 
-<script setup lang="ts">
-import {ref} from "vue";
-import {useI18n} from "vue-i18n";
-const { t } = useI18n();
-const open = ref(false);
-</script>
