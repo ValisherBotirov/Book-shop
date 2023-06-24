@@ -1,6 +1,6 @@
 <template>
   <!-- <pre>{{ store }}</pre> -->
-  <div
+  <div class="container mx-auto"
     v-for="data in store.categories"
     v-if="store.categories.length"
     :key="data.id"
@@ -13,7 +13,7 @@
       <i class="fa-sharp fa-solid fa-arrow-right-long category-icon"></i>
     </RouterLink>
 
-    <Swiper>
+    <Swiper class="">
       <SwiperSlide
         v-for="product in data.products"
         :data-swiper-slide-index="product.id"
