@@ -25,7 +25,7 @@
 
          <div class="text-[#F4F6F9] flex items-center gap-2">
              <div class="flex justify-between items-center gap-3">
-               <SavedCart class="hidden md:block"/>
+               <SavedCart class="hidden md:block "/>
                <ShopCart  @click="openShopModal = true" class="hidden md:block"/>
                <LangCompVue />
                <BasketModal :isOpen="openShopModal" @closeModal="e=> openShopModal = e"/>
