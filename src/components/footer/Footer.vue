@@ -1,5 +1,5 @@
 <template>
-  <footer id="footer" class="absolute w-full bottom-0">
+  <footer id="footer" class="">
     <div class="w-[100%] mx-auto">
       <div
         class="px-4 bg-[#444444BF] drop-shadow-lg rounded-t-2xl py-3 gap-4 flex flex-wrap flex-col md:flex-row justify-between items-center shadow-lg text-white"
@@ -7,9 +7,9 @@
         <div>
           <ul>
             <li class="text-[20px]">Информация</li>
-            <!-- <li class="text-[20px]">Часто задаваемые вопросы</li>
+            <li class="text-[20px]">Часто задаваемые вопросы</li>
             <li class="text-[20px]">Пункты выдачи</li>
-            <li class="text-[20px]">Блог</li> -->
+            <li class="text-[20px]">Блог</li>
           </ul>
         </div>
         <div>
@@ -79,7 +79,6 @@
       </div>
     </div>
   </footer>
-  <div class="h-36 md:h-24 lg:h-16"></div>
 </template>
 
 <script setup>
