@@ -7,7 +7,7 @@ const toast = useToast();
 export const useUserRegister = defineStore("user", {
   state: () => ({
     token: "",
-    user: { name: "" },
+    user: { name: "valisher" },
     closemodal: true,
   }),
   getters: {

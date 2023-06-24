@@ -297,7 +297,6 @@ import { useVuelidate } from "@vuelidate/core";
 import { useRouter } from "vue-router";
 
 import { useUserRegister } from "../store/UserRegister";
-import SearchFormCompVue from "../components/shop/SearchFormComp.vue";
 import ButtonFillVue from "../components/buttons/ButtonFill.vue";
 import LoadingVue from "../components/modals/LoadingModal.vue";
 

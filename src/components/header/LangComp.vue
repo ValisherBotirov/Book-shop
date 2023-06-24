@@ -1,5 +1,5 @@
 <template>
-  <div class="lang relative py-3 group cursor-pointer">
+  <div class="lang relative py-3 group transition cursor-pointer">
     <span class="flex gap-1">
       <svg
         class="w-6 h-6  flex-shrink-0 duration-200 fill-[#f4f4f9] group-hover:fill-primary group-active:fill-primary"
