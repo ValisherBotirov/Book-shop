@@ -18,23 +18,8 @@
 
          <div class="hidden md:flex mx-4 grow">
              <div class="w-full relative">
-            <pre>{{showSearchBox}} search box</pre>
-             <SearchInput class="w-full" @getFocus="(e)=>showSearchBox = e"/>
-             <div class="w-full bg-white rounded-lg px-3 py-2 absolute" v-if="showSearchBox">
-                 <div class="flex justify-between">
-                     <p>Natijalar (23)</p>
-                     <p>
-                         <router-link to="#">
-
-                         Hammasini ko'rish
-                         </router-link>
-                     </p>
-                 </div>
-
-                 <div class="border-t border-black/2 mt-2 pt-2">
-                    bu yerda natijalar chiqadi
-                 </div>
-             </div>
+             <SearchInput class="w-full" @getFocus="(e)=>showSearchBox = e" @click="isShowSearch"/>
+             <SearchResult v-if="showSearchBox" @click="isShowSearch"/>
              </div>
          </div>
 
@@ -42,8 +27,6 @@
              <ShopCart  @click="openShopModal = true" class="hidden md:block"/>
              <LangCompVue />
              <BasketModal :isOpen="openShopModal" @closeModal="e=> openShopModal = e"/>
-
-
 
              <span class="hidden md:inline">
           <svg class="w-[1px] h-7" viewBox="0 0 1 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -111,7 +94,10 @@
          </div>
      </div>
       <div class="flex items-center gap-6 border-t pt-3 border-white b md:hidden justify-between mt-3 mb-1 ">
-          <SearchInput class="w-full "/>
+          <div class="w-full relative">
+              <SearchInput class="w-full" @getFocus="(e)=>showSearchBox = e" @click="isShowSearch"/>
+              <SearchResult v-if="showSearchBox" @click="isShowSearch"/>
+          </div>
           <ShopCart  @click="openShopModal = true" class="flex md:flex  " customClass="w-[30px] h-[30px]" customCircleClass="!w-6 !h-6"/>
       </div>
 
@@ -137,6 +123,7 @@ import SideBar from "../sideBar/SideBar.vue";
 import ShopCart from "@/components/card/ShopCart.vue";
 import BasketModal from "@/components/modals/BasketModal.vue";
 import SearchInput from "@/components/form/SearchInput.vue";
+import SearchResult from "@/components/form/SearchResult.vue";
 
 
 
@@ -151,6 +138,15 @@ const isRegisterationModal = ref(false);
 const isOpenSidebar = ref(false);
 
 const openShopModal = ref(false)
+
+function isShowSearch(e){
+    e.stopPropagation()
+}
+
+window.addEventListener("click",()=>{
+    console.log("click")
+    showSearchBox.value = false
+})
 
 const changeLoginToRegister = () => {
   isRegisterationModal.value = true;

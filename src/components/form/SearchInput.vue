@@ -79,15 +79,18 @@ watch(
         debounce(
             'search',
             () => {
-                if(search.value === ""){
+                if(search.value.length <= 1){
+                    emit("getFocus",false)
                     router.replace({query:{}})
+                }
+                else if(search.value.length >=2){
+                    setTimeout(()=>{
+                        emit("getFocus",true)
+                    },1000)
                 }
                 if (newValue) {
                     router.replace({ query: { search: newValue } })
                 }
-                // newsStore.fetchMainNews({ search: newValue }).finally(() => {
-                //     loading.value = false
-                // })
             },
             20
         )
@@ -95,25 +98,20 @@ watch(
 )
 function clearInput() {
     search.value = ''
-    // newsStore.fetchMainNews().finally(() => {
-    //     loading.value = false
-    // })
     router.replace({ query: {} })
 }
 
 const focused = ref(false)
 const onFocus = () => {
     focused.value = true
+    if(search.value.length >=2){
+        emit("getFocus",true)
+    }
 }
 const onBlur = () => {
     focused.value = false
+    // emit("getFocus",false)
 }
-
-watch(()=> focused.value,
-    ()=>{
-        emit("getFocus",focused.value)
-        console.log("run is focuse")
-})
 </script>
 
 <style scoped>
