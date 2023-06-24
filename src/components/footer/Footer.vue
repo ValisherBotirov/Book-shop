@@ -1,6 +1,6 @@
 <template>
-  <footer id="footer" class="mt-5">
-    <div class="w-[100%] mx-auto">
+  <footer id="footer" class="mt-5 ">
+    <div class="w-[100%] mx-auto ">
       <div
         class="px-4 bg-[#444444BF] drop-shadow-lg rounded-t-2xl py-5 flex flex-wrap flex-col md:flex-row justify-between shadow-lg text-white"
       >
