@@ -18,18 +18,18 @@
         v-for="product in data.products"
         :data-swiper-slide-index="product.id"
       >
-        <Card :product="product" />
+        <SwiperCard :product="product" />
       </SwiperSlide>
     </Swiper>
   </div>
 </template>
 
 <script setup>
-import { useMainProducts } from "../../store/mainProducts";
+import { useMainProducts } from "@/store/mainProducts.js";
 import { computed } from "vue";
-import Swiper from "../swiper.vue";
+import Swiper from "../Swiper.vue";
 import { SwiperSlide } from "swiper/vue";
-import Card from "../card.vue";
+import SwiperCard from "../card/SwiperCard.vue";
 const store = useMainProducts();
 
 if (!store.categories.length) store.getAllProductsByCategory();

@@ -44,8 +44,8 @@
 <script setup>
 import { useProductDetailStore } from "../../store/productDetail";
 import { SwiperSlide } from "swiper/vue";
-import customSwiper from "../swiper.vue";
-import Card from "../card.vue";
+import customSwiper from "../Swiper.vue";
+import Card from "../card/SwiperCard.vue";
 
 const store = useProductDetailStore();
 </script>

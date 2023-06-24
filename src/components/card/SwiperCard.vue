@@ -1,6 +1,6 @@
 <template>
   <div class="card bg-[#f9fafd] shadow-sm h-full rounded-xl overflow-hidden">
-    <div class="imgCard h-[200px] overflow-hidden">
+    <div class="imgCard h-[200px] overflow-hidden relative">
       <router-link :to="`/shop/${product.id}`" class="w-full h-full">
         <img
           class="w-full h-full object-cover"
@@ -8,15 +8,28 @@
           alt="image"
         />
       </router-link>
+        <div class="absolute top-1 right-1">
+                        <div
+                          @click="saved"
+                          class="w-[40px] h-[40px] rounded-[50%] bg-[#F1F5F9] flex items-center justify-center cursor-pointer"
+                        >
+                          <div class=" flex flex-col items-center">
+                            <i
+                              class="fa-heart text-lg text-[red] fa-fade"
+                              :class="!isSaved ? 'fa-regular' : 'fa-solid'"
+                            ></i>
+                          </div>
+                        </div>
+        </div>
     </div>
     <div
       class="context px-2 py-4 rounded-b-xl space-y-2 flex flex-col justify-between"
     >
       <div>
-        <!--        <div class="flex justify-between items-center flex-wrap">-->
-        <!--          <div class="text-primaryBlue">{{ product.avg_rating.toFixed(2) }} <i class="fas fa-star"></i></div>-->
-        <!--          <div class="text-primaryBlue">{{ product.reviews?.length || 0 }} отзывов</div>-->
-        <!--        </div>-->
+<!--                <div class="flex justify-between items-center flex-wrap">-->
+<!--                  <div class="text-primaryBlue">{{ product.avg_rating.toFixed(2) }} <i class="fas fa-star"></i></div>-->
+<!--                  <div class="text-primaryBlue">{{ product.reviews?.length || 0 }} отзывов</div>-->
+<!--                </div>-->
         <router-link
           :to="`/shop/${product.id}`"
           class="hover:text-blue-500 duration-150 text-md font-bold line-clamp-1"
@@ -40,15 +53,19 @@
 
 <script setup>
 import { computed, ref } from "vue";
-import ButtonStrokeVue from "./buttons/ButtonStroke.vue";
-import SaveBasket from "./buttons/SaveBasket.vue";
-import numberWithSpaces from "../helpers/numberFormat";
-import { useBasketStore } from "../store/basketProducts";
+import SaveBasket from "../buttons/SaveBasket.vue";
+import numberWithSpaces from "../../helpers/numberFormat.js";
+import { useBasketStore } from "@/store/basketProducts.js";
 const store = useBasketStore();
 const isClick = ref(false);
 
 const props = defineProps(["product"]);
 const product = computed(() => props.product);
+
+const isSaved = ref(false)
+function saved(){
+    isSaved.value = !isSaved.value
+}
 
 function addBasket(product) {
   isClick.value = !isClick.value;
