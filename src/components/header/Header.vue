@@ -17,7 +17,25 @@
          </RouterLink>
 
          <div class="hidden md:flex mx-4 grow">
-             <SearchInput class="w-full "/>
+             <div class="w-full relative">
+            <pre>{{showSearchBox}} search box</pre>
+             <SearchInput class="w-full" @getFocus="(e)=>showSearchBox = e"/>
+             <div class="w-full bg-white rounded-lg px-3 py-2 absolute" v-if="showSearchBox">
+                 <div class="flex justify-between">
+                     <p>Natijalar (23)</p>
+                     <p>
+                         <router-link to="#">
+
+                         Hammasini ko'rish
+                         </router-link>
+                     </p>
+                 </div>
+
+                 <div class="border-t border-black/2 mt-2 pt-2">
+                    bu yerda natijalar chiqadi
+                 </div>
+             </div>
+             </div>
          </div>
 
          <div class="text-[#F4F6F9] flex items-center gap-2">
@@ -126,7 +144,7 @@ const store = useUserRegister();
 const router = useRouter();
 const { t } = useI18n();
 
-
+const showSearchBox = ref(false)
 
 const isLoginModal = ref(false);
 const isRegisterationModal = ref(false);

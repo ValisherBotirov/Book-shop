@@ -71,6 +71,8 @@ const router = useRouter()
 
 const search = ref("")
 
+const emit = defineEmits(['getFocus'])
+
 watch(
     () => search.value,
     (newValue) => {
@@ -106,6 +108,12 @@ const onFocus = () => {
 const onBlur = () => {
     focused.value = false
 }
+
+watch(()=> focused.value,
+    ()=>{
+        emit("getFocus",focused.value)
+        console.log("run is focuse")
+})
 </script>
 
 <style scoped>
