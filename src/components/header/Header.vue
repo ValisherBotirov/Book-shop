@@ -98,7 +98,7 @@
               <SearchInput class="w-full" @getFocus="(e)=>showSearchBox = e" @click="isShowSearch"/>
               <SearchResult v-if="showSearchBox" @click="isShowSearch"/>
           </div>
-          <ShopCart  @click="openShopModal = true" class="flex md:flex  " customClass="w-[30px] h-[30px]" customCircleClass="!w-6 !h-6"/>
+          <ShopCart  @click="openShopModal = true" class="flex md:flex z-[-1] " customClass="w-[30px] h-[30px]" customCircleClass="!w-6 !h-6"/>
       </div>
 
     </div>
