@@ -15,21 +15,18 @@
                         >
                           <div class=" flex flex-col items-center">
                             <i
-                              class="fa-heart text-lg text-[red] fa-fade"
-                              :class="!isSaved ? 'fa-regular' : 'fa-solid'"
+                              class="fa-heart text-lg text-[red] "
+                              :class="[!isSaved ? 'fa-regular' : 'fa-solid',heartAnimation ? 'fa-shake' : 'fa-fade']"
                             ></i>
                           </div>
                         </div>
         </div>
     </div>
     <div
-      class="context px-2 py-4 rounded-b-xl space-y-2 flex flex-col justify-between"
+      class="context px-2 pt-4 pb-2 rounded-b-xl space-y-2 flex flex-col justify-between"
     >
       <div>
-<!--                <div class="flex justify-between items-center flex-wrap">-->
-<!--                  <div class="text-primaryBlue">{{ product.avg_rating.toFixed(2) }} <i class="fas fa-star"></i></div>-->
-<!--                  <div class="text-primaryBlue">{{ product.reviews?.length || 0 }} отзывов</div>-->
-<!--                </div>-->
+
         <router-link
           :to="`/shop/${product.id}`"
           class="hover:text-blue-500 duration-150 text-md font-bold line-clamp-1"
@@ -42,11 +39,15 @@
         <div class="font-semibold">
           {{ numberWithSpaces(product?.product_detail?.price) }} so’m
         </div>
-        <!--        <ButtonStrokeVue><span class="py-1" @click="addBasket(product)">В корзину</span> </ButtonStrokeVue>-->
-        <SaveBasket @click="addBasket(product)" :isClick="isClick">
-          В корзину
-        </SaveBasket>
       </div>
+        <div class="flex justify-between items-center ">
+            <SaveBasket @click="addBasket(product)" :isClick="isClick" class="w-full mt-2">
+
+               Savatga qo'shish
+
+            </SaveBasket>
+
+        </div>
     </div>
   </div>
 </template>
@@ -63,8 +64,14 @@ const props = defineProps(["product"]);
 const product = computed(() => props.product);
 
 const isSaved = ref(false)
+const heartAnimation = ref(false)
 function saved(){
     isSaved.value = !isSaved.value
+    heartAnimation.value = true
+
+    setTimeout(()=>{
+        heartAnimation.value = false
+    },100)
 }
 
 function addBasket(product) {
