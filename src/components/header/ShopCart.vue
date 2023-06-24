@@ -17,7 +17,7 @@
         />
       </svg>
       <span
-          class="absolute flex flex-shrink-0 bottom-0 right-0 w-4 h-4 rounded-full bg-black group-hover:bg-primary hover:bg-primary text-gray-100 text-[10px]  items-center justify-center" :class="customCircleClass"
+          class="absolute flex flex-shrink-0 bottom-0 right-[-3px] w-4 h-4 rounded-full bg-black group-hover:bg-primary hover:bg-primary text-gray-100 text-[10px]  items-center justify-center" :class="customCircleClass"
       >
        20
       </span>

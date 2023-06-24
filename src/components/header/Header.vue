@@ -24,9 +24,12 @@
          </div>
 
          <div class="text-[#F4F6F9] flex items-center gap-2">
-             <ShopCart  @click="openShopModal = true" class="hidden md:block"/>
-             <LangCompVue />
-             <BasketModal :isOpen="openShopModal" @closeModal="e=> openShopModal = e"/>
+             <div class="flex justify-between items-center gap-3">
+                <SavedCart/>
+               <ShopCart  @click="openShopModal = true" class="hidden md:block"/>
+               <LangCompVue />
+               <BasketModal :isOpen="openShopModal" @closeModal="e=> openShopModal = e"/>
+             </div>
 
              <span class="hidden md:inline">
           <svg class="w-[1px] h-7" viewBox="0 0 1 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +38,7 @@
         </span>
 
              <div class="hidden md:flex items-center gap-2" v-if="!store.isRegisteration">
-          <span @click="isRegisterationModal = true" class="duration-200 cursor-pointer hover:text-primary"
+          <span @click="isRegisterationModal = true" class="duration-200 cursor-pointer transition hover:text-primary"
           >{{ $t('register') }}</span
           >
                  <span
@@ -94,6 +97,7 @@
          </div>
      </div>
       <div class="flex items-center gap-6 border-t pt-3 border-white b md:hidden justify-between mt-3 mb-1 ">
+
           <div class="w-full relative">
               <SearchInput class="w-full" @getFocus="(e)=>showSearchBox = e" @click="isShowSearch"/>
               <SearchResult v-if="showSearchBox" @click="isShowSearch"/>
@@ -120,10 +124,11 @@ import RegisterModalVue from "../modals/RegisterModal.vue";
 import LoginModalVue from "../modals/LoginModal.vue";
 import LangCompVue from "./LangComp.vue";
 import SideBar from "../sideBar/SideBar.vue";
-import ShopCart from "@/components/card/ShopCart.vue";
+import ShopCart from "@/components/header/ShopCart.vue";
 import BasketModal from "@/components/modals/BasketModal.vue";
 import SearchInput from "@/components/form/SearchInput.vue";
 import SearchResult from "@/components/form/SearchResult.vue";
+import SavedCart from "@/components/header/SavedCart.vue";
 
 
 
@@ -138,6 +143,8 @@ const isRegisterationModal = ref(false);
 const isOpenSidebar = ref(false);
 
 const openShopModal = ref(false)
+
+const isSaved = ref(true)
 
 function isShowSearch(e){
     e.stopPropagation()
