@@ -82,7 +82,6 @@ import { useRoute } from "vue-router";
 import { useProductDetailStore } from "../store/productDetail";
 
 import RouteLink from "../components/RouteLink.vue";
-import SearchFormComp from "../components/shop/SearchFormComp.vue";
 import SingleContentComp from "../components/shopSingle/SingleContentComp.vue";
 import UserCommit from "../components/shopSingle/UserCommit.vue";
 import SmilarsCompVue from "../components/shopSingle/SmilarsSwiper.vue";
