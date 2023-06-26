@@ -21,6 +21,7 @@ const isTo = props.to ? true : false;
 
 <style scoped>
 .buttonFillStyle {
+  margin-top: 10px;
   background-color: v-bind(color1);
   border-color: v-bind(color1);
   color: #f4f6f9;

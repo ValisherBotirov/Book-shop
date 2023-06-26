@@ -1,19 +1,19 @@
 <template>
   <Teleport to="body">
     <div
-      @click="emit('closeRegiterModal')"
+      @click="emit('closeRegiterModal')"  
       class="fixed z-[999999] bg-[#0006] inset-0 backdrop-blur-sm"
     ></div>
     <div
-      class="fixed z-[999999] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg sm:w-[50%]"
+      class="fixed z-[999999] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg max-sm:w-[90%] md:w-[70%] lg:w-[50%]"
     >
-      <div class="px-16 py-5 text-lg relative bg-[#fafcf5] rounded-lg">
+      <div class="max-sm:px-3 sm:px-16 py-8 text-lg relative bg-[#fafcf5] rounded-lg">
         <div class="flex flex-col gap-6">
-          <form class="flex flex-col gap-2 mb-8 text-black">
+          <form class="flex flex-col gap-2 text-black">
             <div class="name flex flex-col gap-0">
               <label for="username text-sm">Логин:</label>
               <input
-                class="border border-solid border-black min-w-[16rem] rounded-[6px] py-1 px-3 text-[#333] outline-none text-start placeholder:text-[#000]"
+                class="border border-solid border-black min-w-[20rem]  rounded-[6px] py-1 px-3 text-[#333] outline-none text-start placeholder:text-[#000]"
                 type="text"
                 v-model="userData.username"
                 name="username"
@@ -45,13 +45,14 @@
               <label for="password">Пароль:</label>
               <input
                 class="capitalize border min-w-[16rem] border-black rounded-[6px] py-1 px-3 text-[#333] outline-none text-start placeholder:text-[#333]"
-                type="password"
+                :type="eyeHidden ? 'text' : 'password'"
                 v-model="userData.password"
                 name="password"
                 id="password"
               />
-              <span class="relative cursor-pointer"><i class="fa-solid fa-eye absolute right-1 bottom-2"></i></span>
-              <span class="relative cursor-pointer"><i class="fa-solid fa-eye-slash absolute right-1 bottom-2"></i></span>
+              <span @click="changePassword" v-if="!eyeHidden" class="relative cursor-pointer"><i class="fa-solid fa-eye absolute right-2 bottom-2"></i></span>
+              <span @click="changePassword" v-else class="relative cursor-pointer"
+                ><i class="fa-sharp fa-solid fa-eye-slash absolute right-2 bottom-2"></i></span>
               <p
                 v-if="v$.password.$error"
                 class="text-sm text-end text-red-600"
@@ -63,13 +64,15 @@
               <label for="passwordConfirm">Подтвердите пароль:</label>
               <input
                 class="capitalize border min-w-[16rem] border-black rounded-[6px] py-1 px-3 text-[#333] outline-none text-start placeholder:text-[#000]"
-                type="password"
+                :type="eyeConfirmHidden ? 'text' : 'password'"
                 v-model="userData.passwordConfirm"
                 name="passwordConfirm"
                 id="passwordConfirm"
               />
-              <span class="relative cursor-pointer"><i class="fa-solid fa-eye absolute right-1 bottom-2"></i></span>
-              <span class="relative cursor-pointer"><i class="fa-solid fa-eye-slash absolute right-1 bottom-2"></i></span>
+              <span @click="changeConfirmPassword" v-if="!eyeConfirmHidden" class="relative cursor-pointer"
+                ><i class="fa-solid fa-eye absolute right-2 bottom-2 "></i></span>
+              <span @click="changeConfirmPassword" v-else class="relative cursor-pointer"
+                ><i class="fa-sharp fa-solid fa-eye-slash absolute right-2 bottom-2"></i></span>
               <p
                 v-if="v$.passwordConfirm.$error"
                 class="text-sm text-end text-red-600"
@@ -91,9 +94,9 @@
         </div>
         <div
           @click="emit('closeRegiterModal')"
-          class="absolute top-3 right-3 text-xl"
+          class="absolute top-1 right-3 text-xl"
         >
-          <i class="fa-solid fa-xmark p-3 duration-200 hover:opacity-40"></i>
+          <i class="fa-solid fa-xmark duration-200 cursor-pointer hover:opacity-50"></i>
         </div>
       </div>
     </div>
@@ -115,6 +118,15 @@ import { useUserRegister } from "../../store/UserRegister";
 import ButtonFillVue from "../buttons/ButtonFill.vue";
 
 const eyeHidden = ref(false);
+const eyeConfirmHidden = ref(false);
+
+const changePassword = () => {
+  eyeHidden.value = !eyeHidden.value;
+};
+
+const changeConfirmPassword = () => {
+  eyeConfirmHidden.value = !eyeConfirmHidden.value;
+};
 
 const store = useUserRegister();
 
