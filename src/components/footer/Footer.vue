@@ -1,97 +1,118 @@
 <template>
-  <footer id="footer" class="absolute w-full bottom-0">
-    <div class="w-[95%] mx-auto">
+  <footer id="footer" class="mt-5 ">
+    <div class="w-[100%] mx-auto ">
       <div
-        class="px-4 bg-[#444444BF] drop-shadow-lg rounded-t-2xl py-3 gap-4 flex flex-wrap flex-col md:flex-row justify-between items-center shadow-lg text-white"
+        class="px-4 bg-[#444444BF] drop-shadow-lg rounded-t-2xl py-5 flex flex-wrap flex-col md:flex-row justify-between shadow-lg text-white"
       >
-        <div class="flex gap-3 items-center flex-wrap">
-          <span>{{ t("footer.social") }}:</span>
-          <div class="flex gap-2 flex-wrap">
-            <a target="_blank" class="inline-block" href="http://t.me/STAR_NEW_TECH">
-              <img :src="icon1" alt="icon" class="duration-200 hover:-translate-y-1 w-6 h-6" />
-            </a>
-            <a target="_blank" href="https://www.facebook.com/profile.php?id=100088042748728&mibextid=ZbWKwL">
-              <img :src="icon2" alt="icon" class="duration-200 hover:-translate-y-1 w-6 h-6" />
-            </a>
-            <a target="_blank" href="https://www.youtube.com/@Star_New_Tech">
-              <img :src="icon3" alt="icon" class="duration-200 hover:-translate-y-1 w-6 h-6" />
-            </a>
-            <a target="_blank" href="https://instagram.com/starnewtech?igshid=ZDdkNTZiNTM">
-              <img :src="icon4" alt="icon" class="duration-200 hover:-translate-y-1 w-6 h-6" />
-            </a>
-          </div>
+        <div>
+          <ul>
+            <li class="text-[25px] font-bold mb-2">Информация</li>
+            <li class="text-[17px]">Часто задаваемые вопросы</li>
+            <li class="text-[17px]">Пункты выдачи</li>
+            <li class="text-[17px]">Блог</li>
+            <li class="text-[17px]">Наши бренды</li>
+            <li class="text-[17px]">
+              Публичная оферта (Пользовательское соглашение)
+            </li>
+            <li class="text-[17px]">Оферта для покупок в рассрочку</li>
+            <li class="text-[17px]">О нас</li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li class="text-[25px] font-bold mb-2">Для связи</li>
+            <li class="text-[17px]"><a href="#"><i class="fa-solid fa-phone"></i>  +998 71 200 01 05</a></li>
+            <li class="text-[17px]"><a href="#"><i class="fa-regular fa-envelope"></i>  info@asaxiy.uz</a></li>
+            <li class="text-[17px]">
+              <a href="#"> <i class="fa-solid fa-location-dot"></i> улица Ислама Каримова, 49, Ташкент</a>
+            </li>
+          </ul>
+          <ul>
+            <li class="text-[25px] font-bold mb-2">Книжные магазины</li>
+            <li class="text-[17px]"><a href="#"><i class="fa-solid fa-location-dot"></i> Asaxiy Novza</a></li>
+            <li class="text-[17px]"><a href="#"><i class="fa-solid fa-location-dot"></i> Asaxiy Farhod bozori</a></li>
+            <li class="text-[17px]">
+              <a href="#"><i class="fa-solid fa-location-dot"></i> Asaxiy Panorama, Kitob olami</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li class="text-[25px] font-bold mb-2">Наши достижения</li>
+            <li class="text-[17px]">Премия "Tahsin"</li>
+            <li class="text-[17px]">Медаль "Shuhrat"</li>
+            <li class="text-[17px]">Медаль "Kelajak bunyodkori"</li>
+          </ul>
+          <ul>
+            <li class="text-[25px] font-bold mb-2">Мы в соц. сетях</li>
+            <li class="text-[17px]">
+              <!-- <span>{{ t("footer.social") }}:</span> -->
+              <div class="flex gap-2 flex-wrap">
+                <a
+                  target="_blank"
+                  class="inline-block"
+                  href="https://t.me/Qwerty_2526"
+                >
+                  <img
+                    :src="icon1"
+                    alt="icon"
+                    class="duration-200 hover:-translate-y-1 w-6 h-6"
+                  />
+                </a>
+                <a
+                  target="_blank"
+                  href="https://www.facebook.com/profile.php?id=100088042748728&mibextid=ZbWKwL"
+                >
+                  <img
+                    :src="icon2"
+                    alt="icon"
+                    class="duration-200 hover:-translate-y-1 w-6 h-6"
+                  />
+                </a>
+                <a
+                  target="_blank"
+                  href="https://www.youtube.com/@Star_New_Tech"
+                >
+                  <img
+                    :src="icon3"
+                    alt="icon"
+                    class="duration-200 hover:-translate-y-1 w-6 h-6"
+                  />
+                </a>
+                <a
+                  target="_blank"
+                  href="https://instagram.com/starnewtech?igshid=ZDdkNTZiNTM"
+                >
+                  <img
+                    :src="icon4"
+                    alt="icon"
+                    class="duration-200 hover:-translate-y-1 w-6 h-6"
+                  />
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <ul class="w-[330px]">
+            <li class="text-[25px] font-bold mb-2">Виды оплаты</li>
+            <li class="flex flex-wrap">
+              <li class="bg-[#f2f2f7] h-[60px] w-[120px] flex items-center justify-center rounded-lg m-1"><img :src="payme" alt="Payme image" class=""></li>
+              <li class="bg-[#f2f2f7] h-[60px] w-[120px] flex items-center justify-center rounded-lg m-1"><img :src="viza" alt="Payme image" class=""></li>
+              <li class="bg-[#f2f2f7] h-[60px] w-[120px] flex items-center justify-center rounded-lg m-1"><img :src="mastercard" alt="Payme image" class=""></li>
+              <li class="bg-[#f2f2f7] h-[60px] w-[120px] flex items-center justify-center rounded-lg m-1"><img :src="humo" alt="Payme image" class=""></li>
+              <li class="bg-[#f2f2f7] h-[60px] w-[120px] flex items-center justify-center rounded-lg m-1"><img :src="uzcard" alt="Payme image" class=""></li>
+            </li>
+          </ul>
         </div>
 
-        <div class="SearchForm hidden xs:block">
-          <form>
-            <div class="SearchForm flex items-center p-0 border border-[#F4F6F940] rounded-3xl overflow-hidden">
-              <input
-                type="text"
-                class="searchInp pl-3 py-[2px] outline-none bg-transparent"
-                placeholder="Ваш номер"
-                value="+998 (98) 1801808"
-                disabled
-              />
-              <input
-                type="text"
-                class="searchInp px-0 py-[2px] outline-none bg-transparent"
-                placeholder="Ваш номер"
-                value="+998 (71) 2250015"
-                disabled
-              />
-              <a
-                href="tel:+998981801808"
-                class="all px-6 py-[2px] rounded-l-2xl text-primary font-semibold cursor-pointer bg-whiteBlue"
-              >
-                {{ t("footer.call") }}
-              </a>
-            </div>
-          </form>
-        </div>
-        <!--          responsive qismi-->
+        <!-- <div class="SearchForm hidden xs:block"></div> -->
+        <!--responsive qismi-->
 
-        <div class="SearchForm block xs:hidden">
-          <form>
-            <div class="SearchForm flex items-center p-0 border border-[#F4F6F940] rounded-3xl overflow-hidden">
-              <input
-                type="text"
-                class="searchInp pl-3 py-[2px] outline-none bg-transparent"
-                placeholder="Ваш номер"
-                value="+998 (98) 1801808"
-                disabled
-              />
-              <a
-                href="tel:+998981801808"
-                class="all px-6 py-[2px] rounded-l-2xl text-primary font-semibold cursor-pointer bg-whiteBlue"
-              >
-                {{ t("footer.call") }}
-              </a>
-            </div>
-          </form>
-          <form class="mt-4">
-            <div class="SearchForm flex items-center p-0 border border-[#F4F6F940] rounded-3xl overflow-hidden">
-              <input
-                type="text"
-                class="searchInp pl-3 py-[2px] outline-none bg-transparent"
-                placeholder="Ваш номер"
-                value="+998 (71) 2250015"
-                disabled
-              />
-              <a
-                href="tel:+9989712250015"
-                class="all px-6 py-[2px] rounded-l-2xl text-primary font-semibold cursor-pointer bg-whiteBlue"
-              >
-                {{ t("footer.call") }}
-              </a>
-            </div>
-          </form>
-        </div>
-
-        <div class="text-[#F4F6F9] text-lg font-light">2023. All rights reserved.</div>
+        <!-- <div class="SearchForm block xs:hidden"></div> -->
       </div>
     </div>
   </footer>
-  <div class="h-36 md:h-24 lg:h-16"></div>
 </template>
 
 <script setup>
@@ -100,5 +121,10 @@ import icon1 from "../../assets/img/footer/icon1.png";
 import icon2 from "../../assets/img/footer/icon2.png";
 import icon3 from "../../assets/img/footer/icon3.png";
 import icon4 from "../../assets/img/footer/icon4.png";
+import payme from "../../assets/img/footer/payme.svg";
+import viza from "../../assets/img/footer/viza_svg.svg";
+import humo from "../../assets/img/footer/humo.svg";
+import uzcard from "../../assets/img/footer/uzcard.svg";
+import mastercard from "../../assets/img/footer/mastercard.svg";
 const { t } = useI18n();
 </script>

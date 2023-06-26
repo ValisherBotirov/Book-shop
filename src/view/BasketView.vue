@@ -124,7 +124,6 @@
 
 <script setup>
 import { ref, computed, reactive, onMounted } from "vue";
-import SearchFormCompVue from "../components/shop/SearchFormComp.vue";
 import ButtonFillVue from "../components/buttons/ButtonFill.vue";
 import BasketCard from "../components/card/BasketCard.vue";
 import numberWithSpaces from "../helpers/numberFormat";

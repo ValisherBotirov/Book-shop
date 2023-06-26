@@ -114,7 +114,7 @@
 <script setup>
 import { SwiperSlide } from "swiper/vue";
 import ButtonFillVue from "../buttons/ButtonFill.vue";
-import CustomSwiper from "../swiper.vue";
+import CustomSwiper from "../Swiper.vue";
 import Review from "../Review.vue";
 import { useProductDetailStore } from "../../store/productDetail";
 import { useUserRegister } from "../../store/UserRegister";

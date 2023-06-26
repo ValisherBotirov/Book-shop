@@ -26,7 +26,7 @@
 <script setup>
 import { useCategoryProduct } from "../../store/categoryProduct";
 import Paginate from "./Paginate.vue";
-import Card from "../card.vue";
+import Card from "../card/SwiperCard.vue";
 import { computed } from "vue";
 
 const categoryStore = useCategoryProduct();

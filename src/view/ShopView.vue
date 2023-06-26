@@ -1,8 +1,8 @@
 <template>
   <div class="space-y-6">
-    <ShortNavCompVue class="mt-3" />
-    <SwiperBigCompVue />
-    <SwiperCartCompVue />
+    <ShortNavCompVue class="mt-5 fixed z-[100] top-[65px]" />
+    <SwiperBigCompVue class=" pt-[35px]" />
+    <SwiperCartCompVue  />
   </div>
 </template>
 

@@ -26,7 +26,6 @@
 <script setup>
 import { ref, reactive } from "vue";
 import RouteLinkVue from "../components/RouteLink.vue";
-import SearchFormCompVue from "../components/shop/SearchFormComp.vue";
 import ShortNavCompVue from "../components/shop/ShortNavComp.vue";
 import FilterVue from "../components/shopCategory/CategoryFilter.vue";
 import CardVue from "../components/shopCategory/CategoryCard.vue";

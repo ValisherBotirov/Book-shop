@@ -1,7 +1,11 @@
 <template>
-  <HeaderVue />
-  <RouterView />
-  <FooterVue />
+    <div class="h-full overflow-hidden min-h-[100vh] flex flex-col justify-between">
+        <div>
+          <HeaderVue />
+          <RouterView />
+        </div>
+      <FooterVue />
+    </div>
   <Loading v-if="loading" />
 </template>
 

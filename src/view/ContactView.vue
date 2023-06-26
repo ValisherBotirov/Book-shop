@@ -32,7 +32,7 @@
           <div class="grid grid-cols-2 md:grid-cols-1 gap-2">
             <div class="mb-4 flex flex-col">
               <input
-                class="bg-transparent border min-w-[8rem] md:min-w-[16rem] border-primary rounded-xl py-1 px-3 text-primary outline-none placeholder:text-[#002e6977]"
+                class="bg-transparent border min-w-[8rem] md:min-w-[16rem] border-primary rounded-[6px] py-1 px-3 text-primary outline-none placeholder:text-[#002e6977]"
                 type="text"
                 v-model="state.name"
                 name="name"
@@ -43,7 +43,7 @@
             </div>
             <div class="mb-4 flex flex-col">
               <input
-                class="bg-transparent border min-w-[8rem] md:min-w-[16rem] border-primary rounded-xl py-1 px-3 text-primary outline-none placeholder:text-[#002e6977]"
+                class="bg-transparent border min-w-[8rem] md:min-w-[16rem] border-primary rounded-[6px] py-1 px-3 text-primary outline-none placeholder:text-[#002e6977]"
                 type="email"
                 v-model="state.email"
                 name="email"
@@ -56,7 +56,7 @@
             </div>
             <div class="mb-4 flex flex-col col-span-2 md:col-span-1">
               <textarea
-                class="bg-transparent border min-w-[16rem] border-primary rounded-xl py-1 px-3 text-primary outline-none placeholder:text-[#002e6977]"
+                class="bg-transparent border min-w-[16rem] border-primary rounded-[6px] py-1 px-3 text-primary outline-none placeholder:text-[#002e6977]"
                 name=""
                 id=""
                 cols="30"
