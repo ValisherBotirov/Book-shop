@@ -2,7 +2,7 @@
   <Teleport to="body">
     <div
       @click="emit('closeRegiterModal')"  
-      class="fixed z-[999999] bg-[#0006] inset-0 backdrop-blur-sm"
+      class="fixed z-[999999] bg-[#00000030] inset-0 backdrop-blur-[11.5px]"
     ></div>
     <div
       class="fixed z-[999999] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg max-sm:w-[90%] md:w-[70%] lg:w-[50%]"
