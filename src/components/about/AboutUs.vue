@@ -1,6 +1,7 @@
 <template>
   <div class="py-[10px]">
-    <h1 class="text-center text-[30px] font-semibold">About us</h1>
+    <h1 class="text-center text-[30px] font-semibold">Biz haqimizda</h1>
+    <p class="text-center">Siz bizga ishonchni taqdim eting, biz sizga dunyoni taqdim etamiz !</p>
     <div class="md:flex">
       <div class="xs:w-full md:w-[50%] p-2">
         <span>Bu yerda magazining tashqi tamondan olingan rasimi bo'ladi</span>
