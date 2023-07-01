@@ -1,13 +1,7 @@
 <template>
   <div class="card bg-[#f9fafd] shadow-sm h-full rounded-xl overflow-hidden">
     <div class="imgCard h-[200px] overflow-hidden relative">
-      <router-link :to="`/shop/${product.id}`" class="w-full h-full">
-        <img
-          class="w-full h-full object-cover"
-          :src="product.image_url"
-          alt="image"
-        />
-      </router-link>
+      5
       <div class="absolute top-1 right-1">
         <div
           @click="saved"
