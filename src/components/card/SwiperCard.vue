@@ -8,25 +8,27 @@
           alt="image"
         />
       </router-link>
-        <div class="absolute top-1 right-1">
-                        <div
-                          @click="saved"
-                          class="w-[40px] h-[40px] rounded-[50%] bg-[#F1F5F9] flex items-center justify-center cursor-pointer"
-                        >
-                          <div class=" flex flex-col items-center">
-                            <i
-                              class="fa-heart text-lg text-[red] "
-                              :class="[!isSaved ? 'fa-regular' : 'fa-solid',heartAnimation ? 'fa-shake' : 'fa-fade']"
-                            ></i>
-                          </div>
-                        </div>
+      <div class="absolute top-1 right-1">
+        <div
+          @click="saved"
+          class="w-[40px] h-[40px] rounded-[50%] bg-[#F1F5F9] flex items-center justify-center cursor-pointer"
+        >
+          <div class="flex flex-col items-center">
+            <i
+              class="fa-heart text-lg text-[red]"
+              :class="[
+                !isSaved ? 'fa-regular' : 'fa-solid',
+                heartAnimation ? 'fa-shake' : 'fa-fade',
+              ]"
+            ></i>
+          </div>
         </div>
+      </div>
     </div>
     <div
       class="context px-2 pt-4 pb-2 rounded-b-xl space-y-2 flex flex-col justify-between"
     >
       <div>
-
         <router-link
           :to="`/shop/${product.id}`"
           class="hover:text-blue-500 duration-150 text-md font-bold line-clamp-1"
@@ -40,14 +42,15 @@
           {{ numberWithSpaces(product?.product_detail?.price) }} so’m
         </div>
       </div>
-        <div class="flex justify-between items-center ">
-            <SaveBasket @click="addBasket(product)" :isClick="isClick" class="w-full mt-2">
-
-               Savatga qo'shish
-
-            </SaveBasket>
-
-        </div>
+      <div class="flex justify-between items-center">
+        <SaveBasket
+          @click="addBasket(product)"
+          :isClick="isClick"
+          class="w-full mt-2"
+        >
+          Savatga qo'shish
+        </SaveBasket>
+      </div>
     </div>
   </div>
 </template>
@@ -63,15 +66,15 @@ const isClick = ref(false);
 const props = defineProps(["product"]);
 const product = computed(() => props.product);
 
-const isSaved = ref(false)
-const heartAnimation = ref(false)
-function saved(){
-    isSaved.value = !isSaved.value
-    heartAnimation.value = true
+const isSaved = ref(false);
+const heartAnimation = ref(false);
+function saved() {
+  isSaved.value = !isSaved.value;
+  heartAnimation.value = true;
 
-    setTimeout(()=>{
-        heartAnimation.value = false
-    },100)
+  setTimeout(() => {
+    heartAnimation.value = false;
+  }, 100);
 }
 
 function addBasket(product) {
