@@ -1,9 +1,9 @@
 <template>
-  <div class="flex items-center justify-center pb-8">
+  <div class="flex items-center justify-center py-8">
     <div
-      class="card min-w-[38rem] md:min-w-[44rem] grid grid-cols-1 md:grid-cols-2 shadow-md rounded-sm bg-[#fffa] mx-2 py-12 px-16 md:px-0 gap-12 md:gap-0"
+      class="card min-w-[38rem] md:min-w-[44rem] grid grid-cols-1 md:grid-cols-2 shadow-md rounded-[6px] bg-[#fafcf5] mx-2 py-12 px-16 md:px-0 gap-12 md:gap-0"
     >
-      <div class="left_card bg-danger shadow-md rounded-md py-12 px-8 text-white md:-translate-x-36 space-y-12">
+      <div class="left_card bg-[#1f2123] shadow-md rounded-md py-12 px-8 text-white md:-translate-x-36 space-y-12">
         <h2 class="text-start text-3xl font-semibold">{{ t("contact.contactUs") }}</h2>
         <div class="grid grid-cols-2 md:grid-cols-1 gap-6">
           <div class="flex gap-5 items-center max-w-xs">
@@ -79,7 +79,7 @@
       </div>
     </div>
   </div>
-  <div class="container mx-auto pb-16">
+  <!-- <div class="container mx-auto pb-16">
     <iframe
       class="w-full h-[30rem] rounded-md"
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d748.6044344056669!2d69.28713782921224!3d41.36500800522324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x38973a1f5165a992!2zNDHCsDIxJzU0LjAiTiA2OcKwMTcnMTUuNyJF!5e0!3m2!1sru!2s!4v1671195081027!5m2!1sru!2s"
@@ -88,7 +88,7 @@
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
     ></iframe>
-  </div>
+  </div> -->
   <LoadingModalVue v-if="loading" />
 </template>
 

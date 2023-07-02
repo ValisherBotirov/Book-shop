@@ -9,7 +9,7 @@ const routes = [
   },
   {
     path: "/About",
-    name: "home",
+    name: "About",
     component: () => import("../view/About.vue"),
   },
 

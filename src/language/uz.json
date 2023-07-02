@@ -63,10 +63,10 @@
   "contact": {
     "title": "Aloqa qiling",
     "desc": "Bizga xabar qoldiring, biz uni albatta ko'rib chiqamiz!",
-    "name": "Sizning Ismingiz",
+    "name": "Sizning Ismingiz", 
     "email": "Sizning Emailingiz",
     "message": "Xabar",
-    "btn": "Jo`natish",
+    "btn": "Yuborish",
     "contactUs": "Bizning Kontakt",
     "address": "Universam savdo markazi, Toshkent 100037, Oʻzbekiston"
   },
