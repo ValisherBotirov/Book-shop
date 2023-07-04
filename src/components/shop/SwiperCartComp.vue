@@ -1,8 +1,8 @@
 <template>
   <!-- <pre>{{ store }}</pre> -->
   <div class="container mx-auto"
-    v-for="data in store.categories"
-    v-if="store.categories.length"
+    v-for="data in fake"
+
     :key="data.id"
   >
     <RouterLink
@@ -15,10 +15,10 @@
 
     <Swiper class="">
       <SwiperSlide
-        v-for="product in data.products"
+        v-for="product in 5"
         :data-swiper-slide-index="product.id"
       >
-        <SwiperCard :product="product" />
+        <SwiperCard :product="fakeProduct" />
       </SwiperSlide>
     </Swiper>
   </div>
@@ -26,14 +26,67 @@
 
 <script setup>
 import { useMainProducts } from "@/store/mainProducts.js";
-import { computed } from "vue";
 import Swiper from "../Swiper.vue";
 import { SwiperSlide } from "swiper/vue";
 import SwiperCard from "../card/SwiperCard.vue";
 const store = useMainProducts();
 
 if (!store.categories.length) store.getAllProductsByCategory();
-const categories = computed(() => console.log(store.categories));
+
+
+const fakeProduct = [
+    {
+        id:1,
+        name:"Products",
+        product_detail:{
+            condition:"Bor",
+            price:1200
+        }
+    },
+    {
+        id:2,
+        name:"Products",
+        product_detail:{
+            condition:"Bor",
+            price:1200
+        }
+    },
+    {
+        id:3,
+        name:"Products",
+        product_detail:{
+            condition:"Bor",
+            price:1200
+        }
+    },
+    {
+        id:4,
+        name:"Products",
+        product_detail:{
+            condition:"Bor",
+            price:1200
+        }
+    }
+]
+
+const fake = [
+    {
+        id:1,
+        name:"Tets1"
+    },
+    {
+        id:2,
+        name:"Tets1"
+    },
+    {
+        id:3,
+        name:"Tets1"
+    },
+    {
+        id:4,
+        name:"Tets1"
+    }
+]
 </script>
 
 <style>

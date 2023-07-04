@@ -1,11 +1,11 @@
 <template>
-  <div className="container mx-auto">
+  <div class="container mx-auto">
     <div
-      className="text-primary scroll flex flex-nowrap w-full space-x-4 overflow-x-scroll"
+      class="text-primary scroll flex flex-nowrap w-full space-x-4 overflow-x-scroll"
     >
       <p
-        className=" cursor-pointer flex-shrink-0"
-        v-for="(val, i) in store.categories"
+        class=" cursor-pointer flex-shrink-0"
+        v-for="(val, i) in  fakeData"
         :key="i"
       >
         <RouterLink
@@ -23,12 +23,27 @@
 </template>
 
 <script setup>
-import { useMainProducts } from "../../store/mainProducts";
-import { useCategoryProduct } from "../../store/categoryProduct";
+import { useMainProducts } from "@/store/mainProducts.js";
+import { useCategoryProduct } from "@/store/categoryProduct.js";
 import { useRoute } from "vue-router";
 const store = useMainProducts();
 const categoryStore = useCategoryProduct();
 const route = useRoute();
+
+const fakeData = [
+    {
+        id:1,
+        name : "Test"
+    },
+    {
+        id:2,
+        name : "Tes2"
+    },
+    {
+        id:3,
+        name : "Tes3"
+    },
+]
 
 const categoryHandle = (search) => {
   categoryStore.getProducts(search);
