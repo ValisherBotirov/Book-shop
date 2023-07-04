@@ -24,7 +24,7 @@
     >
       <div>
         <router-link
-          :to="`/shop/${product.id}`"
+          :to="`/shop/${product.id ? product.id : 1}`"
           class="hover:text-blue-500 duration-150 text-md font-bold line-clamp-1"
         >
           {{ product.name }} Nomi
