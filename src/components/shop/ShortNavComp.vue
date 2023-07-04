@@ -33,6 +33,7 @@ const route = useRoute();
 const categoryHandle = (search) => {
   categoryStore.getProducts(search);
 };
+
 </script>
 
 <style scoped>
