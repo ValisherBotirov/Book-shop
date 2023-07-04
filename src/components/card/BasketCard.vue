@@ -18,7 +18,10 @@
       >
         <i class="fa-solid fa-xmark text-lg hover:text-[red]"></i>
       </div>
+<<<<<<< HEAD
+=======
 
+>>>>>>> 039f0be4586b585aca8fdb693d77760cd708aaaf
       <router-link
         :to="`/shop/${item?.id}`"
         class="transition duration-100 hover:text-primaryBlue line-clamp-2"

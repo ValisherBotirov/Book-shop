@@ -48,6 +48,7 @@ const fakeData = [
 const categoryHandle = (search) => {
   categoryStore.getProducts(search);
 };
+
 </script>
 
 <style scoped>
