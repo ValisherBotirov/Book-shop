@@ -5,19 +5,6 @@
         <p class="text-[#4F87D3CC] text-xl">Количество</p>
         <InputCount v-model="count" />
       </div>
-      <!-- <div class="col-span-3 md:col-span-2">
-        <div class="bg-whiteBlue rounded-xl px-4 py-2 w-56">
-          <p class="text-2xl text-danger font-semibold text-center pb-2">
-            {{ NumberFormat(product.product_detail ? product.product_detail.price : 0) }} сум
-          </p>
-          <div class="flex gap-1">
-            <ButtonFill class="w-full">
-              <router-link to="/basket">Купить</router-link>
-            </ButtonFill>
-            <SaveBasket @click="saveBasket(product)" :isClick="isClick"> В корзину </SaveBasket>
-          </div>
-        </div>
-      </div> -->
     </div>
     <p class="text-[#4F87D3CC] text-xl mb-3">Характеристики</p>
     <div v-for="(val, k) in JSON.parse(productSpecification)" :key="k" class="">
@@ -28,16 +15,12 @@
 
 <script setup>
 import { ref, computed } from "vue";
-import { useProductDetailStore } from "../../store/productDetail";
-import ButtonFill from "../buttons/ButtonFill.vue";
+import { useProductDetailStore } from "@/store/productDetail.js";
 const store = useProductDetailStore();
-import NumberFormat from "../../helpers/numberFormat.js";
-import SaveBasket from "../../components/buttons/SaveBasket.vue";
-import { useBasketStore } from "../../store/basketProducts.js";
+import { useBasketStore } from "@/store/basketProducts.js";
 import InputCount from "../../components/shop/InputCount.vue";
 const basketStore = useBasketStore();
 
-const product = computed(() => store.product);
 const productSpecification = computed(() => store.productSpecification);
 
 const count = ref(1);
@@ -58,10 +41,4 @@ function saveBasket(product) {
   }
 }
 
-const countFunc = (val) => (val ? count.value++ : count.value > 0 ? count.value-- : 1);
-
-const isSaved = ref(false);
-const savedFunc = () => {
-  isSaved.value = !isSaved.value;
-};
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="card bg-[#f9fafd] shadow-sm h-full rounded-xl overflow-hidden">
     <div class="imgCard h-[200px] overflow-hidden relative">
-      5
+        <img src="https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg" alt="" class="w-full h-full object-cover">
       <div class="absolute top-1 right-1">
         <div
           @click="saved"
@@ -27,13 +27,13 @@
           :to="`/shop/${product.id}`"
           class="hover:text-blue-500 duration-150 text-md font-bold line-clamp-1"
         >
-          {{ product.name }}
+          {{ product.name }} Nomi
         </router-link>
-        <div>{{ product.product_detail?.condition }}</div>
+        <div>{{ product.product_detail?.condition }} Holati</div>
       </div>
       <div class="flex justify-between items-center flex-wrap">
         <div class="font-semibold">
-          {{ numberWithSpaces(product?.product_detail?.price) }} so’m
+          {{ numberWithSpaces(product?.product_detail?.price) }}1200 so’m
         </div>
       </div>
       <div class="flex justify-between items-center">
@@ -84,4 +84,39 @@ function addBasket(product) {
     store.products = store.products.filter((item) => item.id !== product.id);
   }
 }
+
+const fakeProduct = [
+    {
+        id:1,
+        name:"Products",
+        product_detail:{
+            condition:"Bor",
+            price:1200
+        }
+    },
+    {
+        id:2,
+        name:"Products",
+        product_detail:{
+            condition:"Bor",
+            price:1200
+        }
+    },
+    {
+        id:3,
+        name:"Products",
+        product_detail:{
+            condition:"Bor",
+            price:1200
+        }
+    },
+    {
+        id:4,
+        name:"Products",
+        product_detail:{
+            condition:"Bor",
+            price:1200
+        }
+    }
+]
 </script>
