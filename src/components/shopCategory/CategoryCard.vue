@@ -1,26 +1,28 @@
 <template>
-  <p
-    v-if="!hasProduct && categoryStore.error"
-    class="text-center text-2xl text-gray-500 font-semibold mt-12"
-  >
-    {{ categoryStore.error }}
-  </p>
-  <p
-    v-if="!hasProduct && !categoryStore.error"
-    class="text-center text-2xl text-gray-500 font-semibold mt-12 my-12"
-  >
-    Siz izlayotgan mahsulot yoki jihoz ma`lumotlar bazasidan topilmadi!
-  </p>
+  <div class="pt-5 md:p-0">
+    <!-- <p
+      v-if="!hasProduct && categoryStore.error"
+      class="text-center text-2xl text-gray-500 font-semibold mt-12"
+    >
+      {{ categoryStore.error }}
+    </p>
+    <p
+      v-if="!hasProduct && !categoryStore.error"
+      class="text-center text-2xl text-gray-500 font-semibold mt-12 my-12"
+    >
+      Siz izlayotgan mahsulot yoki jihoz ma`lumotlar bazasidan topilmadi!
+    </p> -->
 
-  <ul v-if="hasProduct" class="cardContainer mt-6">
-    <li v-for="product in categoryStore.products" :key="product.id">
-      <Card :product="product" />
-    </li>
-  </ul>
+    <ul v-if="!hasProduct" class="cardContainer mt-6">
+      <li v-for="product in fake" :key="product.id">
+        <Card :product="product.name" />
+      </li>
+    </ul>
 
-  <!-- <div v-if="hasProduct" class="flex justify-center py-6">
-    <Paginate />
-  </div> -->
+    <div v-if="hasProduct" class="flex justify-center py-6">
+      <Paginate />
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -33,6 +35,19 @@ const categoryStore = useCategoryProduct();
 categoryStore.getProducts();
 
 const hasProduct = computed(() => categoryStore.products.length);
+
+const fake = [
+  { id: 1, name: "ok" },
+  { id: 1, name: "ok" },
+  { id: 1, name: "ok" },
+  { id: 1, name: "ok" },
+  { id: 1, name: "ok" },
+  { id: 1, name: "ok" },
+  { id: 1, name: "ok" },
+  { id: 1, name: "ok" },
+  { id: 1, name: "ok" },
+  { id: 1, name: "ok" },
+];
 </script>
 
 <style scoped>

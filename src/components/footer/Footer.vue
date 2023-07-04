@@ -1,8 +1,8 @@
 <template>
-  <footer id="footer" class="mt-5 ">
-    <div class="w-[100%] mx-auto ">
+  <footer id="footer" class="mt-5">
+    <div class="w-[100%] mx-auto  md:pb-0">
       <div
-        class="px-4 bg-[#444444BF] drop-shadow-lg rounded-t-2xl py-5 flex flex-wrap flex-col md:flex-row justify-between shadow-lg text-white"
+        class="px-4 bg-[#444444BF] drop-shadow-lg rounded-t-2xl pt-5 flex flex-wrap flex-col md:flex-row justify-between shadow-lg text-white"
       >
         <div>
           <ul>
@@ -94,7 +94,7 @@
           </ul>
         </div>
         <div>
-          <ul class="w-[330px]">
+          <ul class="w-[330px] pb-5">
             <li class="text-[25px] font-bold mb-2">Виды оплаты</li>
             <li class="flex flex-wrap">
               <li class="bg-[#f2f2f7] h-[60px] w-[120px] flex items-center justify-center rounded-lg m-1"><img :src="payme" alt="Payme image" class=""></li>
@@ -126,5 +126,9 @@ import viza from "../../assets/img/footer/viza_svg.svg";
 import humo from "../../assets/img/footer/humo.svg";
 import uzcard from "../../assets/img/footer/uzcard.svg";
 import mastercard from "../../assets/img/footer/mastercard.svg";
+import { useRoute } from "vue-router";
+const route = useRoute();
+const href = route.path
+console.log(href);
 const { t } = useI18n();
 </script>

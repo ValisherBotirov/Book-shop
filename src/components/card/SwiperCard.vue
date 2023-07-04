@@ -1,7 +1,13 @@
 <template>
   <div class="card bg-[#f9fafd] shadow-sm h-full rounded-xl overflow-hidden">
     <div class="imgCard h-[200px] overflow-hidden relative">
-        <img src="https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg" alt="" class="w-full h-full object-cover">
+      <router-link :to="`/shop/${product.id ? product.id : 1}`">
+        <img
+          src="https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg"
+          alt=""
+          class="w-full h-full object-cover cursor-pointer"
+        />
+      </router-link>
       <div class="absolute top-1 right-1">
         <div
           @click="saved"
@@ -86,37 +92,37 @@ function addBasket(product) {
 }
 
 const fakeProduct = [
-    {
-        id:1,
-        name:"Products",
-        product_detail:{
-            condition:"Bor",
-            price:1200
-        }
+  {
+    id: 1,
+    name: "Products",
+    product_detail: {
+      condition: "Bor",
+      price: 1200,
     },
-    {
-        id:2,
-        name:"Products",
-        product_detail:{
-            condition:"Bor",
-            price:1200
-        }
+  },
+  {
+    id: 2,
+    name: "Products",
+    product_detail: {
+      condition: "Bor",
+      price: 1200,
     },
-    {
-        id:3,
-        name:"Products",
-        product_detail:{
-            condition:"Bor",
-            price:1200
-        }
+  },
+  {
+    id: 3,
+    name: "Products",
+    product_detail: {
+      condition: "Bor",
+      price: 1200,
     },
-    {
-        id:4,
-        name:"Products",
-        product_detail:{
-            condition:"Bor",
-            price:1200
-        }
-    }
-]
+  },
+  {
+    id: 4,
+    name: "Products",
+    product_detail: {
+      condition: "Bor",
+      price: 1200,
+    },
+  },
+];
 </script>

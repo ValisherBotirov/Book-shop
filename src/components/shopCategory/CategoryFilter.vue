@@ -1,66 +1,71 @@
 <template>
-  <form action="filter">
-    <div class="space-y-8 mt-4 mb-8">
-      <Range @rangeInp="rangeInp" />
-
-      <div>
-        <p class="titleName">Category</p>
-        <select
-          id="countries"
-          class="bg-transparent border border-whiteBlue outline-none text-primary rounded-lg px-2 py-1"
-        >
-          <option value="all" selected>Каталог</option>
-          <option value="US">United States</option>
-          <option value="CA">Canada</option>
-          <option value="FR">France</option>
-          <option value="DE">Germany</option>
-        </select>
-      </div>
-
-      <!-- <div>
-        <p class="titleName">Цвет</p>
-        <select
-          id="countries"
-          class="bg-whiteBlue border-x-4 border-x-whiteBlue outline-none text-primary rounded-lg px-2 py-1"
-        >
-          <option value="all" selected>Каталог</option>
-          <option value="US">United States</option>
-          <option value="CA">Canada</option>
-          <option value="FR">France</option>
-          <option value="DE">Germany</option>
-        </select>
-      </div> -->
-
-      <!-- <div class="space-y-1">
-        <div class="space-x-2 text-primary">
-          <input type="radio" name="pul" id="naqt" />
-          <label for="naqt">В наличии</label>
-        </div>
-        <div class="space-x-2 text-primary">
-          <input type="radio" name="pul" id="aksiya" />
-          <label for="aksiya">Акция</label>
-        </div>
-      </div> -->
-
-      <span class="flex md:flex-col items-start gap-3">
-        <span @click="handleFilter">
-          <ButtonFillVue><span class="py-2">Применить</span></ButtonFillVue>
-        </span>
-        <span @click="handleReset">
-          <ButtonStrokeVue
-            ><span class="py-2">Сбросить все</span>
-          </ButtonStrokeVue>
-        </span>
-      </span>
+  <div>
+    <!-- Decktop category -->
+    <div
+      class="md:flex hidden justify-center mt-5 py-5 md:w-[90%] lg:w-[80%] bg-[#fff] rounded-xl"
+    >
+      <ul class="flex flex-col gap-3 text-left">
+        <li class="cursor-pointer hover:text-blue-700">
+          <a href="#">Biznes kitoblar</a>
+        </li>
+        <hr />
+        <li class="cursor-pointer hover:text-blue-700">
+          <a href="#">Badiiy kitoblar</a>
+        </li>
+        <hr />
+        <li class="cursor-pointer hover:text-blue-700">
+          <a href="#">Darslik kitoblar</a>
+        </li>
+        <hr />
+        <li class="cursor-pointer hover:text-blue-700">
+          <a href="#">Adabiyot kitoblar</a>
+        </li>
+        <hr />
+        <li class="cursor-pointer hover:text-blue-700">
+          <a href="#">Romon kitoblar</a>
+        </li>
+        <hr />
+        <li class="cursor-pointer hover:text-blue-700">
+          <a href="#">She'r</a> kitoblar
+        </li>
+        <hr />
+        <li class="cursor-pointer hover:text-blue-700">
+          <a href="#">Slavar kitoblar</a>
+        </li>
+        <hr />
+        <li class="cursor-pointer hover:text-blue-700">
+          <a href="#">Slavar kitoblar</a>
+        </li>
+        <hr />
+        <li class="cursor-pointer hover:text-blue-700">
+          <a href="#">Slavar kitoblar</a>
+        </li>
+      </ul>
     </div>
-  </form>
+    <!-- Mobile category -->
+    <div
+      class="md:hidden fixed z-10 bottom-0 left-0 right-0 w-full h-[80px] bg-[#fff]"
+    >
+      <ul class="flex justify-between items-center h-full px-4 text-2 xl">
+        <li class="flex flex-col text-center gap-2">
+          <i class="fa-brands fa-slack text-[25px] opacity-[0.8]"></i>
+          <span class="text-2xl font-semibold opacity-[0.8]"> Category </span>
+        </li>
+        <li class="flex flex-col text-center gap-2">
+          <i class="fa-solid fa-cart-plus text-[25px] opacity-[0.8]"></i>
+          <span class="text-2xl font-semibold opacity-[0.8]"> Savat </span>
+        </li>
+        <li class="flex flex-col text-center gap-2" >
+          <i class="fa-solid fa-heart text-[25px] opacity-[0.8]"></i>
+          <span class="text-2xl font-semibold opacity-[0.8]"> Sevimli </span>
+        </li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
-import Range from "./Range.vue";
-import ButtonStrokeVue from "../buttons/ButtonStroke.vue";
-import ButtonFillVue from "../buttons/ButtonFill.vue";
 import { useCategoryProduct } from "../../store/categoryProduct";
 import { useLoadingStore } from "../../store/loading";
 import axios from "axios";
