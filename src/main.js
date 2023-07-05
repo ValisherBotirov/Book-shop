@@ -13,6 +13,10 @@ import "./plugins/axios";
 import "vue-toastification/dist/index.css";
 import "./style.css";
 
+// element plus
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+
 const app = createApp(App);
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
@@ -23,5 +27,5 @@ app.use(pinia);
 app.use(Paginate);
 app.use(Toast);
 app.use(MotionPlugin);
-
+app.use(ElementPlus)
 app.mount("#app");

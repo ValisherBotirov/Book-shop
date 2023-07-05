@@ -48,8 +48,8 @@
     >
       <ul class="flex justify-between items-center h-full px-4 text-2 xl">
         <li class="flex flex-col text-center gap-2">
-          <i class="fa-brands fa-slack text-[25px] opacity-[0.8]"></i>
-          <span class="text-2xl font-semibold opacity-[0.8]"> Category </span>
+          <i class="fa-solid fa-user text-[25px] opacity-[0.8]"></i>
+          <span class="text-2xl font-semibold opacity-[0.8]"> Profil </span>
         </li>
         <li class="flex flex-col text-center gap-2">
           <i class="fa-solid fa-cart-plus text-[25px] opacity-[0.8]"></i>

@@ -1,6 +1,6 @@
 <template>
   <footer id="footer" class="mt-5">
-    <div class="w-[100%] mx-auto  md:pb-0">
+    <div class="w-[100%] mx-auto pb-[80px] md:pb-0">
       <div
         class="px-4 bg-[#444444BF] drop-shadow-lg rounded-t-2xl pt-5 flex flex-wrap flex-col md:flex-row justify-between shadow-lg text-white"
       >
@@ -108,7 +108,6 @@
 
         <!-- <div class="SearchForm hidden xs:block"></div> -->
         <!--responsive qismi-->
-
         <!-- <div class="SearchForm block xs:hidden"></div> -->
       </div>
     </div>
@@ -128,7 +127,6 @@ import uzcard from "../../assets/img/footer/uzcard.svg";
 import mastercard from "../../assets/img/footer/mastercard.svg";
 import { useRoute } from "vue-router";
 const route = useRoute();
-const href = route.path
-console.log(href);
+const hrefPath = route.path
 const { t } = useI18n();
 </script>
