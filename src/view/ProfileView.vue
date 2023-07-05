@@ -1,5 +1,5 @@
 <template>
-  <SearchFormCompVue />
+
   <div class="container mx-auto min-h-screen">
     <div class="flex justify-between items-center my-6">
       <p class="text-5xl text-primary">Личный кабинет</p>

@@ -9,20 +9,7 @@
         />
       </router-link>
       <div class="absolute top-1 right-1">
-        <div
-          @click="saved"
-          class="w-[40px] h-[40px] rounded-[50%] bg-[#F1F5F9] flex items-center justify-center cursor-pointer"
-        >
-          <div class="flex flex-col items-center">
-            <i
-              class="fa-heart text-lg text-[red]"
-              :class="[
-                !isSaved ? 'fa-regular' : 'fa-solid',
-                heartAnimation ? 'fa-shake' : 'fa-fade',
-              ]"
-            ></i>
-          </div>
-        </div>
+          <SavedButton @isSaved="fetchSaved"/>
       </div>
     </div>
     <div
@@ -60,21 +47,16 @@ import { computed, ref } from "vue";
 import SaveBasket from "../buttons/SaveBasket.vue";
 import numberWithSpaces from "../../helpers/numberFormat.js";
 import { useBasketStore } from "@/store/basketProducts.js";
+import SavedButton from "@/components/buttons/SavedButton.vue";
 const store = useBasketStore();
 const isClick = ref(false);
 
 const props = defineProps(["product"]);
 const product = computed(() => props.product);
 
-const isSaved = ref(false);
-const heartAnimation = ref(false);
-function saved() {
-  isSaved.value = !isSaved.value;
-  heartAnimation.value = true;
-
-  setTimeout(() => {
-    heartAnimation.value = false;
-  }, 100);
+const fetchSaved =(e)=>{
+    console.log(e,"emit")
+//     axios zapros shu yerga yoziladi
 }
 
 function addBasket(product) {
