@@ -4,8 +4,11 @@
       <RouteLink class="mb-3 text-base" :route="routeLink" /> 
 
       <div class="grid grid-cols-12 gap-8 my-8">
-        <div class="swiperImg col-span-12 md:col-span-6">
+        <div class="swiperImg col-span-12 md:col-span-6 relative">
           <img class="rounded-xl w-full h-auto" :src="image" alt="product image" />
+            <div class="absolute top-4 right-4">
+                <SavedButton @isSaved="fetchSaved"/>
+            </div>
         </div>
         <div class="content col-span-12 md:col-span-6">
            <SingleContentComp />
@@ -44,6 +47,7 @@ import image from '../assets/img/about/ok.jpg'
 import RouteLink from "../components/RouteLink.vue";
 import SingleContentComp from "../components/shopSingle/SingleContentComp.vue";
 import SmilarsCompVue from "../components/shopSingle/SmilarsSwiper.vue";
+import SavedButton from "@/components/buttons/SavedButton.vue";
 
 const store = useProductDetailStore();
 const route = useRoute();
@@ -62,5 +66,10 @@ const routeLink = ref([
     { name: "Каталог", link: "/categories" },
     { name: "" }
 ]);
+
+const fetchSaved = (e)=>{
+    console.log(e,"emit")
+//     write axios requist this
+}
 
 </script>
