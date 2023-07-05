@@ -23,7 +23,7 @@ import CardVue from "../components/shopCategory/CategoryCard.vue";
 import SortVue from "../components/shop/Sort.vue";
 
 const arrFunc = reactive([
-  { name: "Магазин", link: "/shop" },
+  { name: "Магазин", link: "/" },
   { name: "Каталог", link: "/shop/category" },
   { name: "all" },
 ]);
