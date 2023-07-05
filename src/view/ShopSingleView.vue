@@ -2,24 +2,19 @@
   <div>
     <div class="container mx-auto">
       <RouteLink class="mb-3 text-base" :route="routeLink" /> 
-      <h2 class="text-3xl mb-2 font-bold text-primaryBlue">
-        <!-- {{ product.name }} -->
-        product name
-      </h2>
-      <div class="singleComp grid grid-cols-12 gap-8 my-8">
-        <div class="swiperImg col-span-12 md:col-span-5">
+
+      <div class="grid grid-cols-12 gap-8 my-8">
+        <div class="swiperImg col-span-12 md:col-span-6">
           <img class="rounded-xl w-full h-auto" :src="image" alt="product image" />
         </div>
-        <div class="content col-span-12 md:col-span-7">
+        <div class="content col-span-12 md:col-span-6">
            <SingleContentComp />
         </div>
       </div>
       <div class="moreInfo">
         <div class="flex gap-4 mb-6">
           <button
-            @click="infomations = 0"
             class="font-bold border-b py-1 text-primary border-primary"
-
           >
             Описание
           </button>
@@ -42,7 +37,7 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from "vue";
+import {  ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import { useProductDetailStore } from "../store/productDetail";
 import image from '../assets/img/about/ok.jpg' 
@@ -58,17 +53,14 @@ watch(
   () => route.params.id,
   (newId) => {
     console.log(newId, "id");
-    if (store.product.id != id) store.getOneProduct(id);
+    // if (store.product.id != id) store.getOneProduct(id);
   }
 );
 
-if (store.product.id != id) store.getOneProduct(id);
-
-const routeLink = ref([{ name: "Магазин", link: "/shop" }, { name: "Каталог", link: "/categories" }, { name: "" }]);
-
-const product = computed(() => {
-  if (store.product.name) routeLink.value[2] = { name: store.product.name };
-  return store.product;
-});
+const routeLink = ref([
+    { name: "Магазин", link: "/shop" },
+    { name: "Каталог", link: "/categories" },
+    { name: "" }
+]);
 
 </script>
