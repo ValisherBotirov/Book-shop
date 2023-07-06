@@ -1,8 +1,9 @@
 <template>
   <div>
     <div class="container mx-auto">
-      <RouteLink class="mb-3 text-base" :route="routeLink" />
-      <div class="grid grid-cols-12 gap-8 my-8">
+      <RouteLink class="mb-3 text-base" :route="routeLink" /> 
+
+      <div class="grid grid-cols-12 gap-8 my-8 mt-[60px] md:mt-8">
         <div class="swiperImg col-span-12 md:col-span-6 relative">
           <img
             class="rounded-xl w-full h-auto"
