@@ -8,14 +8,14 @@
       @select="handleSelect"
     >
       <el-sub-menu index="1">
-        <template #title><span class="h-[39px] sx:h-[33px] flex items-center">Category</span></template>
-        <el-menu-item index="2-1">Top kitoblar</el-menu-item>
+        <template #title><span class="h-[39px] sx:h-[30px] flex items-center">Category</span></template>
+        <el-menu-item index="2-1" v-for="(item,index) in arr">{{item.name}}</el-menu-item>
         <el-menu-item index="2-2">Yangi kitoblar</el-menu-item>
         <el-sub-menu index="2-3">
           <template #title>Biznes kitoblar</template>
-          <el-menu-item index="2-4-1">item one</el-menu-item>
+          <!-- <el-menu-item index="2-4-1">item one</el-menu-item>
           <el-menu-item index="2-4-2">item two</el-menu-item>
-          <el-menu-item index="2-4-3">item three</el-menu-item>
+          <el-menu-item index="2-4-3">item three</el-menu-item> -->
         </el-sub-menu>
         <el-menu-item index="2-4">Jahon adabiyotlari</el-menu-item>
         <el-menu-item index="2-5">Ertak kitoblar</el-menu-item>
@@ -43,6 +43,56 @@ const activeIndex = ref("1");
 const handleSelect = (key: string, keyPath: string[]) => {
   console.log(key, keyPath);
 };
+
+const arr = [
+  {
+    id:1,
+    name:"biznes"
+  },
+  {
+    id:2,
+    name:"adssa",
+    child:[
+      {
+        id:1,
+        name:'sdfn'
+      },
+      {
+        id:2,
+        name:'dfsd2'
+      },
+      {
+        id:3,
+        name:'sdfn3'
+      },
+
+    ]
+  },
+  {
+    id:3,
+    name:"rus"
+  },
+  {
+    id:4,
+    name:"jahon",
+    child:[
+      {
+        id:1,
+        name:'sdfn'
+      },
+      {
+        id:2,
+        name:'dfsd2'
+      },
+      {
+        id:3,
+        name:'sdfn3'
+      },
+
+    ]
+  }
+]
+
 </script>
 
 <style>

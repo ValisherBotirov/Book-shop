@@ -6,7 +6,7 @@
       <HeaderVue />
       <RouterView />
     </div>
-    <CategoryFilter />
+    <MobileCategory />
     <FooterVue />
   </div>
   <Loading v-if="loading" />
@@ -20,7 +20,7 @@ import Loading from "./components/modals/LoadingModal.vue";
 import { useLoadingStore } from "./store/loading";
 import { storeToRefs } from "pinia";
 import { onMounted } from "vue";
-import CategoryFilter from "./components/shopCategory/CategoryFilter.vue";
+import MobileCategory from "./components/shopCategory/MobileCategory.vue";
 const store = useLoadingStore();
 const { loading } = storeToRefs(store);
 
