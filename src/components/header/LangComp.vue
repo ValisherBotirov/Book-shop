@@ -2,7 +2,7 @@
   <div class="lang relative py-3 group transition cursor-pointer">
     <span class="flex gap-1">
       <svg
-        class="w-6 h-6 flex-shrink-0 duration-200 fill-[#f4f4f9] group-hover:fill-primary group-active:fill-primary"
+        class="w-6 h-6 flex-shrink-0 duration-200 fill-[#fff] group-hover:fill-[#F4CE47] group-active:fill-transparent"
         viewBox="0 0 24 24"
         fill="none"
       >
@@ -22,7 +22,7 @@
           d="M20.9998 9.74986C20.9198 9.74986 20.8398 9.73986 20.7598 9.70986C15.1098 7.82986 8.87978 7.82986 3.22978 9.70986C2.82978 9.83986 2.40978 9.62986 2.27978 9.23986C2.15978 8.83986 2.36978 8.41986 2.75978 8.28986C8.71978 6.29986 15.2798 6.29986 21.2298 8.28986C21.6198 8.41986 21.8398 8.84986 21.6998 9.23986C21.6098 9.54986 21.3098 9.74986 20.9998 9.74986Z"
         />
       </svg>
-      <p class="duration-200 group-hover:text-primary text-lg capitalize">
+      <p class="duration-200 group-hover:text-[#F4CE47] text-lg capitalize">
         {{ currentLangName ? currentLangName : "Uz" }}
       </p>
     </span>
