@@ -10,7 +10,9 @@
       class="fixed w-[30rem] inset-y-0 z-[99999] duration-300 right-0 bg-blue-500 text-center flex flex-col justify-between items-center"
     >
       <div class="text-start pt-2 space-y-2 overflow-y-auto h-[2/3]">
-        <p class="text-white text-3xl text-center">Корзина</p>
+          <div class="flex justify-between text-black">
+              <p class="text-xl ">Cart</p>
+          </div>
         <!-- empty component start-->
         <div
           v-if="!store.productCount"
