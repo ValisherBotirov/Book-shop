@@ -9,7 +9,7 @@
         />
       </router-link>
       <div class="absolute top-1 right-1">
-          <SavedButton @isSaved="fetchSaved"/>
+          <SavedButton @isSaved="fetchSaved"/> 
       </div>
     </div>
     <div
@@ -20,13 +20,13 @@
           :to="`/shop/${product.id ? product.id : 1}`"
           class="hover:text-blue-500 duration-150 text-md font-bold line-clamp-1"
         >
-          {{ product.name }} Nomi
+          {{ product.name }} Title
         </router-link>
         <div>{{ product.product_detail?.condition }} Holati</div>
       </div>
       <div class="flex justify-between items-center flex-wrap">
         <div class="font-semibold">
-          {{ numberWithSpaces(product?.product_detail?.price) }}1200 so’m
+          {{ numberWithSpaces(product?.product_detail?.price) }} 120 000 so'm
         </div>
       </div>
       <div class="flex justify-between items-center">

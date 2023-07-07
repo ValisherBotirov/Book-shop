@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto">
     <div
-      class="text-primary scroll flex flex-nowrap w-full space-x-4 overflow-x-scroll"
+      class="container mx-auto text-primary scroll flex flex-nowrap w-full space-x-4 overflow-x-scroll"
     >
       <p
         class=" cursor-pointer flex-shrink-0"

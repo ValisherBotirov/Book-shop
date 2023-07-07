@@ -1,11 +1,11 @@
 <template>
   <div>
-    <form>
+    <form class="border-solid border-[#333] border-[1px] rounded-md px-3">
       <span class="flex gap-2">
         <button @click.prevent="countFunc(false)" class="text-primary">
           <svg
-            width="11"
-            height="3"
+            width="25"
+            height="5"
             viewBox="0 0 11 3"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -17,14 +17,14 @@
           :value="count"
           maxlength="5"
           minlength="0"
-          class="border w-10 my-1 py-[2px] text-sm border-whiteBlue rounded-lg text-primary text-center"
+          class="border w-[60px] my-1 py-[2px] text-[18px] border-whiteBlue rounded-lg text-primary text-center"
           type="number"
           id="countProd"
         />
         <button @click.prevent="countFunc(true)">
           <svg
-            width="9"
-            height="9"
+            width="25"
+            height="13"
             viewBox="0 0 9 9"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

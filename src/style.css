@@ -12,7 +12,8 @@ html {
   font-size: 100%;
 }
 body {
-  background-color: #e7f0fe;
+  /* background-color: #e7f0fe; */
+  background-color: #fafcf5;
   overflow-x: hidden;
   scroll-behavior: smooth;
   position: relative;
@@ -73,7 +74,7 @@ input[type="number"] {
     font-size: 70%;
   }
   .container {
-    max-width: 95%;
+    max-width: 90%;
   }
   .swiperBigComp .swiper-pagination-bullet {
     width: 2rem;

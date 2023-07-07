@@ -6,11 +6,11 @@
       <HeaderVue />
       <RouterView />
     </div>
-      <BasketModal
-              :isOpen="openShopModal"
-              @closeModal="(e) => (openShopModal = e)"
-      />
-    <CategoryFilter @click="openShopModal = true" />
+    <BasketModal
+      :isOpen="openShopModal"
+      @closeModal="(e) => (openShopModal = e)"
+    />
+    <MobileCategory @click="openShopModal = true" />
     <FooterVue />
   </div>
   <Loading v-if="loading" />
@@ -23,12 +23,12 @@ import FooterVue from "./components/footer/Footer.vue";
 import Loading from "./components/modals/LoadingModal.vue";
 import { useLoadingStore } from "./store/loading";
 import { storeToRefs } from "pinia";
-import {onMounted, ref} from "vue";
-import CategoryFilter from "./components/shopCategory/CategoryFilter.vue";
+import { onMounted, ref } from "vue";
 import BasketModal from "@/components/modals/BasketModal.vue";
+import MobileCategory from "./components/shopCategory/MobileCategory.vue";
 const store = useLoadingStore();
 const { loading } = storeToRefs(store);
-const openShopModal = ref(false)
+const openShopModal = ref(false);
 
 // Amount();
 

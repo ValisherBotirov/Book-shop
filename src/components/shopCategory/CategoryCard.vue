@@ -12,13 +12,11 @@
     >
       Siz izlayotgan mahsulot yoki jihoz ma`lumotlar bazasidan topilmadi!
     </p> -->
-
     <ul v-if="!hasProduct" class="cardContainer mt-6">
       <li v-for="product in fake" :key="product.id">
         <Card :product="product.name" />
       </li>
     </ul>
-
     <div v-if="hasProduct" class="flex justify-center py-6">
       <Paginate />
     </div>
