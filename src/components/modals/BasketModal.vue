@@ -52,11 +52,11 @@
           <p class="font-medium">{{ numberWithSpaces(120000) }} UZS</p>
         </div>
         <div class="mt-7">
-          <ButtonFillVue to="/basket"
-            ><span class="py-2">Batafsil ko'rish</span></ButtonFillVue
+          <ButtonFillVue to="/basket" color="#F4CE47"
+            ><span class="py-2 text-black">Batafsil ko'rish</span></ButtonFillVue
           >
-            <ButtonFillVue to="/basket"
-            ><span class="py-2">Joyida sotib olish</span></ButtonFillVue
+            <ButtonFillVue to="/basket" color="#F4CE47"
+            ><span class="py-2 text-black ">Joyida sotib olish</span></ButtonFillVue
             >
         </div>
       </div>
@@ -65,7 +65,7 @@
 </template>
 <script setup>
 import numberWithSpaces from "@/helpers/numberFormat.js";
-import BasketCard from "@/components/card/BasketCard.vue";
+import BasketCard from "@/components/card/BasketCardModal.vue";
 import ButtonFillVue from "@/components/buttons/ButtonFill.vue";
 import { useBasketStore } from "@/store/basketProducts.js";
 import { ref } from "vue";
