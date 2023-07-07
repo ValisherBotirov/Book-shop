@@ -2,13 +2,34 @@
   <div class="flex">
     <div class="w-[50%]">
       <ul>
-        <li class="flex justify-between px-10 text-start items-end"><span>Til</span><span class="w-[100%] border-dashed border-[1px] border-[#333] opacity-[0.5]"></span><span>O'zbekcha</span></li>
-        <li class="flex justify-between px-10 text-start items-end"><span>Yozuv</span><span class="w-[100%] border-dashed border-[1px] border-[#333] opacity-[0.5]"></span><span>Kirilcha</span></li>
-        <li class="flex justify-between px-10 text-start items-end"><span>Sana</span><span class="w-[100%] border-dashed border-[1px] border-[#333] opacity-[0.5]"></span><span>10.07.2023</span></li>
-        <!-- <li class="flex justify-between px-10 text-start items-end"><span class="w-[33%]">Nashriyot</span><i class="iconAn w-[20%] fa-solid fa-minus hover:cursor-pointer"></i><span class="w-[33%]">Hilol</span></li>
-        <li class="flex justify-between px-10 text-start items-end"><span class="w-[33%]">Yozuv</span><i class="iconAn w-[20%] fa-solid fa-minus hover:cursor-pointer"></i><span class="w-[33%]">Krilcha</span></li>
-        <li class="flex justify-between px-10 text-start items-end"><span class="w-[33%]">Sana</span><i class="iconAn w-[20%] fa-solid fa-minus hover:cursor-pointer"></i><span class="w-[33%]">10.07.2023</span></li>
-        <li class="flex justify-between px-10 text-start items-end"><span class="w-[33%]">Sahifa</span><i class="iconAn w-[20%] fa-solid fa-minus hover:cursor-pointer"></i><span class="w-[33%]">100</span></li> -->
+        <li class="flex justify-between px-10 text-start items-center">
+          <span>Til</span
+          ><span
+            class="iconAn w-[100%] border-dashed border-[1px] border-[#333] opacity-[0.5]"
+          ></span
+          ><span>O'zbekcha</span>
+        </li>
+        <li class="flex justify-between px-10 text-start items-center">
+          <span>Yozuv</span
+          ><span
+            class="iconAn2 w-[100%] border-dashed border-[1px] border-[#333] opacity-[0.5]"
+          ></span
+          ><span>Kirilcha</span>
+        </li>
+        <li class="flex justify-between px-10 text-start items-center">
+          <span>Sana</span
+          ><span
+            class="iconAn w-[100%] border-dashed border-[1px] border-[#333] opacity-[0.5]"
+          ></span
+          ><span>10.07.2023</span>
+        </li>
+        <li class="flex justify-between  px-10 text-start items-center">
+          <span>Nashriyot</span
+          ><span
+            class="iconAn2 w-[100%] border-dashed border-[1px] border-[#333] opacity-[0.5]"
+          ></span
+          ><span>Hilol nashr</span>
+        </li>
       </ul>
     </div>
     <div
@@ -43,29 +64,42 @@ const count = ref(1);
 </script>
 <style scoped>
 .iconAn {
-  /* transform: translateX(-100%); */
   animation: 3s linear 1s infinite alternate example;
+}
+.iconAn2 {
+  animation: 2s linear 1s infinite alternate example2;
 }
 
 @keyframes example {
   0% {
-    transform: translateX(-100px);
   }
   25% {
-    transform: translateX(-50px);
     opacity: 0;
   }
   50% {
-    transform: translateX(0px);
     opacity: 1;
   }
   75% {
-    transform: translateX(50px);
     opacity: 0;
   }
   100% {
-    transform: translateX(100px);
     opacity: 1;
+  }
+}
+@keyframes example2 {
+  0% {
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 </style>
