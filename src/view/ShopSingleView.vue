@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="container mx-auto">
-      <RouteLink class="mb-3 text-base" :route="routeLink" />
-      <h1 class="text-xl  ">
+      <RouteLink class=" text-xl sx:pt-[65px] md:pt-[35px]" :route="routeLink" />
+      <h1 class="sx:text-xl md:text-2xl font-sans font-medium">
         Shayx Muhammad Sodiq Muhammad Yusuf:
         <span>Olam va Odam Din va Ilm</span>
       </h1>
-      <div class="grid grid-cols-12 my-8 mt-[60px] md:mt-8">
-        <div class="swiperImg col-span-12 md:col-span-4 relative">
+      <div class="grid lg:grid-cols-12 sx:grid-cols-6 my-8 sx:mt-[15px] md:mt-8">
+        <div class="swiperImg col-span-12 md:col-span-6 lg:col-span-4 relative">
           <img
             class="rounded-xl object-cover cursor-pointer w-[100%]"
             :src="image"

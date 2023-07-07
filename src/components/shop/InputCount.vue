@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form class="border-solid border-[#333] border-[1px] rounded-md px-3">
+    <form class="rounded-md">
       <span class="flex gap-2">
         <button @click.prevent="countFunc(false)" class="text-primary">
           <svg

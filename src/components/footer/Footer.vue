@@ -1,51 +1,51 @@
 <template>
   <footer id="footer" class="mt-5">
-    <div class="w-[100%] mx-auto bg-[#FBC018]  pb-[80px] md:pb-0">
+    <div class="w-[100%] mx-auto bg-[#000]  pb-[80px] md:pb-0">
       <div
-        class="px-4 container mx-auto drop-shadow-lg rounded-t-2xl pt-5 flex flex-wrap flex-col md:flex-row justify-between shadow-lg text-black"
+        class="px-4 container mx-auto drop-shadow-lg rounded-t-2xl pt-5 flex flex-wrap flex-col md:flex-row justify-between shadow-lg text-white"
       >
         <div>
           <ul>
-            <li class="text-[25px] font-bold mb-2">Информация</li>
-            <li class="text-[17px]">Часто задаваемые вопросы</li>
-            <li class="text-[17px]">Пункты выдачи</li>
-            <li class="text-[17px]">Блог</li>
-            <li class="text-[17px]">Наши бренды</li>
-            <li class="text-[17px]">
+            <li class="text-[25px] font-bold mb-2 hover:text-[#F4CE47] cursor-pointer">Информация</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Часто задаваемые вопросы</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Пункты выдачи</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Блог</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Наши бренды</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">
               Публичная оферта (Пользовательское соглашение)
             </li>
-            <li class="text-[17px]">Оферта для покупок в рассрочку</li>
-            <li class="text-[17px]">О нас</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Оферта для покупок в рассрочку</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">О нас</li>
           </ul>
         </div>
         <div>
           <ul>
-            <li class="text-[25px] font-bold mb-2">Для связи</li>
-            <li class="text-[17px]"><a href="#"><i class="fa-solid fa-phone"></i>  +998 71 200 01 05</a></li>
-            <li class="text-[17px]"><a href="#"><i class="fa-regular fa-envelope"></i>  info@asaxiy.uz</a></li>
-            <li class="text-[17px]">
+            <li class="text-[25px] font-bold mb-2 hover:text-[#F4CE47] cursor-pointer">Для связи</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer"><a href="#"><i class="fa-solid fa-phone"></i>  +998 71 200 01 05</a></li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer"><a href="#"><i class="fa-regular fa-envelope hover:text-[#F4CE47] cursor-pointer"></i>  info@asaxiy.uz</a></li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">
               <a href="#"> <i class="fa-solid fa-location-dot"></i> улица Ислама Каримова, 49, Ташкент</a>
             </li>
           </ul>
           <ul>
-            <li class="text-[25px] font-bold mb-2">Книжные магазины</li>
-            <li class="text-[17px]"><a href="#"><i class="fa-solid fa-location-dot"></i> Asaxiy Novza</a></li>
-            <li class="text-[17px]"><a href="#"><i class="fa-solid fa-location-dot"></i> Asaxiy Farhod bozori</a></li>
-            <li class="text-[17px]">
+            <li class="text-[25px] font-bold mb-2 hover:text-[#F4CE47] cursor-pointer">Книжные магазины</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer"><a href="#"><i class="fa-solid fa-location-dot"></i> Asaxiy Novza</a></li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer"><a href="#"><i class="fa-solid fa-location-dot"></i> Asaxiy Farhod bozori</a></li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">
               <a href="#"><i class="fa-solid fa-location-dot"></i> Asaxiy Panorama, Kitob olami</a>
             </li>
           </ul>
         </div>
         <div>
           <ul>
-            <li class="text-[25px] font-bold mb-2">Наши достижения</li>
-            <li class="text-[17px]">Премия "Tahsin"</li>
-            <li class="text-[17px]">Медаль "Shuhrat"</li>
-            <li class="text-[17px]">Медаль "Kelajak bunyodkori"</li>
+            <li class="text-[25px] font-bold mb-2 hover:text-[#F4CE47] cursor-pointer">Наши достижения</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Премия "Tahsin"</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Медаль "Shuhrat"</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Медаль "Kelajak bunyodkori"</li>
           </ul>
           <ul>
-            <li class="text-[25px] font-bold mb-2">Мы в соц. сетях</li>
-            <li class="text-[17px]">
+            <li class="text-[25px] font-bold mb-2 hover:text-[#F4CE47] cursor-pointer">Мы в соц. сетях</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">
               <!-- <span>{{ t("footer.social") }}:</span> -->
               <div class="flex gap-2 flex-wrap">
                 <a
@@ -95,7 +95,7 @@
         </div>
         <div>
           <ul class="w-[330px] pb-5">
-            <li class="text-[25px] font-bold mb-2">Виды оплаты</li>
+            <li class="text-[25px] font-bold mb-2 hover:text-[#F4CE47] cursor-pointer">Виды оплаты</li>
             <li class="flex flex-wrap">
               <li class="bg-[#f2f2f7] h-[60px] w-[120px] flex items-center justify-center rounded-lg m-1"><img :src="payme" alt="Payme image" class=""></li>
               <li class="bg-[#f2f2f7] h-[60px] w-[120px] flex items-center justify-center rounded-lg m-1"><img :src="viza" alt="Payme image" class=""></li>

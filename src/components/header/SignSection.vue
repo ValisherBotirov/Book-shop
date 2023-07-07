@@ -2,7 +2,7 @@
   <div class="hidden md:flex items-center gap-2">
     <span
       @click="emit('isRegister', true)"
-      class="duration-200 cursor-pointer transition hover:text-[#F4CE47]"
+      class="duration-200 cursor-pointer md:text-[19px] transition hover:text-[#F4CE47]"
       >{{ $t("register") }}</span
     >
     <span
