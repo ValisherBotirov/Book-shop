@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="container mx-auto">
-      <RouteLink class="mb-3 text-base" :route="routeLink" />
-      <h1 class="text-xl  ">
+      <RouteLink class=" text-xl sx:pt-[65px] md:pt-[35px]" :route="routeLink" />
+      <h1 class="text-2xl font-sans font-medium">
         Shayx Muhammad Sodiq Muhammad Yusuf:
         <span>Olam va Odam Din va Ilm</span>
       </h1>

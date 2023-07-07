@@ -10,19 +10,16 @@
           ><span>O'zbekcha</span>
         </li>
         <li class="flex justify-between px-10 text-start items-center">
-          <span>Yozuv</span
-          ><span
-            class="iconAn2 w-[100%] border-dashed border-[1px] border-[#333] opacity-[0.5]"
-          ></span
-          ><span>Kirilcha</span>
+        <span>Yozuv</span><span class="iconAn2 w-[100%] border-dashed border-[1px] border-[#333] opacity-[0.5]"></span><span>Kirilcha</span>
         </li>
       </ul>
     </div>
     <div
       class="border-[#9d9a9a] border-solid border-[2px] p-5 rounded-xl w-[50%]"
     >
-      <div>
+      <div class="flex items-end gap-3">
         <h1 class="font-medium text-2xl">40 000 so'm</h1>
+        <del class="font-medium text-xl opacity-[0.5]">52 000 so'm</del>
       </div>
       <div class="flex items-center gap-6 mt-2 my-2">
         <p class="text-[#333] text-2xl">Miqdori:</p>
