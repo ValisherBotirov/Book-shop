@@ -7,7 +7,7 @@
     ></div>
     <div
       :class="isOpen ? 'translate-x-0' : 'translate-x-full'"
-      class="fixed w-[400px] inset-y-0 z-[99999] duration-300 right-0 bg-white px-4 py-3 text-center flex flex-col justify-between items-center"
+      class="fixed w-[350px] sm:w-[400px] inset-y-0 z-[99999] duration-300 right-0 bg-white px-4 py-3 text-center flex flex-col justify-between items-center"
     >
       <div class="text-start  space-y-2 overflow-y-auto h-[75%]">
           <div class="flex justify-between text-black pb-3 border-b border-[#e1e1e1]">
@@ -45,9 +45,9 @@
         </div>
       </div>
       <div
-        class="menu w-full bg-white text-black py-4  border-t-[2px] space-y-6 h-[25%]"
+        class="menu w-full bg-white text-black py-4   border-t-[2px] space-y-6 h-[25%] flex flex-col justify-between"
       >
-        <div class="flex justify-between items-center ">
+        <div class="flex justify-between items-center pt-2">
           <p>{{ $t("all") }}</p>
           <p class="font-medium">{{ numberWithSpaces(120000) }} UZS</p>
         </div>
