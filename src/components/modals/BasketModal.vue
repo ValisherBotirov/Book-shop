@@ -7,16 +7,17 @@
     ></div>
     <div
       :class="isOpen ? 'translate-x-0' : 'translate-x-full'"
-      class="fixed w-[30rem] inset-y-0 z-[99999] duration-300 right-0 bg-blue-500 text-center flex flex-col justify-between items-center"
+      class="fixed w-[400px] inset-y-0 z-[99999] duration-300 right-0 bg-white px-4 py-3 text-center flex flex-col justify-between items-center"
     >
-      <div class="text-start pt-2 space-y-2 overflow-y-auto h-[2/3]">
-          <div class="flex justify-between text-black">
+      <div class="text-start  space-y-2 overflow-y-auto h-[75%]">
+          <div class="flex justify-between text-black pb-3 border-b border-[#e1e1e1]">
               <p class="text-xl ">Cart</p>
+              <i class="fa-solid fa-xmark text-lg hover:text-[red] cursor-pointer" @click="closeModal"></i>
           </div>
         <!-- empty component start-->
         <div
           v-if="!store.productCount"
-          class="empty px-12 text-white flex flex-col gap-3"
+          class="empty  text-white flex flex-col gap-3"
         >
           <div class="empty_img self-center">
             <SVGEmtyBasket />
@@ -34,28 +35,29 @@
         </div>
         <!-- empty component end -->
 
-        <div v-else class="flex flex-col gap-3 px-4">
+        <div v-else class="flex flex-col gap-3 ">
           <BasketCard
-            v-for="(item, index) in store.products"
+                  class="mt-2 pb-3 border-b border-[#e1e1e1]"
+            v-for="(item, index) in 5"
             :key="index"
             :item="item"
           />
         </div>
       </div>
       <div
-        class="menu w-full bg-white text-primaryBlue rounded-t-xl px-8 py-8 space-y-6 h-[1/3]"
+        class="menu w-full bg-white text-black py-4  border-t-[2px] space-y-6 h-[25%]"
       >
-        <div class="flex justify-between items-center font-bold">
+        <div class="flex justify-between items-center ">
           <p>{{ $t("all") }}</p>
-          <p>{{ numberWithSpaces(store.allSum) }} сум</p>
+          <p class="font-medium">{{ numberWithSpaces(120000) }} UZS</p>
         </div>
-        <div class="flex justify-between items-center">
+        <div class="mt-7">
           <ButtonFillVue to="/basket"
-            ><span class="py-2">Оформить заказ</span></ButtonFillVue
+            ><span class="py-2">Batafsil ko'rish</span></ButtonFillVue
           >
-          <button @click="closeModal" class="underline p-2 hover:no-underline">
-            Закрыть
-          </button>
+            <ButtonFillVue to="/basket"
+            ><span class="py-2">Joyida sotib olish</span></ButtonFillVue
+            >
         </div>
       </div>
     </div>
@@ -83,3 +85,10 @@ function closeModal() {
   emit("closeModal", open.value);
 }
 </script>
+
+<style scoped>
+::-webkit-scrollbar {
+   display: none;
+}
+
+</style>
