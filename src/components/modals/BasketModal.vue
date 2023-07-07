@@ -13,20 +13,50 @@
         <p class="text-white text-3xl text-center">Корзина</p>
         <!-- empty component start-->
         <div
-          v-if="!store.productCount"
-          class="empty px-12 text-white flex flex-col gap-3"
+                @click="closeModal"
+                v-if="isOpen"
+                class="modal fixed z-[99999] inset-0 bg-[#0005] backdrop-blur-sm"
+        ></div>
+        <div
+                :class="isOpen ? 'translate-x-0' : 'translate-x-full'"
+                class="fixed w-[30rem] inset-y-0 z-[99999] duration-300 right-0 bg-white  flex flex-col justify-between items-center px-2 py-3"
         >
-          <div class="empty_img self-center">
-            <SVGEmtyBasket />
-          </div>
-          <p class="titleName text-2xl">Ваша корзина пуста</p>
-          <p class="titleName text-sm">
-            Перейдите на страницу магазина и начните покупки сейчас
-          </p>
-          <p class="titleName text-sm">Желаем приятных покупок!</p>
-          <button-fill-vue color="#D52C55" to="/">
-            <span @click="closeModal" class="py-2 self-start"
+            <div class="text-start pt-2 space-y-2 overflow-y-auto h-[2/3]">
+                <div class="flex text-black justify-between">
+                <p class=" text-lg text-center ">Cart</p>
+                    <i class="fa-solid fa-xmark text-lg hover:text-[red]"></i>
+                </div>
+                <!-- empty component start-->
+                <div
+                        v-if="!store.productCount"
+                        class="empty px-12 text-white flex flex-col gap-3"
+                >
+                    <div class="empty_img self-center">
+                        <SVGEmtyBasket/>
+                    </div>
+                    <p class="titleName text-2xl">Ваша корзина пуста</p>
+                    <p class="titleName text-sm">
+                        Перейдите на страницу магазина и начните покупки сейчас
+                    </p>
+                    <p class="titleName text-sm">Желаем приятных покупок!</p>
+                    <button-fill-vue color="#D52C55" to="/">
+              <span @click="closeModal" class="py-2 self-start"
               >Перейти в каталог</span
+              >
+                    </button-fill-vue>
+                </div>
+                <!-- empty component end -->
+
+                <div v-else class="flex flex-col gap-3 ">
+                    <BasketCard
+                            v-for="(item, index) in store.products"
+                            :key="index"
+                            :item="item"
+                    />
+                </div>
+            </div>
+            <div
+                    class="menu w-full bg-white text-primaryBlue rounded-t-xl  space-y-6 h-[1/3]"
             >
           </button-fill-vue>
         </div>
