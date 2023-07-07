@@ -1,8 +1,8 @@
 <template>
   <footer id="footer" class="mt-5">
-    <div class="w-[100%] mx-auto pb-[80px] md:pb-0">
+    <div class="w-[100%] mx-auto bg-[#FBC018]  pb-[80px] md:pb-0">
       <div
-        class="px-4 bg-[#444444BF] drop-shadow-lg rounded-t-2xl pt-5 flex flex-wrap flex-col md:flex-row justify-between shadow-lg text-white"
+        class="px-4 container mx-auto drop-shadow-lg rounded-t-2xl pt-5 flex flex-wrap flex-col md:flex-row justify-between shadow-lg text-black"
       >
         <div>
           <ul>

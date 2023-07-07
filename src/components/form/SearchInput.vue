@@ -16,7 +16,7 @@
         type="text"
         placeholder="search"
         style="caret-color: #35abb2; outline: none"
-        class="placeholder:text-[#7D7E8D] outline-offset-0 outline-0 w-full transition duration-300 focus:outline-0 hover:border-[#35ABB2] focus:!border-[#35ABB2] focus:!border text-[#18182F] font-medium leading-130 text-sm rounded-lg border border-[#E9EBF4] bg-white sm:py-[11px] py-[9px] min-w-[278px] sm:pl-10 px-9"
+        class="placeholder:text-[#7D7E8D] outline-offset-0 outline-0 w-full transition duration-300 focus:outline-0 hover:border-[#35ABB2] focus:!border-[#35ABB2] focus:!border text-[#18182F] font-medium leading-130 text-sm rounded-lg border border-[#E9EBF4] bg-white sm:py-[11px] py-[9px] min-w-[50px] sm:pl-10 px-9"
         @focus="onFocus"
         @blur="onBlur"
       />

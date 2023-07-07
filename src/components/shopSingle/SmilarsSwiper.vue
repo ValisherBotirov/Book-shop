@@ -15,37 +15,37 @@ import Card from "../card/SwiperCard.vue";
 const store = useProductDetailStore();
 
 const fakeProduct = [
-    {
-        id:1,
-        name:"Products",
-        product_detail:{
-            condition:"Bor",
-            price:1200
-        }
+  {
+    id: 1,
+    name: "Products",
+    product_detail: {
+      condition: "Bor", 
+      // price: 1200,
     },
-    {
-        id:2,
-        name:"Products",
-        product_detail:{
-            condition:"Bor",
-            price:1200
-        }
+  },
+  {
+    id: 2,
+    name: "Products",
+    product_detail: {
+      condition: "Bor",
+    //   price: 1200,
     },
-    {
-        id:3,
-        name:"Products",
-        product_detail:{
-            condition:"Bor",
-            price:1200
-        }
+  },
+  {
+    id: 3,
+    name: "Products",
+    product_detail: {
+      condition: "Bor",
+    //   price: 1200,
     },
-    {
-        id:4,
-        name:"Products",
-        product_detail:{
-            condition:"Bor",
-            price:1200
-        }
-    }
-]
+  },
+  {
+    id: 4,
+    name: "Products",
+    product_detail: {
+      condition: "Bor",
+    //   price: 1200,
+    },
+  },
+];
 </script>

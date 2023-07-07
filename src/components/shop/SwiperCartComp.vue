@@ -1,10 +1,6 @@
 <template>
   <!-- <pre>{{ store }}</pre> -->
-  <div class="container mx-auto"
-    v-for="data in fake"
-
-    :key="data.id"
-  >
+  <div class="container mx-auto" v-for="data in fake" :key="data.id">
     <RouterLink
       :to="`/shop/category/?search=${data.name}`"
       class="category-title group"
@@ -12,12 +8,8 @@
       {{ data.name }}
       <i class="fa-sharp fa-solid fa-arrow-right-long category-icon"></i>
     </RouterLink>
-
-    <Swiper class="">
-      <SwiperSlide
-        v-for="product in 5"
-        :data-swiper-slide-index="product.id"
-      >
+    <Swiper>
+      <SwiperSlide v-for="product in 5" :data-swiper-slide-index="product.id">
         <SwiperCard :product="fakeProduct" />
       </SwiperSlide>
     </Swiper>
@@ -33,60 +25,59 @@ const store = useMainProducts();
 
 if (!store.categories.length) store.getAllProductsByCategory();
 
-
 const fakeProduct = [
-    {
-        id:1,
-        name:"Products",
-        product_detail:{
-            condition:"Bor",
-            price:1200
-        }
+  {
+    id: 1,
+    name: "Products",
+    product_detail: {
+      condition: "Bor",
+      price: 1200,
     },
-    {
-        id:2,
-        name:"Products",
-        product_detail:{
-            condition:"Bor",
-            price:1200
-        }
+  },
+  {
+    id: 2,
+    name: "Products",
+    product_detail: {
+      condition: "Bor",
+      price: 1200,
     },
-    {
-        id:3,
-        name:"Products",
-        product_detail:{
-            condition:"Bor",
-            price:1200
-        }
+  },
+  {
+    id: 3,
+    name: "Products",
+    product_detail: {
+      condition: "Bor",
+      price: 1200,
     },
-    {
-        id:4,
-        name:"Products",
-        product_detail:{
-            condition:"Bor",
-            price:1200
-        }
-    }
-]
+  },
+  {
+    id: 4,
+    name: "Products",
+    product_detail: {
+      condition: "Bor",
+      price: 1200,
+    },
+  },
+];
 
 const fake = [
-    {
-        id:1,
-        name:"Tets1"
-    },
-    {
-        id:2,
-        name:"Tets1"
-    },
-    {
-        id:3,
-        name:"Tets1"
-    },
-    {
-        id:4,
-        name:"Tets1"
-    }
-]
+  {
+    id: 1,
+    name: "Tets1",
+  },
+  {
+    id: 2,
+    name: "Tets1",
+  },
+  {
+    id: 3,
+    name: "Tets1",
+  },
+  {
+    id: 4,
+    name: "Tets1",
+  },
+];
 </script>
 
 <style>

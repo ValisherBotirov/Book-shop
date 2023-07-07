@@ -1,9 +1,9 @@
 <template>
   <div class="w-full fixed z-[999] top-0 backdrop-blur-sm">
     <div
-      class="px-4 py-2 bg-[#444444BF] drop-shadow-lg rounded-b-2xl shadow-lg"
+      class="py-2 bg-[#FBC018] drop-shadow-lg rounded-b-2xl shadow-lg"
     >
-      <div class="gap-4 flex justify-between items-center">
+      <div class="container mx-auto lg:gap-4 flex justify-between items-center">
         <span @click="isOpenSidebar = true" class="md:hidden text-white">
           <i class="fa-solid fa-bars p-3 text-xl"></i>
         </span>
@@ -22,16 +22,16 @@
             alt=""
           />
           <span
-            class="uppercase font-normal text-lg md:text-xl duration-200 text-white"
+            class="font-normal text-lg md:text-xl duration-200 text-white"
           >
-            BOOKSHOP
+            Fayzbook
           </span>
         </RouterLink>
 
         <div class="hidden md:flex"></div>
         <div class="hidden md:flex items-center grow">
           <Category />
-          <div class="w-full relative mx-2">
+          <div class="w-full relative mx-1">
             <SearchInput
               class="w-full"
               @getFocus="(e) => (showSearchBox = e)"

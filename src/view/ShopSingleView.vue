@@ -1,12 +1,15 @@
 <template>
   <div>
     <div class="container mx-auto">
-      <RouteLink class="mb-3 text-base" :route="routeLink" /> 
-
-      <div class="grid grid-cols-12 gap-8 my-8 mt-[60px] md:mt-8">
-        <div class="swiperImg col-span-12 md:col-span-6 relative">
+      <RouteLink class="mb-3 text-base" :route="routeLink" />
+      <h1 class="text-xl  ">
+        Shayx Muhammad Sodiq Muhammad Yusuf:
+        <span>Olam va Odam Din va Ilm</span>
+      </h1>
+      <div class="grid grid-cols-12 my-8 mt-[60px] md:mt-8">
+        <div class="swiperImg col-span-12 md:col-span-4 relative">
           <img
-            class="rounded-xl w-full h-auto"
+            class="rounded-xl object-cover cursor-pointer w-[100%]"
             :src="image"
             alt="product image"
           />
@@ -14,19 +17,25 @@
             <SavedButton @isSaved="fetchSaved" />
           </div>
         </div>
-        <div class="content col-span-12 md:col-span-6">
+        <div class="content col-span-12 md:col-span-8">
           <SingleContentComp />
         </div>
       </div>
       <div class="moreInfo">
         <div class="flex gap-4 mb-6">
-          <button class="font-bold border-b py-1 text-primary border-primary">
-            Описание
+          <button
+            class="font-bold border-b py-1 text-2xl text-[#333] border-primary"
+          >
+            Mahsulot ta'rifi
           </button>
         </div>
         <div>
-          <p class="text-primary mb-6">
-            bu yerda description bo'ladi tovar haqida
+          <p class="text-[#333] text-xl mb-6 sx:w-[100%] md:w-[50%]">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+            blanditiis assumenda amet officia consequatur neque. Lorem, ipsum
+            dolor sit amet consectetur adipisicing elit. At facilis dolorum
+            veritatis expedita sequi similique natus nihil cumque perferendis
+            nulla!
           </p>
         </div>
       </div>
