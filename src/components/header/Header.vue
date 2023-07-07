@@ -1,8 +1,6 @@
 <template>
   <div class="w-full fixed z-[999] top-0 backdrop-blur-sm">
-    <div
-      class="py-2 bg-[#FBC018] drop-shadow-lg rounded-b-2xl shadow-lg"
-    >
+    <div class="bg-black drop-shadow-lg rounded-b-2xl shadow-lg">
       <div class="container mx-auto lg:gap-4 flex justify-between items-center">
         <span @click="isOpenSidebar = true" class="md:hidden text-white">
           <i class="fa-solid fa-bars p-3 text-xl"></i>
@@ -16,16 +14,7 @@
               : 'text-white'
           "
         >
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/2232/2232688.png"
-            class="w-[30px] md:w-[40px]"
-            alt=""
-          />
-          <span
-            class="font-normal text-lg md:text-xl duration-200 text-white"
-          >
-            Fayzbook
-          </span>
+          <img :src="logo" class="w-[50px] md:w-[100px] object-cover" alt="" />
         </RouterLink>
 
         <div class="hidden md:flex"></div>
@@ -77,15 +66,6 @@
           />
           <SearchResult v-if="showSearchBox" @click="isShowSearch" />
         </div>
-
-        <!-- savatcha -->
-
-        <!-- <ShopCart
-          @click="openShopModal = true"
-          class="flex md:flex"
-          customClass="w-[30px] h-[30px]"
-          customCircleClass="!w-6 !h-6"
-        /> -->
       </div>
     </div>
   </div>
@@ -121,6 +101,7 @@ import LineSVG from "@/components/header/LineSVG.vue";
 import SignSection from "@/components/header/SignSection.vue";
 import AuthSection from "@/components/header/AuthSection.vue";
 import Category from "../category/Category.vue";
+import logo from "../../assets/img/static/logo_books.png";
 const store = useUserRegister();
 const router = useRouter();
 const { t } = useI18n();

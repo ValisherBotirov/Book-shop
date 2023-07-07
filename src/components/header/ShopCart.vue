@@ -1,6 +1,6 @@
 <template>
   <div
-    class="group relative transition-all fill-white group hover:fill-primary active:fill-primary cursor-pointer"
+    class="group relative transition-all fill-[#fff] group hover:fill-[#F4CE47] active:fill-[#fff] cursor-pointer"
   >
     <span class="relative">
       <svg
@@ -19,7 +19,7 @@
         />
       </svg>
       <span
-        class="absolute flex flex-shrink-0 bottom-0 right-[-3px] w-4 h-4 rounded-full bg-black group-hover:bg-primary hover:bg-primary text-gray-100 text-[10px] items-center justify-center"
+        class="absolute flex flex-shrink-0 bottom-0 right-[-3px] w-4 h-4 rounded-full bg-white group-hover:bg-[#F4CE47] hover:bg-[#F4CE47] text-black text-[10px] font-medium items-center justify-center"
         :class="customCircleClass"
       >
         20

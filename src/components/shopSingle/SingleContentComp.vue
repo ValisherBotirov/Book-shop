@@ -16,20 +16,6 @@
           ></span
           ><span>Kirilcha</span>
         </li>
-        <li class="flex justify-between px-10 text-start items-center">
-          <span>Sana</span
-          ><span
-            class="iconAn w-[100%] border-dashed border-[1px] border-[#333] opacity-[0.5]"
-          ></span
-          ><span>10.07.2023</span>
-        </li>
-        <li class="flex justify-between  px-10 text-start items-center">
-          <span>Nashriyot</span
-          ><span
-            class="iconAn2 w-[100%] border-dashed border-[1px] border-[#333] opacity-[0.5]"
-          ></span
-          ><span>Hilol nashr</span>
-        </li>
       </ul>
     </div>
     <div

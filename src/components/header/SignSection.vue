@@ -2,16 +2,16 @@
   <div class="hidden md:flex items-center gap-2">
     <span
       @click="emit('isRegister', true)"
-      class="duration-200 cursor-pointer transition hover:text-primary"
+      class="duration-200 cursor-pointer transition hover:text-[#F4CE47]"
       >{{ $t("register") }}</span
     >
     <span
       @click="emit('isLogin', true)"
-      class="flex items-center gap-1 cursor-pointer border px-3 py-1 rounded-xl duration-200 border-[#F4F6F9] hover:bg-[#F4F6F9] hover:text-primary group"
+      class="flex items-center gap-1 cursor-pointer border px-3 py-1 rounded-xl duration-200 border-[#fff] bg-[#F4CE47] hover:bg-white text-[#000] group"
     >
       <span>
         <svg
-          class="w-6 h-6 stroke-[#F4F6F9] group-hover:stroke-primary"
+          class="w-6 h-6 stroke-[#000] group-hover:stroke-primary"
           viewBox="0 0 35 35"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
