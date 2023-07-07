@@ -8,7 +8,7 @@
       @select="handleSelect"
     >
       <el-sub-menu index="1">
-        <template #title><span class="md:h-[43px] sx:py-2 flex items-center text-lg">Category</span></template>
+        <template #title><span class="md:h-[43px] sx:py-[5px] sx:text-[15px] md:text-[20px] flex items-center text-lg">Category</span></template>
         <el-menu-item index="2-1">ok</el-menu-item>
         <el-menu-item index="2-2">Yangi kitoblar</el-menu-item>
         <el-sub-menu index="2-3">
@@ -43,84 +43,10 @@ const activeIndex = ref("1");
 const handleSelect = (key: string, keyPath: string[]) => {
   console.log(key, keyPath);
 };
-
-const arr = [
-  {
-    id: 1,
-    name: "biznes",
-  },
-  {
-    id: 2,
-    name: "adssa",
-    child: [
-      {
-        id: 1,
-        name: "sdfn",
-      },
-      {
-        id: 2,
-        name: "dfsd2",
-      },
-      {
-        id: 3,
-        name: "sdfn3",
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: "rus",
-  },
-  {
-    id: 4,
-    name: "jahon",
-    child: [
-      {
-        id: 1,
-        name: "sdfn",
-      },
-      {
-        id: 2,
-        name: "dfsd2",
-      },
-      {
-        id: 3,
-        name: "sdfn3",
-      },
-    ],
-  },
-];
 </script>
 
 <style>
 .flex-grow {
   flex-grow: 1;
-}
-
-@media (min-width: 240px) {
-  .el-sub-menu__title {
-    padding-left: 8px !important;
-    padding-right: 8px !important;
-  }
-  .el-sub-menu__icon-arrow {
-    display: none !important;
-  }
-}
-@media (min-width: 768px) {
-  .el-sub-menu__title {
-    height: 40px !important;
-  }
-}
-.el-sub-menu__icon-arrow {
-  display: none !important;
-}
-@media (min-width: 1536px) {
-  .el-sub-menu__title {
-    padding: 0px 50px 0px 20px !important;
-    height: 45px !important;
-  }
-  .el-sub-menu__icon-arrow {
-    display: block !important;
-  }
 }
 </style>

@@ -7,7 +7,7 @@
     >
     <span
       @click="emit('isLogin', true)"
-      class="flex items-center gap-1 cursor-pointer border px-3 py-1 rounded-xl duration-200 border-[#fff] bg-[#F4CE47] hover:bg-white text-[#000] group"
+      class="flex items-center gap-1 cursor-pointer border px-3 py-1 rounded-[6px] duration-200 border-[#fff] bg-[#F4CE47] hover:bg-white text-[#000] group"
     >
       <span>
         <svg

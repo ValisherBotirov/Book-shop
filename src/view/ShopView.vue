@@ -1,6 +1,6 @@
 <template>
   <div class="space-y-6">
-    <SwiperBigCompVue class=" pt-[35px]" />
+    <SwiperBigCompVue class="sx:pt-[70px] md:pt-[35px]" />
     <SwiperCartCompVue  />
   </div>
 </template>

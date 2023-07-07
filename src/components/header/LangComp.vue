@@ -27,7 +27,7 @@
       </p>
     </span>
     <ul
-      class="absolute hidden group-hover:block group-focus-within:block top-full bg-white shadow-lg text-primary min-w-[6rem] rounded-md overflow-hidden"
+      class="absolute hidden z-10 group-hover:block group-focus-within:block top-full sx:right-1 md:right-0 bg-white shadow-lg text-primary min-w-[6rem] rounded-md overflow-hidden"
     >
       <li
         v-for="(val, i) in activeArr"
