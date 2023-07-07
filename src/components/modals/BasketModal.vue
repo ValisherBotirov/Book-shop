@@ -17,16 +17,16 @@
         <!-- empty component start-->
         <div
           v-if="!store.productCount"
-          class="empty  text-white flex flex-col gap-3"
+          class="empty  text-white flex flex-col gap-3 text-center mt-5"
         >
           <div class="empty_img self-center">
             <SVGEmtyBasket />
           </div>
-          <p class="titleName text-2xl">Ваша корзина пуста</p>
-          <p class="titleName text-sm">
+          <p class="text-black text-2xl">Ваша корзина пуста</p>
+          <p class="text-black text-sm">
             Перейдите на страницу магазина и начните покупки сейчас
           </p>
-          <p class="titleName text-sm">Желаем приятных покупок!</p>
+          <p class="text-black text-sm">Желаем приятных покупок!</p>
           <button-fill-vue color="#D52C55" to="/">
             <span @click="closeModal" class="py-2 self-start"
               >Перейти в каталог</span
