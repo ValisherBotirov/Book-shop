@@ -7,12 +7,12 @@
         ></div>
         <div
                 :class="isOpen ? 'translate-x-0' : 'translate-x-full'"
-                class="fixed w-[30rem] inset-y-0 z-[99999] duration-300 right-0 bg-white  flex flex-col justify-between items-center px-2 py-3"
+                class="fixed w-[30rem] inset-y-0 z-[99999] duration-300 right-0 bg-white  flex flex-col justify-between items-center px-4 py-3"
         >
-            <div class="text-start pt-2 space-y-2 overflow-y-auto h-[2/3]">
-                <div class="flex text-black justify-between">
-                <p class=" text-lg text-center ">Cart</p>
-                    <i class="fa-solid fa-xmark text-lg hover:text-[red]"></i>
+            <div class="text-start mt-2 space-y-2 overflow-y-auto h-[2/3]">
+                <div class="flex text-black justify-between border-b pb-3 border-[#e1e1e1]">
+                <p class="text-lg text-center ">Cart</p>
+                    <i class="fa-solid fa-xmark text-lg hover:text-[red] cursor-pointer " @click="closeModal"></i>
                 </div>
                 <!-- empty component start-->
                 <div
