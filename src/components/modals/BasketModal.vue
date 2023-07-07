@@ -7,10 +7,13 @@
         ></div>
         <div
                 :class="isOpen ? 'translate-x-0' : 'translate-x-full'"
-                class="fixed w-[30rem] inset-y-0 z-[99999] duration-300 right-0 bg-blue-500 text-center flex flex-col justify-between items-center"
+                class="fixed w-[30rem] inset-y-0 z-[99999] duration-300 right-0 bg-white  flex flex-col justify-between items-center px-2 py-3"
         >
             <div class="text-start pt-2 space-y-2 overflow-y-auto h-[2/3]">
-                <p class="text-white text-3xl text-center">Корзина</p>
+                <div class="flex text-black justify-between">
+                <p class=" text-lg text-center ">Cart</p>
+                    <i class="fa-solid fa-xmark text-lg hover:text-[red]"></i>
+                </div>
                 <!-- empty component start-->
                 <div
                         v-if="!store.productCount"
@@ -32,7 +35,7 @@
                 </div>
                 <!-- empty component end -->
 
-                <div v-else class="flex flex-col gap-3 px-4">
+                <div v-else class="flex flex-col gap-3 ">
                     <BasketCard
                             v-for="(item, index) in store.products"
                             :key="index"
@@ -41,7 +44,7 @@
                 </div>
             </div>
             <div
-                    class="menu w-full bg-white text-primaryBlue rounded-t-xl px-8 py-8 space-y-6 h-[1/3]"
+                    class="menu w-full bg-white text-primaryBlue rounded-t-xl  space-y-6 h-[1/3]"
             >
                 <div class="flex justify-between items-center font-bold">
                     <p>{{ $t("all") }}</p>

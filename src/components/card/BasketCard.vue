@@ -1,17 +1,17 @@
 <template>
   <div
-    class="card bg-white rounded-xl grid grid-cols-2 max-h-48 overflow-hidden"
+    class="card bg-white rounded-xl grid grid-cols-3 max-h-48 overflow-hidden"
   >
-    <div class="img h-full">
+    <div class="img h-full col-span-1">
       <router-link :to="`/shop/${item?.id}`">
         <img
           class="object-cover h-full w-full object-center"
-          :src="item?.image_url"
+          :src="item?.image_url ? item.image_url : 'https://islom.uz/img/section/section_1503922927.jpg'"
           alt="cardImg"
         />
       </router-link>
     </div>
-    <div class="img rounded-xl bg-[#F4F6F9] flex flex-col gap-3 p-3 relative">
+    <div class="img rounded-xl bg-[#F4F6F9] flex flex-col gap-3 px-3 py-2 relative col-span-2">
       <div
         class="delete absolute top-2 right-3 cursor-pointer"
         @click="deleteProduct(item.id)"
@@ -22,11 +22,9 @@
         :to="`/shop/${item?.id}`"
         class="transition duration-100 hover:text-primaryBlue line-clamp-2"
       >
-        {{ item?.name }}
+        {{ item?.name }} Shayx Muhammad Sodiq Muhammad Yusuf - Kifoya
       </router-link>
-      <router-link :to="`/shop/${item?.id}`" class="text-primaryBlue"
-        >В наличии</router-link
-      >
+
       <div class="flex justify-between items-center flex-wrap">
         <p class="font-semibold">
           {{ numberWithSpaces(item?.product_detail?.price) }} сум
