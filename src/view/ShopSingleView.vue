@@ -23,9 +23,7 @@
       </div>
       <div class="moreInfo">
         <div class="flex gap-4 mb-6">
-          <button
-            class="font-bold border-b py-1 text-2xl text-[#333] border-primary"
-          >
+          <button class="font-bold border-b py-1 text-2xl text-[#333] border-primary">
             Mahsulot ta'rifi
           </button>
         </div>
