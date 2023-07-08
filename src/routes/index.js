@@ -35,6 +35,11 @@ const routes = [
     name: "Basket",
     component: () => import("../view/BasketView.vue"),
   },
+  {
+    path: "/favourites",
+    name: "Favourites",
+    component: () => import("../view/Favourites.vue"),
+  },
 
   {
     path: "/profile",

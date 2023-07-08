@@ -13,7 +13,6 @@
     >
       <swiper-slide
         class="rounded-xl overflow-hidden"
-
         v-for="val in fakeBanner"
         :key="val.id"
       >

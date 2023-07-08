@@ -1,6 +1,8 @@
 <template>
   <div class="w-full fixed z-[999] top-0 backdrop-blur-sm">
-    <div class="bg-black drop-shadow-lg sx:rounded-b-0 md:rounded-b-2xl shadow-lg">
+    <div
+      class="bg-black drop-shadow-lg sx:rounded-b-0 md:rounded-b-2xl shadow-lg"
+    >
       <div class="container mx-auto lg:gap-4 flex justify-between items-center">
         <span @click="isOpenSidebar = true" class="md:hidden text-white">
           <i class="fa-solid fa-bars p-3 text-xl"></i>
@@ -32,7 +34,9 @@
 
         <div class="text-[#F4F6F9] flex items-center gap-2">
           <div class="flex justify-between items-center gap-3">
+          <RouterLink to="/favourites">
             <SavedCart class="hidden md:block" />
+          </RouterLink>
             <ShopCart @click="openShopModal = true" class="hidden md:block" />
             <LangCompVue />
             <BasketModal
@@ -53,7 +57,7 @@
         </div>
       </div>
       <div
-        class="flex items-center gap-1 border-t py-2 px-2  border-white b md:hidden justify-between mt-3 mb-1"
+        class="flex items-center gap-1 border-t py-2 px-2 border-white b md:hidden justify-between mt-3 mb-1"
       >
         <div>
           <Category />
