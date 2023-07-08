@@ -1,5 +1,5 @@
 <template>
-  <div class="card bg-[#f9fafd] shadow-sm h-full rounded-xl overflow-hidden">
+  <div class="card bg-[#f9fafd] shadow h-full rounded-xl overflow-hidden">
     <div class="imgCard h-[200px] overflow-hidden relative">
       <router-link :to="`/shop/${product.id ? product.id : 1}`">
         <img
@@ -18,7 +18,7 @@
       <div>
         <router-link
           :to="`/shop/${product.id ? product.id : 1}`"
-          class="hover:text-blue-500 duration-150 text-md font-bold line-clamp-1"
+          class="hover:text-[#F4CE47] duration-150 text-md font-bold line-clamp-1"
         >
           {{ product.name }} Title
         </router-link>
@@ -33,7 +33,7 @@
         <SaveBasket
           @click="addBasket(product)"
           :isClick="isClick"
-          class="w-full mt-2"
+          class="w-full mt-2 text-sm sm:text-base"
         >
           Savatga qo'shish
         </SaveBasket>
