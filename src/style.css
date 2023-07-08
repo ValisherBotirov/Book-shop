@@ -11,7 +11,7 @@ html {
   font-family: "Jost", sans-serif;
 }
 body {
-  background-color: #fafcf5;
+  background-color: #fff;
   overflow-x: hidden;
   scroll-behavior: smooth;
   position: relative;
@@ -39,9 +39,9 @@ input[type="number"] {
 
 .swiper-button-next,
 .swiper-button-prev {
-  background-color: #aecbf4;
+  background-color: #000;
   border-radius: 50%;
-  color: #002e69f2;
+  color: white !important;
   width: 2.4rem !important;
   height: 2.4rem !important;
 }
@@ -63,9 +63,7 @@ input[type="number"] {
 .swiper-pagination-bullet-active {
   background-color: black;
 }
-.swiperCardComp .swiper-button-prev {
-  display: none;
-}
+
 
 @media (min-width: 240px) {
 

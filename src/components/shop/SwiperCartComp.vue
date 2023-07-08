@@ -82,7 +82,7 @@ const fake = [
 
 <style>
 .category-title {
-  @apply inline text-2xl lg:text-3xl text-primaryBlue font-semibold pl-4 pb-4 line-clamp-1;
+  @apply inline text-2xl lg:text-3xl text-black font-semibold pl-4 pb-4 line-clamp-1;
 }
 .category-icon {
   @apply pl-3 translate-y-[2px] group-hover:translate-x-3 duration-200;

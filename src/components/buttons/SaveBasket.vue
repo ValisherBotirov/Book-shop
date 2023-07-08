@@ -1,5 +1,5 @@
 <template>
-  <div  class="card duration-300 text-[#002E69] hover:text-white border-[#002E69]  hover:bg-[#002E69]  bg-white border py-2 px-2 rounded-lg flex items-center justify-center cursor-pointer" @click="saveBasket" :class="customClass">
+  <div  class="card duration-300 text-[#000] hover:text-white border-[#000]  hover:bg-[#000]  bg-white border py-2 px-2 rounded-lg flex items-center justify-center cursor-pointer" @click="saveBasket" :class="customClass">
       <div class="flex gap-2 items-center">
           <i v-if="icon" class="fa-sharp fa-solid fa-cart-plus text-[20px] " :class="isClick ? 'fa-bounce' : 'fa-fade'"></i>
           <slot></slot>

@@ -26,7 +26,7 @@ module.exports = {
         "10/3": "10 / 3",
       },
       boxShadow:{
-        card:'box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'
+        card:'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'
       }
     },
   },
