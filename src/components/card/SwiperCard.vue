@@ -9,7 +9,8 @@
         />
       </router-link>
       <div class="absolute top-1 right-1">
-          <SavedButton @isSaved="fetchSaved"/> 
+          <SavedButton v-if="!isDelete" @isSaved="fetchSaved"/>
+          <i v-else class="fa-sharp fa-solid fa-trash text-xl cursor-pointer text-[red]"></i>
       </div>
     </div>
     <div
@@ -42,17 +43,34 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed, ref } from "vue";
 import SaveBasket from "../buttons/SaveBasket.vue";
 import numberWithSpaces from "../../helpers/numberFormat.js";
 import { useBasketStore } from "@/store/basketProducts.js";
 import SavedButton from "@/components/buttons/SavedButton.vue";
 const store = useBasketStore();
+
+interface Props{
+    product?:{
+        id:number,
+        name:string,
+        product_detail?:{
+            price:number,
+            condition:string
+        }
+    }
+    isDelete?:boolean
+}
+
+withDefaults( defineProps<Props>(),{
+    isDelete:false
+})
+
 const isClick = ref(false);
 
-const props = defineProps(["product"]);
-const product = computed(() => props.product);
+// const props = defineProps(["product"]);
+// const product = computed(() => props.product);
 
 const fetchSaved =(e)=>{
     console.log(e,"emit")
