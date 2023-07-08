@@ -1,6 +1,5 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
-import Paginate from "vuejs-paginate-next";
 import { MotionPlugin } from "@vueuse/motion";
 import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
 import Toast from "vue-toastification";
@@ -17,6 +16,10 @@ import "./style.css";
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 
+// vueAwesomePagination
+import VueAwesomePaginate from "vue-awesome-paginate";
+import "vue-awesome-paginate/dist/style.css";
+
 const app = createApp(App);
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
@@ -24,7 +27,7 @@ pinia.use(piniaPluginPersistedstate);
 app.use(router);
 app.use(i18n);
 app.use(pinia);
-app.use(Paginate);
+app.use(VueAwesomePaginate);
 app.use(Toast);
 app.use(MotionPlugin);
 app.use(ElementPlus)
