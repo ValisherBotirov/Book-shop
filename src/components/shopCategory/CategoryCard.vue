@@ -1,31 +1,18 @@
 <template>
   <div class="pt-5 md:p-0">
-    <!-- <p
-      v-if="!hasProduct && categoryStore.error"
-      class="text-center text-2xl text-gray-500 font-semibold mt-12"
-    >
-      {{ categoryStore.error }}
-    </p>
-    <p
-      v-if="!hasProduct && !categoryStore.error"
-      class="text-center text-2xl text-gray-500 font-semibold mt-12 my-12"
-    >
-      Siz izlayotgan mahsulot yoki jihoz ma`lumotlar bazasidan topilmadi!
-    </p> -->
     <ul v-if="!hasProduct" class="cardContainer mt-6">
       <li v-for="product in fake" :key="product.id">
         <Card :product="product.name" />
       </li>
     </ul>
-    <div v-if="hasProduct" class="flex justify-center py-6">
-      <Paginate />
+    <div  class="flex justify-center py-6">
+      Paginate
     </div>
   </div>
 </template>
 
 <script setup>
-import { useCategoryProduct } from "../../store/categoryProduct";
-import Paginate from "./Paginate.vue";
+import { useCategoryProduct } from "@/store/categoryProduct.js";
 import Card from "../card/SwiperCard.vue";
 import { computed } from "vue";
 

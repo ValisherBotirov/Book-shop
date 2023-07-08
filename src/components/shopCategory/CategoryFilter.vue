@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Decktop category -->
-    <div class="md:flex hidden justify-center mt-5 py-5 md:w-[90%] lg:w-[80%] bg-[#fff] rounded-xl">
+    <div class="md:flex hidden justify-center mt-5 py-5 md:w-[90%] lg:w-[80%] bg-[#fff] rounded-xl shadow-card">
       <ul class="flex flex-col gap-3 text-left">
         <li class="cursor-pointer hover:text-blue-700">
           <a href="#">Biznes kitoblar</a>
