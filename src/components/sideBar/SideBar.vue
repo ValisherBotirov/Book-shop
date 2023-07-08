@@ -7,7 +7,7 @@
     ></div>
     <div
       :class="isOpenSidebar ? 'translate-x-0' : '-translate-x-full'"
-      class="fixed z-[999999] duration-200 inset-y-0 left-0 w-2/3 bg-blue100"
+      class="fixed z-[999999] duration-200 inset-y-0 left-0 sx:w-[80%] md:max-w-[60%] bg-[#fafcf5]"
     >
       <div class="relative h-full px-8 py-8">
         <div class="">
@@ -45,11 +45,9 @@
             v-else
             class="border rounded-lg block border-gray-700 mb-8 hover:bg-[#d8e0ef] active:bg-[#d8e0ef] duration-200"
           >
-            <div class="flex items-center py-3 px-3 gap-3">
-              <div
-                class="h-20 aspect-square rounded-full object-cover object-center bg-gray-300 flex items-center justify-center"
-              >
-                <i class="fa-solid fa-user text-4xl text-gray-500"></i>
+            <div class="flex items-center p-1 gap-3">
+              <div class="sx:h-[50px] aspect-square rounded-full object-cover object-center bg-gray-300 flex items-center justify-center">
+                <i class="fa-solid fa-user sx:text-2xl md:text-4xl text-gray-500"></i>
               </div>
               <p class="text-lg font-semibold text-gray-600">Not user</p>
             </div>
@@ -62,7 +60,7 @@
               v-for="item in routeNav"
               :key="item.id"
             >
-              <RouterLink @click="emit('openSidebar')" class="inline-block px-8 py-3" :to="item.link">
+              <RouterLink @click="emit('openSidebar')" class=" sx:flex items-center sx:px-0 sx:text-[16px] sx:py-0 md:text-[22px] md:inline-block px-8 md:py-3" :to="item.link">
                 <i :class="item.class"></i>
                 {{ item.name }}
               </RouterLink>
