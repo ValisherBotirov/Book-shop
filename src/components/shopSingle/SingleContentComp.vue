@@ -30,20 +30,26 @@
           <span>Sotuvda</span><span>Bor</span>
         </li>
       </ul>
-      <ul class="md:px-10 lg:px-[26px] xl:px-10 pt-12 flex justify-between gap-3">
+      <ul
+        class="md:px-10 lg:px-[26px] xl:px-10 pt-12 flex justify-between gap-3"
+      >
         <li
+          @click="openModalAudio"
           class="translation flex items-center gap-3 cursor-pointer justify-center bg-[#002E69] rounded-md w-[50%] py-2 text-white hover:bg-transparent hover:text-black hover:border-black border-[1px] hover:border-solid"
         >
           <i class="iconAn fa-solid fa-headphones"></i>Kitob audiosi
         </li>
         <li
+          @click="openModalPdf"
           class="translation flex items-center gap-3 cursor-pointer justify-center bg-[#002E69] rounded-md w-[50%] py-2 text-white hover:bg-transparent hover:text-black hover:border-black border-[1px] hover:border-solid"
         >
           <i class="iconAn fa-solid fa-book-open"></i> Kitobni o'qish
         </li>
       </ul>
     </div>
-    <div class="border-[#9d9a9a] border-solid border-[2px] p-5 sx:mt-3 md:mt-0 rounded-xl sx:w-[100%] md:w-[50%]">
+    <div
+      class="border-[#9d9a9a] border-solid border-[2px] p-5 sx:mt-3 md:mt-0 rounded-xl sx:w-[100%] md:w-[50%]"
+    >
       <div class="flex items-end gap-3 relative">
         <h1 class="font-medium text-2xl">40 000 so'm</h1>
         <del class="font-medium text-xl opacity-[0.5]">52 000 so'm</del>
@@ -72,14 +78,32 @@
         </SaveBasket>
       </div>
     </div>
+    <BooksTypeModal
+      @closeBookTypeModal="isModalBook = false"
+      v-if="isModalBook"
+      :type="typeModal"
+    />
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 import InputCount from "../../components/shop/InputCount.vue";
 import SaveBasket from "@/components/buttons/SaveBasket.vue";
+import BooksTypeModal from "../modals/BooksTypeModal.vue";
+const typeModal = ref("");
+const isModalBook = ref(false);
+const emit = defineEmits(["isModalBook"]);
 const count = ref(1);
+
+const openModalAudio = () => {
+  isModalBook.value = true;
+  typeModal.value = "audio";
+};
+const openModalPdf = () => {
+  isModalBook.value = true;
+  typeModal.value = "pdf";
+};
 </script>
 <style scoped>
 .translation {

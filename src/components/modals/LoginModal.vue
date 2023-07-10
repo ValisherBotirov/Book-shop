@@ -1,9 +1,6 @@
 <template>
   <Teleport to="body">
-    <div
-      @click="emit('closeLoginModal')"
-      class="fixed z-[999999] bg-[#00000030] inset-0 backdrop-blur-[11.5px]"
-    ></div>
+    <div  @click="emit('closeLoginModal')" class="fixed z-[999999] bg-[#00000030] inset-0 backdrop-blur-[11.5px]" ></div>
     <div
       class="fixed z-[999999] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg max-sm:w-[90%] sm:w-[80%] md:w-[70%] lg:w-[50%]"
     >

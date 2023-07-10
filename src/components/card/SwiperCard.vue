@@ -9,8 +9,8 @@
         />
       </router-link>
       <div class="absolute top-1 right-1">
-          <SavedButton v-if="!isDelete" @isSaved="fetchSaved"/>
-          <i v-else class="fa-sharp fa-solid fa-trash text-xl cursor-pointer text-[red]"></i>
+        <SavedButton v-if="!isDelete" @isSaved="fetchSaved" />  
+        <i v-else class="deleteIcon fa-solid fa-trash-can text-[#fafcf5] hover:text-[#ff0000dc]"></i>
       </div>
     </div>
     <div
@@ -51,31 +51,31 @@ import { useBasketStore } from "@/store/basketProducts.js";
 import SavedButton from "@/components/buttons/SavedButton.vue";
 const store = useBasketStore();
 
-interface Props{
-    product?:{
-        id:number,
-        name:string,
-        product_detail?:{
-            price:number,
-            condition:string
-        }
-    }
-    isDelete?:boolean
+interface Props {
+  product?: {
+    id: number;
+    name: string;
+    product_detail?: {
+      price: number;
+      condition: string;
+    };
+  };
+  isDelete?: boolean;
 }
 
-withDefaults( defineProps<Props>(),{
-    isDelete:false
-})
+withDefaults(defineProps<Props>(), {
+  isDelete: false,
+});
 
 const isClick = ref(false);
 
 // const props = defineProps(["product"]);
 // const product = computed(() => props.product);
 
-const fetchSaved =(e)=>{
-    console.log(e,"emit")
-//     axios zapros shu yerga yoziladi
-}
+const fetchSaved = (e) => {
+  console.log(e, "emit");
+  //     axios zapros shu yerga yoziladi
+};
 
 function addBasket(product) {
   isClick.value = !isClick.value;
@@ -126,3 +126,16 @@ const fakeProduct = [
   },
 ];
 </script>
+<style scoped>
+.deleteIcon{
+  font-size: 24px;
+  padding-right: 5px;
+  padding-top: 5px;
+  transform: scale(0.95);
+  transition: all 0.4s linear;
+}
+.deleteIcon:hover{
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+</style>
