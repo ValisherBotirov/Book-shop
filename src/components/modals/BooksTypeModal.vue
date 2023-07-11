@@ -4,7 +4,7 @@
     class="fixed z-[999999] bg-[#00000030] inset-0 backdrop-blur-[11.5px]"
   ></div>
   <div
-    class="fixed z-[999999] bg-[#fafcf5] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg max-sm:w-[90%] sm:w-[80%] md:w-[70%] lg:w-[50%] sx:p-3 sx:pt-8 md:p-5 rounded-md"
+    class=" fixed z-[999999] bg-[#fafcf5] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg max-sm:w-[90%] sm:w-[80%] md:w-[70%] lg:w-[50%] sx:p-3 sx:pt-8 md:p-5 rounded-md"
   >
     <div class="grid sx:grid-cols-1 md:grid-cols-2" v-if="type === 'audio'">
       <div class="w-[100%]">
@@ -43,7 +43,7 @@
         </ul>
       </div>
     </div>
-    <div class="grid sx:grid-cols-1 md:grid-cols-2" v-else-if="type === 'pdf'">
+    <div class="grid sx:grid-cols-1 md:grid-cols-2 opacity-[10]" v-else-if="type === 'pdf'">
       <div class="w-[100%]">
         <img
           :src="imageBook"
@@ -102,3 +102,8 @@ withDefaults(defineProps<Props>(), {
 });
 const emit = defineEmits(["closeBookTypeModal"]);
 </script>
+<style scoped>
+.ok{
+  transition: all 3s linear;
+}
+</style>

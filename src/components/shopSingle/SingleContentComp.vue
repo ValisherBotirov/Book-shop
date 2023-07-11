@@ -1,5 +1,5 @@
 <template>
-  <div class="md:flex block sx:py-5 lg:py-0">
+  <div class="md:flex block sx:py-5 sx:mt-3 lg:py-0">
     <div class="md:w-[50%] w-[100%]">
       <ul>
         <li class="flex justify-between md:px-10 text-start items-center">
@@ -48,7 +48,7 @@
       </ul>
     </div>
     <div
-      class="border-[#9d9a9a] border-solid border-[2px] p-5 sx:mt-3 md:mt-0 rounded-xl sx:w-[100%] md:w-[50%]"
+      class="border-[#9d9a9a] border-solid border-[2px] p-5 sx:mt-6 md:mt-0 rounded-xl sx:w-[100%] md:w-[50%]"
     >
       <div class="flex items-end gap-3 relative">
         <h1 class="font-medium text-2xl">40 000 so'm</h1>
