@@ -10,7 +10,7 @@
       :isOpen="openShopModal"
       @closeModal="(e) => (openShopModal = e)"
     />
-    <MobileCategory @click="openShopModal = true" />
+    <MobileCategory @openBasketModal="openShopModal = true"/>
     <FooterVue />
   </div>
   <Loading v-if="loading" />

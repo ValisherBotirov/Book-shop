@@ -1,38 +1,30 @@
 <template>
-  <div class="sticky top-[200px]">
+  <div class="mt-5">
     <!-- Decktop category -->
     <div
-      class="flex flex-col items-center py-5 md:w-[90%] lg:w-[80%] bg-[#fff] rounded-xl shadow-card"
+      class="md:flex hidden flex-col items-start md:pl-6 lg:pl-10 py-5 md:w-[90%] bg-[#fff] rounded-xl shadow-card"
     >
       <div class="flex flex-col">
-        <el-checkbox v-model="checked1" label="Option 1" size="large" />
-        <el-checkbox v-model="checked2" label="Option 2" size="large" />
+        <el-checkbox v-model="checked1" label="Biznes" size="large" />
+        <el-checkbox v-model="checked2" label="Ertak" size="large" />
+        <el-checkbox v-model="checked2" label="Adabiyot" size="large" />
+        <el-checkbox v-model="checked2" label="Nodir" size="large" />
+        <el-checkbox v-model="checked2" label="Ikromov" size="large" />
+        <el-checkbox v-model="checked2" label="Jizzax" size="large" />
+        <el-checkbox v-model="checked2" label="Battar bo'l" size="large" />
+        <el-checkbox v-model="checked2" label="Garang" size="large" />
+        <el-checkbox v-model="checked2" label="Garangdi" size="large" />
       </div>
     </div>
     <!-- Books type checkbox -->
     <div
-      class="md:flex hidden justify-center mt-5 py-5 md:w-[90%] lg:w-[80%] bg-[#fff] rounded-xl shadow-card"
+      class="md:flex hidden flex-col items-start md:pl-6 lg:pl-10 mt-5 py-5 md:w-[90%] bg-[#fff] rounded-xl shadow-card"
     >
-      <ul class="grid grid-cols-1 gap-3 w-[100%] md:text-[16px] lg:text-[19px]">
-        <li class="cursor-pointer">
-          <label class="w-[100%] px-2 flex gap-3 pl-[20%]">
-            <input type="checkbox" class="cursor-pointer" />
-            <span class="cursor-pointer hover:text-blue-500">Qog'oz</span>
-          </label>
-        </li>
-        <li class="cursor-pointer">
-          <label class="w-[100%] px-2 flex gap-3 pl-[20%]">
-            <input type="checkbox" class="cursor-pointer" />
-            <span class="cursor-pointer hover:text-blue-500">Audio</span>
-          </label>
-        </li>
-        <li class="cursor-pointer">
-          <label class="w-[100%] px-2 flex gap-3 pl-[20%]">
-            <input type="checkbox" class="cursor-pointer" />
-            <span class="cursor-pointer hover:text-blue-500">PDF</span>
-          </label>
-        </li>
-      </ul>
+      <div class="flex flex-col">
+        <el-checkbox v-model="checked2" label="Qog'oz" size="large" />
+        <el-checkbox v-model="checked2" label="Audio" size="large" />
+        <el-checkbox v-model="checked2" label="Pdf" size="large" />
+      </div>
     </div>
   </div>
 </template>
@@ -53,7 +45,7 @@ const data = ref({
 });
 
 // checkbox element puls
-const checkList = ref(["selected and disabled", "Option A"]);
+// const checkList = ref(["selected and disabled", "Option A"]);
 
 async function rangeInp(rangeMinMaxArr) {
   data.value.range = rangeMinMaxArr;
@@ -85,3 +77,29 @@ const handleReset = () => {
   };
 };
 </script>
+<style>
+@media (min-width: 768px) {
+  .el-checkbox__label {
+    font-size: 16px !important;
+    color: #333;
+    margin-left: 5px;
+  }
+  .el-checkbox__inner {
+    border: 1px solid #696363 !important;
+  }
+  .el-checkbox__original:checked{
+    font-size: 20px !important;
+  }
+}
+@media (min-width: 1280px) {
+  .el-checkbox__label {
+    font-size: 18px !important;
+    margin-left: 10px; 
+  }
+}
+@media (min-width: 1536px) {
+  .el-checkbox__label {
+    font-size: 19px !important;
+  }
+}
+</style>
