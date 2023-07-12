@@ -8,7 +8,7 @@
     >
     <div
       :class="[
-        'inline-flex items-center transition-300 relative bg-grey-400 rounded-lg border overflow-hidden w-full p-3 group',
+        'inline-flex items-center transition-300 relative bg-grey-400 rounded-lg border overflow-hidden w-full sx:p-[6px] md:p-2 group',
         error ? '!border-[red]' : 'border-gray-500  focus-within:border-[blue]',
         customClass,
       ]"
@@ -43,7 +43,6 @@
         @focusout="$emit('focusout')"
         @focus="handleFocus"
       />
-
       <span :class="[suffixClass]" class="flex-center">
         <slot name="suffix" />
       </span>
