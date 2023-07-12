@@ -16,7 +16,13 @@
               : 'text-white'
           "
         >
-          <img :src="logo" class="w-[50px] md:w-[85px] object-cover" alt="" />
+          <div class="w-[50px] md:w-[85px]">
+            <img
+              :src="logo"
+              class="w-[100%] md:w-[100%] object-cover"
+              alt="site logo"
+            />
+          </div>
         </RouterLink>
 
         <div class="hidden md:flex"></div>
@@ -34,9 +40,9 @@
 
         <div class="text-[#F4F6F9] flex items-center gap-2">
           <div class="flex justify-between items-center gap-3">
-          <RouterLink to="/favourites">
-            <SavedCart class="hidden md:block" />
-          </RouterLink>
+            <RouterLink to="/favourites">
+              <SavedCart class="hidden md:block" />
+            </RouterLink>
             <ShopCart @click="openShopModal = true" class="hidden md:block" />
             <LangCompVue />
             <BasketModal
@@ -105,7 +111,7 @@ import LineSVG from "@/components/header/LineSVG.vue";
 import SignSection from "@/components/header/SignSection.vue";
 import AuthSection from "@/components/header/AuthSection.vue";
 import Category from "../category/Category.vue";
-import logo from "../../assets/img/static/logo_books.png";
+import logo from "../../assets/img/static/books.png";
 const store = useUserRegister();
 const router = useRouter();
 const { t } = useI18n();

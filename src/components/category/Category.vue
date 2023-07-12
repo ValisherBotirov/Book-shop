@@ -6,13 +6,10 @@
       mode="horizontal"
       :ellipsis="false"
       @select="handleSelect('sdfsd', [])"
+      v-if="!hasProduct"
     >
       <el-sub-menu index="1">
-        <template #title
-          ><span
-            class="md:h-[43px] sx:py-[5px] sx:text-[15px] md:text-[20px] flex items-center text-lg"
-            >Category</span
-          ></template
+        <template #title ><span class="md:h-[43px] sx:py-[5px] sx:text-[15px] md:text-[20px] flex items-center text-lg">Category</span></template
         >
         <div v-for="(item, index) in categories" :key="index">
           <el-menu-item v-if="!item?.children.length" :index="`2-${index}`">{{
@@ -33,7 +30,14 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
+
+// store
+import { useCategoryProduct } from "@/store/categoryProduct.js";
+const categoryStore = useCategoryProduct();
+categoryStore.getProducts();
+
+const hasProduct = computed(() => categoryStore.products.length);
 
 const activeIndex = ref("1");
 const handleSelect = (key: string, keyPath: string[]) => {
