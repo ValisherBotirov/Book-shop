@@ -39,10 +39,9 @@
             <div class="email flex flex-col gap-0">
               <label for="email">Phone number:</label>
               <FormInput
-                type="number"
+                type="string"
                 v-model="userData.phone"
-                name="phone"
-                id="phone"
+                v-maska="'(##) ###-##-##'"
               >
                 <template #prefix>
                   <span class="mr-1">+998</span>
