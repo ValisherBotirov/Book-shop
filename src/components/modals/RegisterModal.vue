@@ -12,30 +12,15 @@
       >
         <div class="flex flex-col gap-6">
           <form class="flex flex-col gap-2 text-black">
-            <div class="name flex flex-col gap-0">
-              <label for="username text-sm">Full Name:</label>
-              <!-- <input
-                class="border border-solid border-black min-w-[20rem]  rounded-[6px] py-1 px-3 text-[#333] outline-none text-start placeholder:text-[#000]"
-                type="text"
-                v-model="userData.username"
-                name="username"
-                id="username"
-                placeholder="Введите ваш логин"
-              /> -->
-              <FormInput
-                type="text"
-                v-model="userData.username"
-                name="username"
-                id="username"
-                placeholder="full name"
-              />
-              <p
-                v-if="v$.username.$error"
-                class="text-sm text-end text-red-600"
-              >
-                {{ v$.username.$errors[0].$message }}*
-              </p>
-            </div>
+            <FormInput
+              label="Full Name:"
+              type="text"
+              v-model="userData.username"
+              name="username"
+              id="username"
+              placeholder="full name"
+              :error="v$.username.$error"
+            />
 
             <FormInput
               type="string"
@@ -72,35 +57,29 @@
               </template>
             </FormInput>
 
-            <div class="confirmPassword flex flex-col gap-0">
-              <label for="passwordConfirm">Confirm Password:</label>
-              <FormInput
-                v-model="userData.passwordConfirm"
-                placeholder="confirm password"
-                id="passwordConfirm"
-                :type="eyeConfirmHidden ? 'text' : 'password'"
-              />
-              <span
-                @click="changeConfirmPassword"
-                v-if="!eyeConfirmHidden"
-                class="relative cursor-pointer"
-                ><i class="fa-solid fa-eye absolute right-2 bottom-3"></i
-              ></span>
-              <span
-                @click="changeConfirmPassword"
-                v-else
-                class="relative cursor-pointer"
-                ><i
-                  class="fa-sharp fa-solid fa-eye-slash absolute right-2 bottom-3"
-                ></i
-              ></span>
-              <p
-                v-if="v$.passwordConfirm.$error"
-                class="text-sm text-end text-red-600"
-              >
-                {{ v$.passwordConfirm.$errors[0].$message }}*
-              </p>
-            </div>
+            <FormInput
+              label="Confirm Password:"
+              v-model="userData.passwordConfirm"
+              placeholder="confirm password"
+              id="passwordConfirm"
+              :type="eyeConfirmHidden ? 'text' : 'password'"
+              :error="v$.passwordConfirm.$error"
+            >
+              <template #suffix>
+                <span
+                  @click="changeConfirmPassword"
+                  v-if="!eyeConfirmHidden"
+                  class="relative cursor-pointer"
+                  ><i class="fa-solid fa-eye"></i
+                ></span>
+                <span
+                  @click="changeConfirmPassword"
+                  v-else
+                  class="relative cursor-pointer"
+                  ><i class="fa-sharp fa-solid fa-eye-slash"></i
+                ></span>
+              </template>
+            </FormInput>
             <div>
               <ButtonFillVue>
                 <button
