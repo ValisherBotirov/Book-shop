@@ -13,12 +13,15 @@ import "vue-toastification/dist/index.css";
 import "./style.css";
 
 // element plus
-import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
+import ElementPlus from "element-plus";
+import "element-plus/dist/index.css";
 
 // vueAwesomePagination
 import VueAwesomePaginate from "vue-awesome-paginate";
 import "vue-awesome-paginate/dist/style.css";
+
+// maska
+import Maska from "maska";
 
 const app = createApp(App);
 const pinia = createPinia();
@@ -29,6 +32,7 @@ app.use(i18n);
 app.use(pinia);
 app.use(VueAwesomePaginate);
 app.use(Toast);
+app.use(Maska);
 app.use(MotionPlugin);
-app.use(ElementPlus)
+app.use(ElementPlus);
 app.mount("#app");
