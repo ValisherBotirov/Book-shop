@@ -68,7 +68,7 @@ export interface Props {
   autocomplete?: string;
   id?: string;
   readonly?: boolean;
-  customClass: string;
+  customClass?: string;
   label?: string;
 }
 

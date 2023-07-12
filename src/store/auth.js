@@ -4,7 +4,7 @@ import { useToast } from "vue-toastification";
 
 const toast = useToast()
 
-const useAuthStore = defineStore('authStore',{
+export const useAuthStore = defineStore('authStore',{
     state : () =>({
         user : undefined,
         token : undefined,
@@ -16,11 +16,13 @@ const useAuthStore = defineStore('authStore',{
     actions:{
         async getUser(options){
             try{
-                const user = await axios.get('/auth/register',{...options})
+                const user = await axios.post('/auth/register', options)
+                console.log(user)
                 this.user = user
                 return user
             }
             catch (err){
+                console.log(err)
                 toast.error("Ro'yxatdan o'tishda xatolik yuz berdi")
             }
         }
