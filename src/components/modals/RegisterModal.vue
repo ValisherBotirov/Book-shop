@@ -36,51 +36,42 @@
                 {{ v$.username.$errors[0].$message }}*
               </p>
             </div>
-            <div class="email flex flex-col gap-0">
-              <label for="email">Phone number:</label>
-              <FormInput
-                type="string"
-                v-model="userData.phone"
-                v-maska="'(##) ###-##-##'"
-              >
-                <template #prefix>
-                  <span class="mr-1">+998</span>
-                </template>
-              </FormInput>
-              <p v-if="v$.phone.$error" class="text-sm text-end text-red-600">
-                {{ v$.phone.$errors[0].$message }}*
-              </p>
-            </div>
-            <div class="password flex flex-col gap-0">
-              <label for="password">Password:</label>
-              <FormInput
-                :type="eyeHidden ? 'text' : 'password'"
-                v-model="userData.password"
-                name="password"
-                id="password"
-                placeholder="password"
-              />
-              <span
-                @click="changePassword"
-                v-if="!eyeHidden"
-                class="relative cursor-pointer"
-                ><i class="fa-solid fa-eye absolute right-2 bottom-3"></i
-              ></span>
-              <span
-                @click="changePassword"
-                v-else
-                class="relative cursor-pointer"
-                ><i
-                  class="fa-sharp fa-solid fa-eye-slash absolute right-2 bottom-3"
-                ></i
-              ></span>
-              <p
-                v-if="v$.password.$error"
-                class="text-sm text-end text-red-600"
-              >
-                {{ v$.password.$errors[0].$message }}*
-              </p>
-            </div>
+
+            <FormInput
+              type="string"
+              v-model="userData.phone"
+              label="Phone number:"
+              :error="v$.phone.$error"
+              v-maska="'(##) ###-##-##'"
+            >
+              <template #prefix>
+                <span class="mr-1">+998</span>
+              </template>
+            </FormInput>
+
+            <FormInput
+              :type="eyeHidden ? 'text' : 'password'"
+              v-model="userData.password"
+              label="Password:"
+              :error="v$.password.$error"
+              placeholder="password"
+            >
+              <template #suffix>
+                <span
+                  @click="changePassword"
+                  v-if="!eyeHidden"
+                  class="relative cursor-pointer"
+                  ><i class="fa-solid fa-eye"></i
+                ></span>
+                <span
+                  @click="changePassword"
+                  v-else
+                  class="relative cursor-pointer"
+                  ><i class="fa-sharp fa-solid fa-eye-slash"></i
+                ></span>
+              </template>
+            </FormInput>
+
             <div class="confirmPassword flex flex-col gap-0">
               <label for="passwordConfirm">Confirm Password:</label>
               <FormInput

@@ -1,9 +1,8 @@
 <template>
   <div>
     <label
-      for=""
       class="mb-1 font-medium text-gray-500 flex justify-start"
-      :class="error ? 'text-[red]' : ''"
+      :class="error ? '!text-[red]' : ''"
       >{{ label }}</label
     >
     <div
