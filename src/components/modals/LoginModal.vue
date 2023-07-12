@@ -102,6 +102,10 @@ import { useVuelidate } from "@vuelidate/core";
 
 import ButtonFillVue from "../buttons/ButtonFill.vue";
 import { useUserRegister } from "../../store/UserRegister";
+
+// input from Valisher
+import FormInput from "../form/FormInput.vue";
+
 const store = useUserRegister();
 const eyeHidden = ref(false);
 
