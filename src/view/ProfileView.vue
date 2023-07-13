@@ -4,37 +4,55 @@
       <p class="sx:text-2xl md:text-3xl text-primary">Shaxsiy kabinet</p>
       <div>
         <button @click="handleLogout" class="flex gap-2">
-          <ButtonFillVue color="#D52C55" ><span class="sx:py-1 md:py-2">Log out</span></ButtonFillVue>
+          <ButtonFillVue color="#F4CE47"
+            ><span class="sx:py-1 md:py-2 text-black font-medium"
+              >Chiqish</span
+            ></ButtonFillVue
+          >
         </button>
       </div>
     </div>
-    <div class="flex flex-col items-center">
-      <div class="w-[50%] flex justify-center">
+    <div class="sx:block md:flex sx:gap-2 md:gap-7 bg-[#00000014]  p-7 rounded-xl">
+      <div>
         <div
-          class="sx:w-[80%] md:w-[40%] cursor-pointer h-full bg-[#d0d5c3] rounded-full overflow-hidden"
+          class="cursor-pointer bg-[#fff] rounded-full sx:w-[50%] md:w-[100%] sx:mx-auto overflow-hidden"
         >
           <img :src="profile" alt="profile" class="w-[100%]" />
         </div>
       </div>
-      <div class="sx:w-[100%] md:w-[80%] lg:w-[50%]">
-        <div class="sx:w-[80%] md:w-[60%] mx-auto">
-          <ul
-            class="flex flex-col sx:gap-2 md:gap-4 mt-4 sx:text-base md:text-xl"
-          >
-            <li class="flex justify-between text-start items-center">
-              <span>Ism:</span><span>Nodir</span>
-            </li>
-            <li class="flex justify-between text-start items-center">
-              <span>Familiya:</span><span>Ikromov</span>
-            </li>
-            <li class="flex justify-between text-start items-center">
-              <span>Tel:</span><span>(99) 105-92-01</span>
-            </li>
-          </ul>
-        </div>
+      <div class="sx:w-[100%] sx:flex sx:justify-center md:w-[100%] lg:w-[40%]">
+        <ul
+          class="flex flex-col gap-2 sx:text-sm sm:text-base md:text-[18px] font-medium text-[#333] relative pt-10"
+        >
+          <li class="flex items-center gap-7">
+            <span>F.I.Sh</span
+            ><i
+              class="translation text-amber-500 text-lg cursor-pointer hover:translate-x-[15px] fa-solid fa-arrow-right"
+            ></i
+            ><span class="w-[100%] text-left">Nodir Ikromov Shomurod o'gli</span>
+          </li>
+          <li class="flex items-center gap-7">
+            <span>Tel</span
+            ><i
+              class="translation text-amber-500 text-lg cursor-pointer hover:translate-x-[15px] fa-solid fa-arrow-right"
+            ></i
+            ><span class="w-[100%] text-left">(99) 105 92 01</span>
+          </li>
+          <li class="flex items-center gap-7">
+            <span>Parol</span
+            ><i
+              class="translation text-amber-500 text-lg cursor-pointer hover:translate-x-[15px] fa-solid fa-arrow-right"
+            ></i
+            ><span class="w-[100%] text-left">123456789</span>
+          </li>
+          <li @click="editModal = true" class="text-[red] cursor-pointer pt-6">Ma'lumotlarni o'zgartirish</li>
+        </ul>
       </div>
     </div>
   </div>
+  <EditProfileModal
+  @closeEditProfileModal="editModal = false"
+   v-if="editModal" />
   <LoadingVue v-if="isLoading" />
 </template>
 
@@ -55,7 +73,10 @@ import { useUserRegister } from "../store/UserRegister";
 import ButtonFillVue from "../components/buttons/ButtonFill.vue";
 import LoadingVue from "../components/modals/LoadingModal.vue";
 
+// Edit Modal
+import EditProfileModal from "@/components/modals/EditProfileModal.vue";
 import profile from "../assets/svg/profile.svg";
+const editModal = ref(false);
 const isLoading = ref(false);
 
 const store = useUserRegister();
@@ -170,3 +191,8 @@ const handleLogout = () => {
   router.push("/");
 };
 </script>
+<style scoped>
+.translation {
+  transition: all 0.5s linear;
+}
+</style>
