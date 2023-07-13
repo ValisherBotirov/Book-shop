@@ -15,18 +15,19 @@
             <FormInput
               label="Full Name:"
               type="text"
-              v-model="userData.username"
-              name="username"
-              id="username"
+              v-model="userData.fullName"
+              name="fullName"
+              id="fullName"
               placeholder="full name"
-              :error="v$.username.$error"
+              :error="v$.fullName.$error"
             />
 
             <FormInput
               type="string"
-              v-model="userData.phone"
+              v-model="userData.phoneNumber"
+              placeholder="00 000-00-00"
               label="Phone number:"
-              :error="v$.phone.$error"
+              :error="v$.phoneNumber.$error"
               v-maska="'(##) ###-##-##'"
             >
               <template #prefix>
@@ -59,11 +60,11 @@
 
             <FormInput
               label="Confirm Password:"
-              v-model="userData.passwordConfirm"
+              v-model="userData.confirmPassword"
               placeholder="confirm password"
-              id="passwordConfirm"
+              id="confirmPassword"
               :type="eyeConfirmHidden ? 'text' : 'password'"
-              :error="v$.passwordConfirm.$error"
+              :error="v$.confirmPassword.$error"
             >
               <template #suffix>
                 <span
@@ -110,8 +111,10 @@ import { computed, reactive, ref } from "vue";
 import { useVuelidate } from "@vuelidate/core";
 import { required, sameAs, minLength, maxLength } from "@vuelidate/validators";
 
-import { useUserRegister } from "../../store/UserRegister";
+import { useUserRegister } from "@/store/UserRegister.js";
 import ButtonFillVue from "../buttons/ButtonFill.vue";
+import {useAuthStore} from "@/store/auth.js";
+const authStore = useAuthStore()
 
 // input Valisher tashlab bergan
 import FormInput from "../form/FormInput.vue";
@@ -130,18 +133,18 @@ const changeConfirmPassword = () => {
 const store = useUserRegister();
 
 const userData = reactive({
-  username: "",
-  phone: "",
+  fullName: "",
+  phoneNumber: "",
   password: "",
-  passwordConfirm: "",
+  confirmPassword: "",
 });
 
 const rules = computed(() => {
   return {
-    username: { required, minLength: minLength(3), maxLength: maxLength(52) },
-    phone: { required },
+    fullName: { required, minLength: minLength(3), maxLength: maxLength(52) },
+    phoneNumber: { required },
     password: { required, minLength: minLength(4), maxLength: maxLength(32) },
-    passwordConfirm: { required, sameAs: sameAs(userData.password) },
+    confirmPassword: { required, sameAs: sameAs(userData.password) },
   };
 });
 
@@ -151,13 +154,17 @@ const handleRegister = async () => {
   v$.value.$validate();
   if (!v$.value.$error) {
     try {
-      await store.signup(userData);
-      !store.closemodal && emit("closeRegiterModal");
+        userData.phoneNumber ='+998' + userData.phoneNumber.replaceAll('-','').replace('(','').replace(') ','')
+        console.log(userData,"userData")
+        await authStore.getUser(userData)
+      // await store.signup(userData);
+      // !store.closemodal && emit("closeRegiterModal");
     } finally {
-      userData.username = "";
-      userData.phone = "";
+      userData.fullName = "";
+      userData.phoneNumber = "";
       userData.password = "";
-      userData.passwordConfirm = "";
+      userData.confirmPassword = "";
+      v$.value.$reset()
     }
   }
 };
