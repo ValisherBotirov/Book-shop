@@ -52,13 +52,13 @@
           </div>
           <LineSVG class="hidden md:inline" />
           <SignSection
-            v-if="!store.isRegisteration"
+            v-if="!isRegister"
             @isRegister="(e) => (isRegisterationModal = e)"
             @isLogin="(e) => (isLoginModal = e)"
           />
           <AuthSection
-            :user-name="store.user?.name"
-            v-if="store.isRegisteration"
+            :user-name="authStore?.user?.fullName"
+            v-else
           />
         </div>
       </div>
@@ -94,9 +94,8 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import {onMounted, ref, watch} from "vue";
 import { RouterLink, useRouter } from "vue-router";
-import { useUserRegister } from "@/store/UserRegister.js";
 import { useI18n } from "vue-i18n";
 import RegisterModalVue from "../modals/RegisterModal.vue";
 import LoginModalVue from "../modals/LoginModal.vue";
@@ -112,9 +111,11 @@ import SignSection from "@/components/header/SignSection.vue";
 import AuthSection from "@/components/header/AuthSection.vue";
 import Category from "../category/Category.vue";
 import logo from "../../assets/img/static/books.png";
-const store = useUserRegister();
+import {useAuthStore} from "@/store/auth.js";
+const authStore =  useAuthStore()
 const router = useRouter();
 const { t } = useI18n();
+
 
 const showSearchBox = ref(false);
 
@@ -129,7 +130,6 @@ function isShowSearch(e) {
 }
 
 window.addEventListener("click", () => {
-  console.log("click");
   showSearchBox.value = false;
 });
 
@@ -141,4 +141,20 @@ const changeLoginToRegister = () => {
 function openSidebar() {
   isOpenSidebar.value = false;
 }
+
+const isRegister = ref()
+function checkUser(){
+    isRegister.value = authStore.checkUserRegister()
+}
+
+watch(()=>localStorage.getItem('token'),
+    ()=>{
+        console.log("watch is header")
+        checkUser()
+    }
+)
+
+onMounted((()=>{
+    checkUser()
+}))
 </script>

@@ -11,7 +11,8 @@ export const useAuthStore = defineStore('authStore',{
         refreshToken : undefined,
         accessToken:undefined,
         showModal : null,
-        modalType : 'login' | 'register'
+        modalType : 'login' | 'register',
+        isRegister:false
     }),
     actions:{
         async getUser(options){
@@ -29,7 +30,8 @@ export const useAuthStore = defineStore('authStore',{
         async setAccessToken(option){
             try{
                 const token = await axios.post('auth/access/token',option)
-                console.log(token,"auth token")
+                localStorage.setItem('token',token.data.accessToken)
+                localStorage.setItem('refreshToken',token.data.refreshToken)
             }
             catch (err){
                 console.log(err)
@@ -43,6 +45,21 @@ export const useAuthStore = defineStore('authStore',{
             catch (err){
                 console.log(err)
             }
+        },
+        checkUserRegister(){
+            let isRegister = false
+            if(localStorage.getItem('token')){
+                this.isRegister = true
+                isRegister = true
+                this.user = JSON.parse(localStorage.getItem('user'))
+            }
+            return isRegister
+        },
+        logOut(){
+            localStorage.removeItem('token')
+            localStorage.removeItem('user')
+            localStorage.removeItem('refreshToken')
+            this.isRegister = false
         }
     }
 })

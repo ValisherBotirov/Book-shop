@@ -9,34 +9,30 @@
       class="fixed z-[999999] duration-200 inset-y-0 left-0 sx:w-[80%] md:max-w-[60%] bg-[#fafcf5]"
     >
       <div class="relative h-full px-8 py-8">
+
         <div>
           <!-- if has been user -->
           <RouterLink
-            v-if="store.isRegisteration"
+            v-if="isRegister"
             @click="emit('openSidebar')"
             to="/profile"
             class="border rounded-lg block border-gray-700 mb-8 hover:bg-[#d8e0ef] active:bg-[#d8e0ef] duration-200"
           >
             <div class="flex items-center py-3 px-3 gap-3">
-              <div v-if="store.user?.img">
-                <img
-                  class="h-20 aspect-square rounded-full object-cover object-center"
-                  :src="store.user.img"
-                  alt="profile_image"
-                />
-              </div>
+
               <div
-                v-else
                 class="h-20 aspect-square rounded-full object-cover object-center bg-gray-300 flex items-center justify-center"
               >
                 <i class="fa-solid fa-user text-4xl text-gray-500"></i>
               </div>
               <div>
-                <p class="text-lg font-semibold">{{ store.user.username }}</p>
-                <p class="email">{{ store.user.email }}</p>
+                <p class="text-lg font-semibold">{{authStore?.user?.fullName }}</p>
+                <p class="email">{{ authStore?.user?.username }}</p>
               </div>
             </div>
           </RouterLink>
+
+
 
           <!-- if has not been user -->
           <div
@@ -78,20 +74,8 @@
             </li>
           </ul>
         </div>
-
-        <!-- logout -->
-        <!-- register qilingandan keyin logout qilinadi (chiqb ketish) -->
-          <div
-            @click="handleLogout"
-            class="absolute bottom-0 left-0 right-0 sx:text-[16px]  md:text-[25px] sx:mx-0 md:mx-2 px-8 py-3 mb-4 rounded-md duration-200 hover:bg-gray-200 font-semibold text-gray-600"
-          >
-            <i class="fa-solid fa-right-from-bracket pr-4"></i>
-            Logout 
-          </div>
-
-        <!-- register login -->
         <ul
-          v-if="!store.isRegisteration"
+          v-if="!isRegister"
           class="absolute bottom-0 mb-4 left-0 right-0 sx:text-[16px] sx:mx-0 md:text-[25px] md:mx-2 space-y-2 font-semibold text-gray-600"
         >
           <li
@@ -109,6 +93,13 @@
             {{ $t("exit") }}
           </li>
         </ul>
+          <div v-else
+                  @click="handleLogout"
+                  class="absolute bottom-0 left-0 right-0 sx:text-[16px]  md:text-[25px] sx:mx-0 md:mx-2 px-8 py-3 mb-4 rounded-md duration-200 hover:bg-gray-200 font-semibold text-gray-600"
+          >
+              <i class="fa-solid fa-right-from-bracket pr-4"></i>
+              Logout
+          </div>
       </div>
       <div
         :class="isOpenSidebar ? 'block' : 'hidden'"
@@ -133,18 +124,19 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import axios from "axios";
+import {onMounted, ref, watch} from "vue";
 import { useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
-import { useUserRegister } from "../../store/UserRegister";
-
+import { useUserRegister } from "@/store/UserRegister.js";
+import {useAuthStore} from "@/store/auth.js";
 import RegisterModal from "../modals/RegisterModal.vue";
 import LoginModal from "../modals/LoginModal.vue";
 
 const store = useUserRegister();
+const authStore = useAuthStore()
 const router = useRouter();
 const { t } = useI18n();
+
 
 const isLoginModal = ref(false);
 const isRegisterationModal = ref(false);
@@ -203,23 +195,24 @@ const handleLogup = () => {
   isRegisterationModal.value = true;
 };
 const handleLogout = () => {
+    authStore.logOut()
+    checkUser()
   emit("openSidebar");
-  logoutApi();
 };
-const logoutApi = () => {
-  axios({
-    method: "get",
-    url: "users/logout",
-    headers: {},
-    withCredentials: true,
-  })
-    .then(function (response) {
-      store.user = { name: "" };
-      store.token = "";
-      router.push("/");
-    })
-    .catch(function (error) {
-      alert(error.message);
-    });
-};
+
+const isRegister = ref()
+function checkUser(){
+   isRegister.value = authStore.checkUserRegister()
+}
+
+watch(()=>localStorage.getItem('token'),
+    ()=>{
+        console.log("watch is")
+        checkUser()
+    }
+)
+
+onMounted(()=>{
+    checkUser()
+})
 </script>

@@ -83,11 +83,10 @@ const currentLangName = ref(localStorage.getItem("langName")) || "Ru";
 
 const langFunc = (index) => {
   localStorage.setItem("langName", activeArr[index].name);
-  localStorage.setItem("langLocale", activeArr[index].locale);
   localStorage.setItem("locale", activeArr[index].locale);
 
   currentLangName.value = localStorage.getItem("langName");
-  $i18n.global.locale.value = localStorage.getItem("langLocale");
+  $i18n.global.locale.value = localStorage.getItem("locale");
 
   // agar backdan keladigan malumotlarni o'zgartirish muommo bo'lsa pastdagi kodni ochamiz
   // window.location.reload()

@@ -174,7 +174,7 @@ const handleRegister = async () => {
     try {
         userData.phoneNumber ='+998' + userData.phoneNumber.replaceAll('-','').replace('(','').replace(') ','')
         const user = await authStore.getUser(userData)
-
+        localStorage.setItem('user',JSON.stringify(user.data))
         if(user.data.ID){
 
 

@@ -16,7 +16,7 @@
         </svg>
       </span>
       <p class="duration-200 group-hover:text-primary">
-        {{ userName }} valisher
+        {{ userName }}
       </p>
     </RouterLink>
   </div>
