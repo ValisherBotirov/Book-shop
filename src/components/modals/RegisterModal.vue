@@ -90,18 +90,24 @@
                   submit
                 </button>
               </ButtonFillVue>
+              <div v-if="codeRegister">
                 <code-input
-                        @complete="completed = true"
-                        :fields="6"
-                        :fieldWidth="56"
-                        :fieldHeight="56"
-                        :required="true"
+                  @complete="completed = true"
+                  :fields="6"
+                  :fieldWidth="56"
+                  :fieldHeight="56"
+                  :required="true"
                 />
-
-                    <button class="border py-2 rounded-lg  text-white w-full bg-[#002E69]" :class="!completed ? 'bg-gray-700' :'bg-[#002E69]'" :disabled="!completed" @click="sendCode">
-                        Continue
-                    </button>
-
+                <Timer class="text-center" />
+                <button
+                  class="border py-2 rounded-lg text-white w-full bg-[#002E69]"
+                  :class="!completed ? 'bg-gray-700' : 'bg-[#002E69]'"
+                  :disabled="!completed"
+                  @click="sendCode"
+                >
+                  Continue
+                </button>
+              </div>
             </div>
           </form>
         </div>
@@ -125,16 +131,18 @@ import { required, sameAs, minLength, maxLength } from "@vuelidate/validators";
 
 import { useUserRegister } from "@/store/UserRegister.js";
 import ButtonFillVue from "../buttons/ButtonFill.vue";
-import {useAuthStore} from "@/store/auth.js";
+import { useAuthStore } from "@/store/auth.js";
 
-const authStore = useAuthStore()
+const authStore = useAuthStore();
 
 // input Valisher tashlab bergan
 import FormInput from "../form/FormInput.vue";
 import CodeInput from "@/components/form/CodeInput.vue";
+import Timer from "../form/DedlineTime.vue";
 const completed = ref(false);
 const eyeHidden = ref(false);
 const eyeConfirmHidden = ref(false);
+const codeRegister = ref(false);
 
 const changePassword = () => {
   eyeHidden.value = !eyeHidden.value;
@@ -168,17 +176,22 @@ const handleRegister = async () => {
   v$.value.$validate();
   if (!v$.value.$error) {
     try {
-        userData.phoneNumber ='+998' + userData.phoneNumber.replaceAll('-','').replace('(','').replace(') ','')
-        const user = await authStore.getUser(userData)
-        const tokenParams  = {
-            phoneNumber : userData.phoneNumber,
-            password: userData.password
-        }
-        if(user.data.ID){
-        await authStore.setAccessToken(tokenParams)
-        emit("closeRegiterModal")
-        }
-
+      userData.phoneNumber =
+        "+998" +
+        userData.phoneNumber
+          .replaceAll("-", "")
+          .replace("(", "")
+          .replace(") ", "");
+      const user = await authStore.getUser(userData);
+      const tokenParams = {
+        phoneNumber: userData.phoneNumber,
+        password: userData.password,
+      };
+      if (user.data.ID) {
+        codeRegister.value = true;
+        await authStore.setAccessToken(tokenParams);
+        // emit("closeRegiterModal");
+      }
     } finally {
       // userData.fullName = "";
       // userData.phoneNumber = "";
@@ -189,13 +202,12 @@ const handleRegister = async () => {
   }
 };
 
-function sendCode(e){
-    e.preventDefault()
-    const fetchObj={
-
-    }
-    console.log('sendCode')
-    // authStore.userActive()
+function sendCode(e) {
+  e.preventDefault();
+  const fetchObj = {};
+  console.log("sendCode");
+  emit("closeRegiterModal");
+  // authStore.userActive()
 }
 
 const emit = defineEmits(["closeRegiterModal"]);
