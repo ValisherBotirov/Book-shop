@@ -9,7 +9,7 @@
       :class="[
         'inline-flex items-center transition-300 relative bg-grey-400 rounded-lg border overflow-hidden w-full sx:p-[6px] md:p-2 group',
         error ? '!border-[red]' : 'border-gray-500  focus-within:border-[blue]',
-        customClass,
+        customClass,  
       ]"
     >
       <span :class="[prefixClass]" class="flex-center">

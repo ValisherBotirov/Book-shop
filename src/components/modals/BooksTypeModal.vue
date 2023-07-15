@@ -102,8 +102,3 @@ withDefaults(defineProps<Props>(), {
 });
 const emit = defineEmits(["closeBookTypeModal"]);
 </script>
-<style scoped>
-.ok{
-  transition: all 3s linear;
-}
-</style>
