@@ -7,9 +7,7 @@
     <div
       class="fixed z-[999999] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg max-sm:w-[90%] sm:w-[80%] md:w-[70%] lg:w-[50%]"
     >
-      <div
-        class="max-sm:px-3 sm:px-16 py-8 text-lg relative bg-[#fafcf5] rounded-lg"
-      >
+      <div class="max-sm:px-3 sm:px-16 py-8 text-lg relative bg-[#fafcf5] rounded-lg">
         <div class="flex flex-col gap-6">
           <form class="flex flex-col gap-2 text-black">
             <FormInput
@@ -49,10 +47,7 @@
                   class="relative cursor-pointer"
                   ><i class="fa-solid fa-eye"></i
                 ></span>
-                <span
-                  @click="changePassword"
-                  v-else
-                  class="relative cursor-pointer"
+                <span @click="changePassword" v-else class="relative cursor-pointer"
                   ><i class="fa-sharp fa-solid fa-eye-slash"></i
                 ></span>
               </template>
@@ -82,30 +77,19 @@
               </template>
             </FormInput>
             <div>
-              <ButtonFillVue>
-                <button
-                  @click.prevent="handleRegister"
-                  class="py-1 px-4 w-full"
-                >
+              <ButtonFillVue v-if="!codeRegister">
+                <button @click.prevent="handleRegister" class="py-1 px-4 w-full">
                   submit
                 </button>
               </ButtonFillVue>
               <div v-if="codeRegister">
                 <code-input
-<<<<<<< HEAD
+                  @change="(e) => (codeSend = e)"
                   @complete="completed = true"
                   :fields="6"
                   :fieldWidth="56"
                   :fieldHeight="56"
                   :required="true"
-=======
-                        @change="e=>codeSend = e"
-                        @complete="completed = true"
-                        :fields="6"
-                        :fieldWidth="56"
-                        :fieldHeight="56"
-                        :required="true"
->>>>>>> 796bae4c51c5b331d561313af76ba3a351fe1416
                 />
                 <Timer class="text-center" />
                 <button
@@ -120,13 +104,8 @@
             </div>
           </form>
         </div>
-        <div
-          @click="emit('closeRegiterModal')"
-          class="absolute top-1 right-3 text-xl"
-        >
-          <i
-            class="fa-solid fa-xmark duration-200 cursor-pointer hover:opacity-50"
-          ></i>
+        <div @click="emit('closeRegiterModal')" class="absolute top-1 right-3 text-xl">
+          <i class="fa-solid fa-xmark duration-200 cursor-pointer hover:opacity-50"></i>
         </div>
       </div>
     </div>
@@ -139,7 +118,6 @@ import { useVuelidate } from "@vuelidate/core";
 import { required, sameAs, minLength, maxLength } from "@vuelidate/validators";
 import { useUserRegister } from "@/store/UserRegister.js";
 import ButtonFillVue from "../buttons/ButtonFill.vue";
-<<<<<<< HEAD
 import { useAuthStore } from "@/store/auth.js";
 
 const authStore = useAuthStore();
@@ -148,23 +126,15 @@ const authStore = useAuthStore();
 import FormInput from "../form/FormInput.vue";
 import CodeInput from "@/components/form/CodeInput.vue";
 import Timer from "../form/DedlineTime.vue";
-=======
-import {useAuthStore} from "@/store/auth.js";
-import FormInput from "../form/FormInput.vue";
-import CodeInput from "@/components/form/CodeInput.vue";
-import {useToast} from "vue-toastification";
-
-
-const authStore = useAuthStore()
->>>>>>> 796bae4c51c5b331d561313af76ba3a351fe1416
+import { useToast } from "vue-toastification";
 const completed = ref(false);
 const eyeHidden = ref(false);
 const eyeConfirmHidden = ref(false);
 const codeRegister = ref(false);
 
-const toast = useToast()
+const toast = useToast();
 
-const codeSend = ref("")
+const codeSend = ref("");
 
 const changePassword = () => {
   eyeHidden.value = !eyeHidden.value;
@@ -198,73 +168,42 @@ const handleRegister = async () => {
   v$.value.$validate();
   if (!v$.value.$error) {
     try {
-<<<<<<< HEAD
       userData.phoneNumber =
         "+998" +
-        userData.phoneNumber
-          .replaceAll("-", "")
-          .replace("(", "")
-          .replace(") ", "");
+        userData.phoneNumber.replaceAll("-", "").replace("(", "").replace(") ", "");
       const user = await authStore.getUser(userData);
-      const tokenParams = {
-        phoneNumber: userData.phoneNumber,
-        password: userData.password,
-      };
       if (user.data.ID) {
         codeRegister.value = true;
-        await authStore.setAccessToken(tokenParams);
-        // emit("closeRegiterModal");
       }
-=======
-        userData.phoneNumber ='+998' + userData.phoneNumber.replaceAll('-','').replace('(','').replace(') ','')
-        const user = await authStore.getUser(userData)
-
-        if(user.data.ID){
-
-
-
-        }
-
->>>>>>> 796bae4c51c5b331d561313af76ba3a351fe1416
     } finally {
-      // userData.fullName = "";
-      // userData.phoneNumber = "";
-      // userData.password = "";
-      // userData.confirmPassword = "";
-      // v$.value.$reset()
     }
   }
 };
 
-<<<<<<< HEAD
-function sendCode(e) {
-  e.preventDefault();
-  const fetchObj = {};
-  console.log("sendCode");
+async function sendCode(e) {
   emit("closeRegiterModal");
-  // authStore.userActive()
-=======
-async function sendCode(e){
-    e.preventDefault()
-    const activeParams={
-        code:codeSend.value,
-        phoneNumber:userData.phoneNumber
-    }
-    const tokenParams  = {
-        phoneNumber : userData.phoneNumber,
-        password: userData.password
-    }
-    await authStore.userActive(activeParams).then((res)=>{
-        console.log(res)
-        toast.success("Muvaffaqiyatli ro'yxatdan o'tdizngiz")
-        emit('closeRegiterModal')
-    }).catch((err)=>{
-        console.log(err)
-        toast.error("Ro'yxatdan o'tishda xatolik yuz berdi!")
+  e.preventDefault();
+  const activeParams = {
+    code: codeSend.value,
+    phoneNumber: userData.phoneNumber,
+  };
+  const tokenParams = {
+    phoneNumber: userData.phoneNumber,
+    password: userData.password,
+  };
+  await authStore
+    .userActive(activeParams)
+    .then((res) => {
+      console.log(res);
+      toast.success("Muvaffaqiyatli ro'yxatdan o'tdizngiz");
+      emit("closeRegiterModal");
     })
+    .catch((err) => {
+      console.log(err);
+      toast.error("Ro'yxatdan o'tishda xatolik yuz berdi!");
+    });
 
-    await authStore.setAccessToken(tokenParams)
->>>>>>> 796bae4c51c5b331d561313af76ba3a351fe1416
+  await authStore.setAccessToken(tokenParams);
 }
 
 const emit = defineEmits(["closeRegiterModal"]);
