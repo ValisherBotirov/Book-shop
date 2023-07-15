@@ -38,8 +38,7 @@ export const useAuthStore = defineStore('authStore',{
         },
         async userActive(option){
             try{
-                const res = await axios.post('auth/activate',option)
-                console.log(res)
+                await axios.post('auth/activate',option)
             }
             catch (err){
                 console.log(err)

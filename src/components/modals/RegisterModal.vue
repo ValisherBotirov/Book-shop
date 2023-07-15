@@ -92,11 +92,20 @@
               </ButtonFillVue>
               <div v-if="codeRegister">
                 <code-input
+<<<<<<< HEAD
                   @complete="completed = true"
                   :fields="6"
                   :fieldWidth="56"
                   :fieldHeight="56"
                   :required="true"
+=======
+                        @change="e=>codeSend = e"
+                        @complete="completed = true"
+                        :fields="6"
+                        :fieldWidth="56"
+                        :fieldHeight="56"
+                        :required="true"
+>>>>>>> 796bae4c51c5b331d561313af76ba3a351fe1416
                 />
                 <Timer class="text-center" />
                 <button
@@ -128,9 +137,9 @@
 import { computed, reactive, ref } from "vue";
 import { useVuelidate } from "@vuelidate/core";
 import { required, sameAs, minLength, maxLength } from "@vuelidate/validators";
-
 import { useUserRegister } from "@/store/UserRegister.js";
 import ButtonFillVue from "../buttons/ButtonFill.vue";
+<<<<<<< HEAD
 import { useAuthStore } from "@/store/auth.js";
 
 const authStore = useAuthStore();
@@ -139,10 +148,23 @@ const authStore = useAuthStore();
 import FormInput from "../form/FormInput.vue";
 import CodeInput from "@/components/form/CodeInput.vue";
 import Timer from "../form/DedlineTime.vue";
+=======
+import {useAuthStore} from "@/store/auth.js";
+import FormInput from "../form/FormInput.vue";
+import CodeInput from "@/components/form/CodeInput.vue";
+import {useToast} from "vue-toastification";
+
+
+const authStore = useAuthStore()
+>>>>>>> 796bae4c51c5b331d561313af76ba3a351fe1416
 const completed = ref(false);
 const eyeHidden = ref(false);
 const eyeConfirmHidden = ref(false);
 const codeRegister = ref(false);
+
+const toast = useToast()
+
+const codeSend = ref("")
 
 const changePassword = () => {
   eyeHidden.value = !eyeHidden.value;
@@ -176,6 +198,7 @@ const handleRegister = async () => {
   v$.value.$validate();
   if (!v$.value.$error) {
     try {
+<<<<<<< HEAD
       userData.phoneNumber =
         "+998" +
         userData.phoneNumber
@@ -192,6 +215,17 @@ const handleRegister = async () => {
         await authStore.setAccessToken(tokenParams);
         // emit("closeRegiterModal");
       }
+=======
+        userData.phoneNumber ='+998' + userData.phoneNumber.replaceAll('-','').replace('(','').replace(') ','')
+        const user = await authStore.getUser(userData)
+
+        if(user.data.ID){
+
+
+
+        }
+
+>>>>>>> 796bae4c51c5b331d561313af76ba3a351fe1416
     } finally {
       // userData.fullName = "";
       // userData.phoneNumber = "";
@@ -202,12 +236,35 @@ const handleRegister = async () => {
   }
 };
 
+<<<<<<< HEAD
 function sendCode(e) {
   e.preventDefault();
   const fetchObj = {};
   console.log("sendCode");
   emit("closeRegiterModal");
   // authStore.userActive()
+=======
+async function sendCode(e){
+    e.preventDefault()
+    const activeParams={
+        code:codeSend.value,
+        phoneNumber:userData.phoneNumber
+    }
+    const tokenParams  = {
+        phoneNumber : userData.phoneNumber,
+        password: userData.password
+    }
+    await authStore.userActive(activeParams).then((res)=>{
+        console.log(res)
+        toast.success("Muvaffaqiyatli ro'yxatdan o'tdizngiz")
+        emit('closeRegiterModal')
+    }).catch((err)=>{
+        console.log(err)
+        toast.error("Ro'yxatdan o'tishda xatolik yuz berdi!")
+    })
+
+    await authStore.setAccessToken(tokenParams)
+>>>>>>> 796bae4c51c5b331d561313af76ba3a351fe1416
 }
 
 const emit = defineEmits(["closeRegiterModal"]);
