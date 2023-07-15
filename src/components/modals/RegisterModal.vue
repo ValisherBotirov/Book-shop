@@ -90,6 +90,18 @@
                   submit
                 </button>
               </ButtonFillVue>
+                <code-input
+                        @complete="completed = true"
+                        :fields="6"
+                        :fieldWidth="56"
+                        :fieldHeight="56"
+                        :required="true"
+                />
+
+                    <button class="border py-2 rounded-lg  text-white w-full bg-[#002E69]" :class="!completed ? 'bg-gray-700' :'bg-[#002E69]'" :disabled="!completed" @click="sendCode">
+                        Continue
+                    </button>
+
             </div>
           </form>
         </div>
@@ -114,11 +126,13 @@ import { required, sameAs, minLength, maxLength } from "@vuelidate/validators";
 import { useUserRegister } from "@/store/UserRegister.js";
 import ButtonFillVue from "../buttons/ButtonFill.vue";
 import {useAuthStore} from "@/store/auth.js";
+
 const authStore = useAuthStore()
 
 // input Valisher tashlab bergan
 import FormInput from "../form/FormInput.vue";
-
+import CodeInput from "@/components/form/CodeInput.vue";
+const completed = ref(false);
 const eyeHidden = ref(false);
 const eyeConfirmHidden = ref(false);
 
@@ -143,7 +157,7 @@ const rules = computed(() => {
   return {
     fullName: { required, minLength: minLength(3), maxLength: maxLength(52) },
     phoneNumber: { required },
-    password: { required, minLength: minLength(4), maxLength: maxLength(32) },
+    password: { required, minLength: minLength(8), maxLength: maxLength(50) },
     confirmPassword: { required, sameAs: sameAs(userData.password) },
   };
 });
@@ -155,19 +169,34 @@ const handleRegister = async () => {
   if (!v$.value.$error) {
     try {
         userData.phoneNumber ='+998' + userData.phoneNumber.replaceAll('-','').replace('(','').replace(') ','')
-        console.log(userData,"userData")
-        await authStore.getUser(userData)
-      // await store.signup(userData);
-      // !store.closemodal && emit("closeRegiterModal");
+        const user = await authStore.getUser(userData)
+        const tokenParams  = {
+            phoneNumber : userData.phoneNumber,
+            password: userData.password
+        }
+        if(user.data.ID){
+        await authStore.setAccessToken(tokenParams)
+        emit("closeRegiterModal")
+        }
+
     } finally {
-      userData.fullName = "";
-      userData.phoneNumber = "";
-      userData.password = "";
-      userData.confirmPassword = "";
-      v$.value.$reset()
+      // userData.fullName = "";
+      // userData.phoneNumber = "";
+      // userData.password = "";
+      // userData.confirmPassword = "";
+      // v$.value.$reset()
     }
   }
 };
+
+function sendCode(e){
+    e.preventDefault()
+    const fetchObj={
+
+    }
+    console.log('sendCode')
+    // authStore.userActive()
+}
 
 const emit = defineEmits(["closeRegiterModal"]);
 </script>

@@ -1,7 +1,8 @@
 <template>
   <span
     v-if="!isTo"
-    class="buttonFillStyle duration-300 hover:bg-transparent border px-4 rounded-lg flex items-center justify-center cursor-pointer"
+    class=" duration-300  border px-4 rounded-lg flex items-center justify-center cursor-pointer"
+    :class="disabled? 'buttonFillStyle hover:bg-transparent' : 'buttonFillStyle'"
   >
     <slot></slot>
   </span>
@@ -14,7 +15,7 @@
   </RouterLink>
 </template>
 <script setup>
-const props = defineProps({ to: String, color: String });
+const props = defineProps({ to: String, color: String,disabled:Boolean });
 const color1 = props.color || "#002E69";
 const isTo = props.to ? true : false;
 </script>
