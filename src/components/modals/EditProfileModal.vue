@@ -11,8 +11,6 @@
         label="Full Name:"
         type="text"
         v-model="userData.username"
-        name="username"
-        id="username"
         placeholder="full name"
         :error="v$.username.$error"
       />

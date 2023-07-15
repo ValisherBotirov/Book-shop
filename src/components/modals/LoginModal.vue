@@ -2,9 +2,14 @@
   <Teleport to="body">
     <div
       @click="emit('closeLoginModal')"
-      class="fixed z-[999999] bg-[#00000030] inset-0 backdrop-blur-[11.5px]"></div>
-    <div class="fixed z-[999999] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg max-sm:w-[90%] sm:w-[80%] md:w-[70%] lg:w-[50%]">
-      <div class="max-sm:px-3 sm:px-16 py-10 text-lg relative bg-[#fafcf5] rounded-lg">
+      class="fixed z-[999999] bg-[#00000030] inset-0 backdrop-blur-[11.5px]"
+    ></div>
+    <div
+      class="fixed z-[999999] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg max-sm:w-[90%] sm:w-[80%] md:w-[70%] lg:w-[50%]"
+    >
+      <div
+        class="max-sm:px-3 sm:px-16 py-10 text-lg relative bg-[#fafcf5] rounded-lg"
+      >
         <div class="flex flex-col gap-6">
           <form class="flex flex-col gap-6 text-black">
             <div class="flex flex-col">
@@ -13,7 +18,8 @@
                 v-model="state.phone"
                 label="Phone number:"
                 :error="v$.phone.$error"
-                v-maska="'(##) ###-##-##'" >
+                v-maska="'(##) ###-##-##'"
+              >
                 <template #prefix>
                   <span class="mr-1">+998</span>
                 </template>
@@ -70,8 +76,11 @@
         </div>
         <div
           @click="emit('closeLoginModal')"
-          class="absolute top-1 right-3 text-xl" >
-          <i class="fa-solid fa-xmark duration-200 cursor-pointer hover:opacity-50"></i>
+          class="absolute top-1 right-3 text-xl"
+        >
+          <i
+            class="fa-solid fa-xmark duration-200 cursor-pointer hover:opacity-50"
+          ></i>
         </div>
       </div>
     </div>
