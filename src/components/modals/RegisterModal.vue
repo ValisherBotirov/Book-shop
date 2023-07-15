@@ -91,6 +91,7 @@
                 </button>
               </ButtonFillVue>
                 <code-input
+                        @change="e=>codeSend = e"
                         @complete="completed = true"
                         :fields="6"
                         :fieldWidth="56"
@@ -122,19 +123,22 @@
 import { computed, reactive, ref } from "vue";
 import { useVuelidate } from "@vuelidate/core";
 import { required, sameAs, minLength, maxLength } from "@vuelidate/validators";
-
 import { useUserRegister } from "@/store/UserRegister.js";
 import ButtonFillVue from "../buttons/ButtonFill.vue";
 import {useAuthStore} from "@/store/auth.js";
-
-const authStore = useAuthStore()
-
-// input Valisher tashlab bergan
 import FormInput from "../form/FormInput.vue";
 import CodeInput from "@/components/form/CodeInput.vue";
+import {useToast} from "vue-toastification";
+
+
+const authStore = useAuthStore()
 const completed = ref(false);
 const eyeHidden = ref(false);
 const eyeConfirmHidden = ref(false);
+
+const toast = useToast()
+
+const codeSend = ref("")
 
 const changePassword = () => {
   eyeHidden.value = !eyeHidden.value;
@@ -170,13 +174,11 @@ const handleRegister = async () => {
     try {
         userData.phoneNumber ='+998' + userData.phoneNumber.replaceAll('-','').replace('(','').replace(') ','')
         const user = await authStore.getUser(userData)
-        const tokenParams  = {
-            phoneNumber : userData.phoneNumber,
-            password: userData.password
-        }
+
         if(user.data.ID){
-        await authStore.setAccessToken(tokenParams)
-        emit("closeRegiterModal")
+
+
+
         }
 
     } finally {
@@ -189,13 +191,26 @@ const handleRegister = async () => {
   }
 };
 
-function sendCode(e){
+async function sendCode(e){
     e.preventDefault()
-    const fetchObj={
-
+    const activeParams={
+        code:codeSend.value,
+        phoneNumber:userData.phoneNumber
     }
-    console.log('sendCode')
-    // authStore.userActive()
+    const tokenParams  = {
+        phoneNumber : userData.phoneNumber,
+        password: userData.password
+    }
+    await authStore.userActive(activeParams).then((res)=>{
+        console.log(res)
+        toast.success("Muvaffaqiyatli ro'yxatdan o'tdizngiz")
+        emit('closeRegiterModal')
+    }).catch((err)=>{
+        console.log(err)
+        toast.error("Ro'yxatdan o'tishda xatolik yuz berdi!")
+    })
+
+    await authStore.setAccessToken(tokenParams)
 }
 
 const emit = defineEmits(["closeRegiterModal"]);
