@@ -77,13 +77,14 @@
               </template>
             </FormInput>
             <div>
-              <ButtonFillVue v-if="codeRegister">
+              <ButtonFillVue v-if="!codeRegister">
                 <button @click.prevent="handleRegister" class="py-1 px-4 w-full">
                   submit
                 </button>
               </ButtonFillVue>
-              <div v-if="!codeRegister">
+              <div v-if="codeRegister">
                 <code-input
+
                   @change="(e) => (codeSend = e)"
                   @complete="completed = true"
                   :fields="6"
@@ -222,9 +223,15 @@ async function sendCode(e) {
 }
 
 const defineExp = ref(null);
-function returnSendCode() {
+async function returnSendCode() {
   resendCode.value = false;
   defineExp.value.expFunction();
+    const phone =
+        "+998" + userData.phoneNumber.replaceAll("-", "").replace("(", "").replace(") ", "");
+  const fetchResendCode = {
+      phoneNumber : phone
+  }
+  await authStore.resendCode(fetchResendCode)
 }
 
 const emit = defineEmits(["closeRegiterModal"]);

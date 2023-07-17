@@ -47,6 +47,15 @@ export const useAuthStore = defineStore('authStore',{
                 console.log(err)
             }
         },
+        async resendCode(option){
+            try {
+             const response =  await axios.post('auth/code/resend',option)
+                console.log(response)
+            }
+            catch (err){
+                console.log(err)
+            }
+        },
         checkUserRegister(){
             let isRegister = false
             const token = localStorage.getItem('token') || false
