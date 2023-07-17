@@ -53,6 +53,9 @@ export const useAuthStore = defineStore('authStore',{
                 isRegister = true
                 this.user = JSON.parse(localStorage.getItem('user'))
             }
+            else{
+                isRegister = false
+            }
             return isRegister
         },
         logOut(){

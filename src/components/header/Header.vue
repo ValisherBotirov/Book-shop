@@ -142,12 +142,12 @@ function openSidebar() {
   isOpenSidebar.value = false;
 }
 
-const isRegister = ref()
+const isRegister = ref(false)
 function checkUser(){
     isRegister.value = authStore.checkUserRegister()
 }
 
-watch(()=>localStorage.getItem('token'),
+watch(()=>authStore.isRegister,
     ()=>{
         console.log("watch is header")
         checkUser()
