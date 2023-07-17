@@ -32,6 +32,7 @@ export const useAuthStore = defineStore('authStore',{
                 const token = await axios.post('auth/access/token',option)
                 localStorage.setItem('token',token.data.accessToken)
                 localStorage.setItem('refreshToken',token.data.refreshToken)
+                this.isRegister = true
             }
             catch (err){
                 console.log(err)
@@ -48,8 +49,9 @@ export const useAuthStore = defineStore('authStore',{
         },
         checkUserRegister(){
             let isRegister = false
-            if(localStorage.getItem('token')){
-                this.isRegister = true
+            const token = localStorage.getItem('token') || false
+            console.log(token,"auth token")
+            if(token){
                 isRegister = true
                 this.user = JSON.parse(localStorage.getItem('user'))
             }

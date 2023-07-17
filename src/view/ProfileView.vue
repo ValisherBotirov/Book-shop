@@ -57,137 +57,25 @@
 </template>
 
 <script setup>
-import { reactive, computed, ref } from "vue";
-import axios from "axios";
-import {
-  required,
-  email,
-  minLength,
-  helpers,
-  maxLength,
-} from "@vuelidate/validators";
-import { useVuelidate } from "@vuelidate/core";
+import { ref } from "vue";
+
 import { useRouter } from "vue-router";
 
-import { useUserRegister } from "../store/UserRegister";
 import ButtonFillVue from "../components/buttons/ButtonFill.vue";
 import LoadingVue from "../components/modals/LoadingModal.vue";
 
 // Edit Modal
 import EditProfileModal from "@/components/modals/EditProfileModal.vue";
 import profile from "../assets/svg/profile.svg";
+import {useAuthStore} from "@/store/auth.js";
 const editModal = ref(false);
 const isLoading = ref(false);
 
-const store = useUserRegister();
 const router = useRouter();
 
-let state = reactive({
-  notificationEmail: store.user?.location?.notificationEmail || "",
-  notificationType: store.user?.location?.notificationType || "",
-
-  img: store.user?.img || "",
-  email: store.user?.email || "",
-  username: store.user?.username || "",
-  tel: store.user?.tel || "",
-
-  location: {
-    street: store.user?.location?.street || "",
-    section_number: store.user?.location?.section_number || "",
-    home_number: store.user?.location?.home_number || "",
-    entrance_number: store.user?.location?.entrance_number || "",
-    comment: store.user?.location?.comment || "",
-    city: store.user?.location?.city || "",
-  },
-});
-
-const rules = computed(() => {
-  return {
-    notificationEmail: { email, maxLength: maxLength(255) },
-
-    email: { required, email, maxLength: maxLength(255) },
-    username: { required, minLength: minLength(3), maxLength: maxLength(255) },
-    tel: {
-      dev: helpers.withMessage(
-        "This field should be + character",
-        function (value) {
-          if (/[+]/.test(value) || value.length === 0) {
-            return true;
-          }
-        }
-      ),
-      dev2: helpers.withMessage(
-        "This field should be 13 characters long",
-        function (value) {
-          if (value.length === 13 || value.length === 0) {
-            return true;
-          }
-        }
-      ),
-    },
-  };
-});
-const v$ = useVuelidate(rules, state);
-
-const handlePresonalData = () => {
-  v$.value.$validate();
-
-  if (!v$.value.$error) {
-    console.log(state);
-    ProfileApi({
-      city: state.location.city,
-      street: state.location.street,
-      home_number: state.location.home_number,
-      section_number: state.location.section_number,
-      entrance_number: state.location.entrance_number,
-      comment: state.location.comment,
-    });
-    isLoading.value = true;
-  }
-};
-
-const ProfileApi = (data) => {
-  axios({
-    method: "post",
-    url: "users/location",
-    headers: {},
-    withCredentials: true,
-    data: data,
-  })
-    .then(function (response) {
-      console.log(response.data.message);
-      alert(response.data.message);
-      store.user.location = state.location;
-    })
-    .catch(function (error) {
-      console.log(error);
-      alert(error.response.data.message);
-    })
-    .finally(function () {
-      isLoading.value = false;
-      state = {
-        notificationEmail: store.user?.location?.notificationEmail || "",
-        notificationType: store.user?.location?.notificationType || "",
-
-        img: store.user?.img || "",
-        email: store.user?.email || "",
-        username: store.user?.username || "",
-        tel: store.user?.tel || "",
-
-        location: {
-          street: store.user?.location?.street || "",
-          section_number: store.user?.location?.section_number || "",
-          home_number: store.user?.location?.home_number || "",
-          entrance_number: store.user?.location?.entrance_number || "",
-          comment: store.user?.location?.comment || "",
-          city: store.user?.location?.city || "",
-        },
-      };
-    });
-};
-
+const authStore =  useAuthStore()
 const handleLogout = () => {
-  store.logout();
+    authStore.logOut()
   router.push("/");
 };
 </script>

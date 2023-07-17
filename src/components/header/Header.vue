@@ -147,6 +147,13 @@ function checkUser(){
     isRegister.value = authStore.checkUserRegister()
 }
 
+watch(()=>localStorage.getItem('token'),
+    ()=>{
+        console.log("watch is header")
+        checkUser()
+    }
+)
+
 watch(()=>authStore.isRegister,
     ()=>{
         console.log("watch is header")
