@@ -7,9 +7,7 @@
     <div
       class="fixed z-[999999] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg max-sm:w-[90%] sm:w-[80%] md:w-[70%] lg:w-[50%]"
     >
-      <div
-        class="max-sm:px-3 sm:px-16 py-8 text-lg relative bg-[#fafcf5] rounded-lg"
-      >
+      <div class="max-sm:px-3 sm:px-16 py-8 text-lg relative bg-[#fafcf5] rounded-lg">
         <div class="flex flex-col gap-6">
           <form class="flex flex-col gap-2 text-black">
             <FormInput
@@ -49,10 +47,7 @@
                   class="relative cursor-pointer"
                   ><i class="fa-solid fa-eye"></i
                 ></span>
-                <span
-                  @click="changePassword"
-                  v-else
-                  class="relative cursor-pointer"
+                <span @click="changePassword" v-else class="relative cursor-pointer"
                   ><i class="fa-sharp fa-solid fa-eye-slash"></i
                 ></span>
               </template>
@@ -82,15 +77,12 @@
               </template>
             </FormInput>
             <div>
-              <ButtonFillVue v-if="!codeRegister">
-                <button
-                  @click.prevent="handleRegister"
-                  class="py-1 px-4 w-full"
-                >
+              <ButtonFillVue v-if="codeRegister">
+                <button @click.prevent="handleRegister" class="py-1 px-4 w-full">
                   submit
                 </button>
               </ButtonFillVue>
-              <div v-if="codeRegister">
+              <div v-if="!codeRegister">
                 <code-input
                   @change="(e) => (codeSend = e)"
                   @complete="completed = true"
@@ -99,8 +91,9 @@
                   :fieldHeight="56"
                   :required="true"
                 />
-                <Timer class="text-center" />
+                <Timer @endTime="resendCode = true" class="text-center" ref="defineExp" />
                 <button
+                  v-if="!resendCode"
                   class="border py-2 rounded-lg text-white w-full bg-[#002E69]"
                   :class="!completed ? 'bg-gray-700' : 'bg-[#002E69]'"
                   :disabled="!completed"
@@ -108,17 +101,15 @@
                 >
                   Continue
                 </button>
+                <div v-if="resendCode" class="text-center">
+                  <a href="#" @click="returnSendCode"> Qayta kod yuborish </a>
+                </div>
               </div>
             </div>
           </form>
         </div>
-        <div
-          @click="emit('closeRegiterModal')"
-          class="absolute top-1 right-3 text-xl"
-        >
-          <i
-            class="fa-solid fa-xmark duration-200 cursor-pointer hover:opacity-50"
-          ></i>
+        <div @click="emit('closeRegiterModal')" class="absolute top-1 right-3 text-xl">
+          <i class="fa-solid fa-xmark duration-200 cursor-pointer hover:opacity-50"></i>
         </div>
       </div>
     </div>
@@ -144,6 +135,7 @@ const completed = ref(false);
 const eyeHidden = ref(false);
 const eyeConfirmHidden = ref(false);
 const codeRegister = ref(false);
+const resendCode = ref(false);
 
 const toast = useToast();
 
@@ -183,16 +175,13 @@ const handleRegister = async () => {
     try {
       const phone =
         "+998" +
-        userData.phoneNumber
-          .replaceAll("-", "")
-          .replace("(", "")
-          .replace(") ", "");
+        userData.phoneNumber.replaceAll("-", "").replace("(", "").replace(") ", "");
       const userOption = {
-          phoneNumber:phone,
-          fullName:userData.fullName,
-          password:userData.password,
-          confirmPassword:userData.confirmPassword
-      }
+        phoneNumber: phone,
+        fullName: userData.fullName,
+        password: userData.password,
+        confirmPassword: userData.confirmPassword,
+      };
       const user = await authStore.getUser(userOption);
       localStorage.setItem("user", JSON.stringify(user.data));
       if (user.data.ID) {
@@ -207,12 +196,8 @@ const handleRegister = async () => {
 async function sendCode(e) {
   emit("closeRegiterModal");
   e.preventDefault();
-    const phone =
-        "+998" +
-        userData.phoneNumber
-            .replaceAll("-", "")
-            .replace("(", "")
-            .replace(") ", "");
+  const phone =
+    "+998" + userData.phoneNumber.replaceAll("-", "").replace("(", "").replace(") ", "");
   const activeParams = {
     code: codeSend.value,
     phoneNumber: phone,
@@ -234,6 +219,12 @@ async function sendCode(e) {
     });
 
   await authStore.setAccessToken(tokenParams);
+}
+
+const defineExp = ref(null);
+function returnSendCode() {
+  resendCode.value = false;
+  defineExp.value.expFunction();
 }
 
 const emit = defineEmits(["closeRegiterModal"]);

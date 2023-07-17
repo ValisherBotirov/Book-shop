@@ -16,13 +16,29 @@ function updateTime() {
   }
 }
 
-onMounted(() => {
+function timrFunc() {
   const time = setInterval(() => {
     updateTime();
     if (minutes.value === 0 && seconds.value <= 1) {
       seconds.value -= 1;
       clearInterval(time);
+      emit("endTime", true);
     }
-  }, 1000);
+  }, 10);
+}
+
+function expFunction() {
+  minutes.value = 1;
+  seconds.value = 60;
+  timrFunc();
+}
+
+defineExpose({
+  expFunction,
 });
+
+onMounted(() => {
+  timrFunc();
+});
+const emit = defineEmits(["endTime"]);
 </script>
