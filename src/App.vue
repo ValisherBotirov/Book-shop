@@ -1,16 +1,11 @@
 <template>
-  <div
-    class="h-full overflow-hidden min-h-[100vh] flex flex-col justify-between"
-  >
+  <div class="h-full overflow-hidden min-h-[100vh] flex flex-col justify-between">
     <div>
       <HeaderVue />
       <RouterView />
     </div>
-    <BasketModal
-      :isOpen="openShopModal"
-      @closeModal="(e) => (openShopModal = e)"
-    />
-    <MobileCategory @openBasketModal="openShopModal = true"/>
+    <BasketModal :isOpen="openShopModal" @closeModal="(e) => (openShopModal = e)" />
+    <MobileCategory @openBasketModal="openShopModal = true" />
     <FooterVue />
   </div>
   <Loading v-if="loading" />
