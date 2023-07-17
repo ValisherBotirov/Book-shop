@@ -10,14 +10,14 @@
       <FormInput
         label="Full Name:"
         type="text"
-        v-model="userData.username"
+        v-model="userData.fullName"
         placeholder="full name"
         :error="v$.username.$error"
       />
 
       <FormInput
         type="string"
-        v-model="userData.phone"
+        v-model="userData.username"
         label="Phone number:"
         :error="v$.phone.$error"
         v-maska="'(##) ###-##-##'"
@@ -29,16 +29,13 @@
 
       <FormInput
         :type="eyeHidden ? 'text' : 'password'"
-        v-model="userData.password"
+        v-model="userData.role"
         label="Password:"
         :error="v$.password.$error"
         placeholder="password"
       >
         <template #suffix>
-          <span
-            @click="changePassword"
-            v-if="!eyeHidden"
-            class="relative cursor-pointer"
+          <span @click="changePassword" v-if="!eyeHidden" class="relative cursor-pointer"
             ><i class="fa-solid fa-eye"></i
           ></span>
           <span @click="changePassword" v-else class="relative cursor-pointer"
@@ -49,7 +46,7 @@
 
       <FormInput
         label="Confirm Password:"
-        v-model="userData.passwordConfirm"
+        v-model="userData.role"
         placeholder="confirm password"
         id="passwordConfirm"
         :type="eyeConfirmHidden ? 'text' : 'password'"
@@ -62,30 +59,20 @@
             class="relative cursor-pointer"
             ><i class="fa-solid fa-eye"></i
           ></span>
-          <span
-            @click="changeConfirmPassword"
-            v-else
-            class="relative cursor-pointer"
+          <span @click="changeConfirmPassword" v-else class="relative cursor-pointer"
             ><i class="fa-sharp fa-solid fa-eye-slash"></i
           ></span>
         </template>
       </FormInput>
       <div>
-        <ButtonFillVue>
-          <button class="py-1 px-4 w-full">
-            O'zgartish
-          </button>
+        <ButtonFillVue @click.prevent="handleRegister">
+          <button class="py-1 px-4 w-full">O'zgartish</button>
         </ButtonFillVue>
       </div>
     </form>
 
-    <div
-      @click="emit('closeEditProfileModal')"
-      class="absolute top-1 right-3 text-xl"
-    >
-      <i
-        class="fa-solid fa-xmark duration-200 cursor-pointer hover:opacity-50"
-      ></i>
+    <div @click="emit('closeEditProfileModal')" class="absolute top-1 right-3 text-xl">
+      <i class="fa-solid fa-xmark duration-200 cursor-pointer hover:opacity-50"></i>
     </div>
   </div>
 </template>
@@ -114,12 +101,16 @@ const changeConfirmPassword = () => {
 
 const store = useUserRegister();
 
+const storageGetUser = JSON.parse(localStorage.getItem("user"));
+
 const userData = reactive({
+  fullName: "",
   username: "",
-  phone: "",
-  password: "",
-  passwordConfirm: "",
+  role: "",
+  role: "",
+  ...storageGetUser,
 });
+console.log(storageGetUser);
 
 const rules = computed(() => {
   return {
@@ -140,13 +131,12 @@ const handleRegister = async () => {
       !store.closemodal && emit("closeRegiterModal");
     } finally {
       userData.username = "";
-      userData.phone = "";
-      userData.password = "";
-      userData.passwordConfirm = "";
+      userData.username = "";
+      userData.role = "";
+      userData.role = "";
     }
   }
 };
 
 const emit = defineEmits(["closeEditProfileModal"]);
-// const emit = defineEmits(["closeRegiterModal"]);
 </script>
