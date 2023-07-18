@@ -84,7 +84,6 @@
               </ButtonFillVue>
               <div v-if="codeRegister">
                 <code-input
-
                   @change="(e) => (codeSend = e)"
                   @complete="completed = true"
                   :fields="6"
@@ -226,12 +225,12 @@ const defineExp = ref(null);
 async function returnSendCode() {
   resendCode.value = false;
   defineExp.value.expFunction();
-    const phone =
-        "+998" + userData.phoneNumber.replaceAll("-", "").replace("(", "").replace(") ", "");
+  const phone =
+    "+998" + userData.phoneNumber.replaceAll("-", "").replace("(", "").replace(") ", "");
   const fetchResendCode = {
-      phoneNumber : phone
-  }
-  await authStore.resendCode(fetchResendCode)
+    phoneNumber: phone,
+  };
+  await authStore.resendCode(fetchResendCode);
 }
 
 const emit = defineEmits(["closeRegiterModal"]);

@@ -30,9 +30,7 @@
           <span>Sotuvda</span><span>Bor</span>
         </li>
       </ul>
-      <ul
-        class="md:px-10 lg:px-[26px] xl:px-10 pt-12 flex justify-between gap-3"
-      >
+      <ul class="md:px-10 lg:px-[26px] xl:px-10 pt-12 flex justify-between gap-3">
         <li
           @click="openModalAudio"
           class="translation flex items-center gap-3 cursor-pointer justify-center bg-[#002E69] rounded-md w-[50%] py-2 text-white hover:bg-transparent hover:text-black hover:border-black border-[1px] hover:border-solid"
@@ -55,8 +53,8 @@
         <del class="font-medium text-xl opacity-[0.5]">52 000 so'm</del>
         <strong
           class="iconAn sx:text-[17px] md:text-[20px] absolute right-[-75px] top-10 rotate-45 bg-[red] text-white px-3 py-1 rounded-md"
-          ><i class="fa-solid fa-bookmark mx-2"></i>Supper chegirma
-          <span>32</span><i class="mx-1 fa-solid fa-percent"></i
+          ><i class="fa-solid fa-bookmark mx-2"></i>Supper chegirma <span>32</span
+          ><i class="mx-1 fa-solid fa-percent"></i
         ></strong>
       </div>
       <div class="flex items-center gap-3 pt-4 font-medium">
@@ -93,7 +91,7 @@ import SaveBasket from "@/components/buttons/SaveBasket.vue";
 import BooksTypeModal from "../modals/BooksTypeModal.vue";
 const typeModal = ref("");
 const isModalBook = ref(false);
-const emit = defineEmits(["isModalBook"]);
+// const emit = defineEmits(["isModalBook"]);
 const count = ref(1);
 
 const openModalAudio = () => {

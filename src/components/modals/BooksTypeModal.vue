@@ -90,5 +90,6 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   type: "audio",
 });
+
 const emit = defineEmits(["closeBookTypeModal"]);
 </script>

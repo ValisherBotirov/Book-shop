@@ -9,7 +9,11 @@
       v-if="!hasProduct"
     >
       <el-sub-menu index="1">
-        <template #title ><span class="md:h-[43px] sx:py-[5px] sx:text-[15px] md:text-[20px] flex items-center text-lg">Category</span></template
+        <template #title
+          ><span
+            class="md:h-[43px] sx:py-[5px] sx:text-[15px] md:text-[20px] flex items-center text-lg"
+            >Category</span
+          ></template
         >
         <div v-for="(item, index) in categories" :key="index">
           <el-menu-item v-if="!item?.children.length" :index="`2-${index}`">{{
@@ -30,12 +34,18 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 
 // store
-import { useCategoryProduct } from "@/store/categoryProduct.js";
-const categoryStore = useCategoryProduct();
-categoryStore.getProducts();
+// import { useCategoryProduct } from "@/store/categoryProduct.js";
+
+import { useCategoryGetStore } from "../../store/newCaregory.js";
+const categoryStore = useCategoryGetStore();
+console.log(categoryStore);
+
+onMounted(() => {
+  categoryStore.getCategoryAll();
+});
 
 const hasProduct = computed(() => categoryStore.products.length);
 
