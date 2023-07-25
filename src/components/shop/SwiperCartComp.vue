@@ -17,13 +17,9 @@
 </template>
 
 <script setup>
-import { useMainProducts } from "@/store/mainProducts.js";
 import Swiper from "../Swiper.vue";
 import { SwiperSlide } from "swiper/vue";
 import SwiperCard from "../card/SwiperCard.vue";
-const store = useMainProducts();
-
-if (!store.categories.length) store.getAllProductsByCategory();
 
 const fakeProduct = [
   {

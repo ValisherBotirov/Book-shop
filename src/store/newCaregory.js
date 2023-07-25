@@ -6,14 +6,14 @@ const toast = useToast();
 
 export const useCategoryGetStore = defineStore("categoryGetStore", {
   state: () => ({
-    products: [],
+      categories: [],
   }),
   actions: {
     async getCategoryAll() {
       try {
         const getCategory = await axios.get(`category/all`);
-        // this.products = getCategory.data.data
-        console.log(getCategory);
+        this.categories = getCategory.data
+
       } catch (err) {
         console.log(err);
       }

@@ -6,7 +6,7 @@
       mode="horizontal"
       :ellipsis="false"
       @select="handleSelect('sdfsd', [])"
-      v-if="!hasProduct"
+
     >
       <el-sub-menu index="1">
         <template #title
@@ -16,13 +16,13 @@
           ></template
         >
         <div v-for="(item, index) in categories" :key="index">
-          <el-menu-item v-if="!item?.children.length" :index="`2-${index}`">{{
+          <el-menu-item v-if="!item?.subCategories.length" :index="`2-${index}`">{{
             item?.name
           }}</el-menu-item>
           <el-sub-menu v-else :index="`2-${index}`">
             <template #title>{{ item?.name }}</template>
             <el-menu-item
-              v-for="(child, childIndex) in item.children"
+              v-for="(child, childIndex) in item.subCategories"
               :index="`2-4-${childIndex + 1}`"
               >{{ child.name }}</el-menu-item
             >
@@ -36,67 +36,68 @@
 <script lang="ts" setup>
 import { ref, computed, onMounted } from "vue";
 
-// store
-// import { useCategoryProduct } from "@/store/categoryProduct.js";
 
-import { useCategoryGetStore } from "../../store/newCaregory.js";
+import { useCategoryGetStore } from "@/store/newCaregory";
 const categoryStore = useCategoryGetStore();
-console.log(categoryStore);
 
-onMounted(() => {
-  categoryStore.getCategoryAll();
-});
 
-const hasProduct = computed(() => categoryStore.products.length);
+
+const hasProduct = computed(() => categoryStore.categories.length);
 
 const activeIndex = ref("1");
 const handleSelect = (key: string, keyPath: string[]) => {
   console.log(key, keyPath);
 };
 
-const categories = [
-  {
-    id: 1,
-    name: "Yangi kitoblar",
-    children: [],
-  },
-  {
-    id: 2,
-    name: "Biznes kitoblar",
-    children: [
-      {
-        id: 1,
-        name: "Marketing",
-      },
-      {
-        id: 2,
-        name: "Savdoga oid",
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: "Eski kitoblar",
-    children: [],
-  },
-  {
-    id: 4,
-    name: "Darliklar",
-    children: [],
-  },
-  {
-    id: 5,
-    name: "Shaxsiy rivojlanishga oid kitoblar",
-    children: [
-      {
-        id: 1,
-        name: "Miyani rivojlantirish",
-      },
-      {
-        id: 2,
-        name: "Xotirani yaxshilash",
-      },
-    ],
-  },
-];
+// const categories = [
+//   {
+//     id: 1,
+//     name: "Yangi kitoblar",
+//     children: [],
+//   },
+//   {
+//     id: 2,
+//     name: "Biznes kitoblar",
+//     children: [
+//       {
+//         id: 1,
+//         name: "Marketing",
+//       },
+//       {
+//         id: 2,
+//         name: "Savdoga oid",
+//       },
+//     ],
+//   },
+//   {
+//     id: 3,
+//     name: "Eski kitoblar",
+//     children: [],
+//   },
+//   {
+//     id: 4,
+//     name: "Darliklar",
+//     children: [],
+//   },
+//   {
+//     id: 5,
+//     name: "Shaxsiy rivojlanishga oid kitoblar",
+//     children: [
+//       {
+//         id: 1,
+//         name: "Miyani rivojlantirish",
+//       },
+//       {
+//         id: 2,
+//         name: "Xotirani yaxshilash",
+//       },
+//     ],
+//   },
+// ];
+
+const categories = computed(()=> categoryStore.categories)
+
+onMounted(() => {
+    categoryStore.getCategoryAll()
+});
 </script>
