@@ -13,12 +13,15 @@ export const useBannerStore = defineStore("bannerStore", {
       const toast = useToast();
       try {
         loadingStore.loading = true;
-        const banners = await axios.get("/swapers");
-        this.banners = banners.data.data.swapers;
+        // const banners = await axios.get("/swapers");
+        // this.banners = banners.data.data.swapers;
       } catch (error) {
         toast.error(error.message);
       } finally {
+        setTimeout(()=>{
         loadingStore.loading = false;
+
+        },1000)
       }
     },
   },

@@ -110,7 +110,7 @@ import LineSVG from "@/components/header/LineSVG.vue";
 import SignSection from "@/components/header/SignSection.vue";
 import AuthSection from "@/components/header/AuthSection.vue";
 import Category from "../category/Category.vue";
-import logo from "../../assets/img/static/books.png";
+import logo from "../../assets/img/static/logo.png";
 import {useAuthStore} from "@/store/auth.js";
 const authStore =  useAuthStore()
 const router = useRouter();

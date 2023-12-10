@@ -3,14 +3,14 @@
     <div class="container mx-auto">
       <RouteLink class=" text-xl sx:pt-[65px] md:pt-[35px]" :route="routeLink" />
       <h1 class="sx:text-xl md:text-2xl font-sans font-medium">
-        Shayx Muhammad Sodiq Muhammad Yusuf:
-        <span>Olam va Odam Din va Ilm</span>
+        MacBook Air 15:
+        <span>M2 chip 8-core CPU </span>
       </h1>
       <div class="grid lg:grid-cols-12 sx:grid-cols-6 my-8 sx:mt-[15px] md:mt-8">
         <div class="swiperImg col-span-12 md:col-span-6 lg:col-span-4 relative">
           <img
             class="rounded-xl object-cover cursor-pointer w-[100%]"
-            :src="image"
+            src="https://image.shutterstock.com/image-photo/image-260nw-2068476605.jpg"
             alt="product image"
           />
           <div class="absolute top-4 right-4">

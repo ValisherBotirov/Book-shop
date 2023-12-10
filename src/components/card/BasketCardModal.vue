@@ -3,10 +3,10 @@
     class=" flex gap-3 max-h-48 overflow-hidden"
   >
     <div class="flex-shrink-0 border border-[#e1e1e1] transition duration-300 hover:border-[#010101] p-1">
-      <router-link :to="`/shop/${item?.id}`" class=" hover:border cursor-pointer">
+      <router-link :to="`/shop/1`" class=" hover:border cursor-pointer">
         <img
           class="object-cover w-[90px] h-[90px] object-center"
-          :src="item?.image_url ? item.image_url : 'https://islom.uz/img/section/section_1503922927.jpg'"
+          :src="item?.image_url ? item.image_url : 'https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGYtczczLXRlZC0xMDIyMi5qcGc.jpg'"
           alt="cardImg"
         />
       </router-link>
@@ -19,13 +19,13 @@
         <i class="fa-solid fa-xmark text-base hover:text-[red]"></i>
       </div>
       <router-link
-        :to="`/shop/${item?.id}`"
+        :to="`/shop/1`"
         class="transition duration-100 hover:text-primaryBlue line-clamp-2 pr-7"
       >
-        {{ item?.name }} Shayx Muhammad Sodiq   - Kifoya
+        {{ item?.name }} MacBook Air 15 | Up to 24GB unified memory
       </router-link>
 
-        <p class="mt-2 text-sm">{{item?.count}} x <span class="font-medium">{{ numberWithSpaces(5000) }} UZS</span> </p>
+        <p class="mt-2 text-sm">{{item?.count}} x <span class="font-medium">{{ numberWithSpaces(15000000) }} UZS</span> </p>
     </div>
   </div>
 </template>

@@ -29,10 +29,10 @@
           </ul>
           <ul>
             <li class="text-[25px] font-bold mb-2 hover:text-[#F4CE47] cursor-pointer">Книжные магазины</li>
-            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer"><a href="#"><i class="fa-solid fa-location-dot"></i> Asaxiy Novza</a></li>
-            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer"><a href="#"><i class="fa-solid fa-location-dot"></i> Asaxiy Farhod bozori</a></li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer"><a href="#"><i class="fa-solid fa-location-dot"></i> STAR5</a></li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer"><a href="#"><i class="fa-solid fa-location-dot"></i> MacBock Media</a></li>
             <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">
-              <a href="#"><i class="fa-solid fa-location-dot"></i> Asaxiy Panorama, Kitob olami</a>
+              <a href="#"><i class="fa-solid fa-location-dot"></i>Malika Shop</a>
             </li>
           </ul>
         </div>
@@ -51,7 +51,7 @@
                 <a
                   target="_blank"
                   class="inline-block"
-                  href="https://t.me/Qwerty_2526"
+                  href="https://t.me/Valisher_Botirov"
                 >
                   <img
                     :src="icon1"
@@ -61,7 +61,7 @@
                 </a>
                 <a
                   target="_blank"
-                  href="https://www.facebook.com/profile.php?id=100088042748728&mibextid=ZbWKwL"
+                  href="https://t.me/Valisher_Botirov"
                 >
                   <img
                     :src="icon2"
@@ -71,7 +71,7 @@
                 </a>
                 <a
                   target="_blank"
-                  href="https://www.youtube.com/@Star_New_Tech"
+                  href="https://t.me/Valisher_Botirov"
                 >
                   <img
                     :src="icon3"
@@ -81,7 +81,7 @@
                 </a>
                 <a
                   target="_blank"
-                  href="https://instagram.com/starnewtech?igshid=ZDdkNTZiNTM"
+                  href="https://t.me/Valisher_Botirov"
                 >
                   <img
                     :src="icon4"

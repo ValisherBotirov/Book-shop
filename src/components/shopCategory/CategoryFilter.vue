@@ -31,8 +31,8 @@
 
 <script setup>
 import { ref } from "vue";
-import { useCategoryProduct } from "../../store/categoryProduct";
-import { useLoadingStore } from "../../store/loading";
+import { useCategoryProduct } from "@/store/categoryProduct.js";
+import { useLoadingStore } from "@/store/loading.js";
 import axios from "axios";
 const store = useCategoryProduct();
 const loading = useLoadingStore();

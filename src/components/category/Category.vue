@@ -37,67 +37,60 @@
 import { ref, computed, onMounted } from "vue";
 
 
-import { useCategoryGetStore } from "@/store/newCaregory";
-const categoryStore = useCategoryGetStore();
-
-
-
-const hasProduct = computed(() => categoryStore.categories.length);
 
 const activeIndex = ref("1");
 const handleSelect = (key: string, keyPath: string[]) => {
   console.log(key, keyPath);
 };
 
-// const categories = [
-//   {
-//     id: 1,
-//     name: "Yangi kitoblar",
-//     children: [],
-//   },
-//   {
-//     id: 2,
-//     name: "Biznes kitoblar",
-//     children: [
-//       {
-//         id: 1,
-//         name: "Marketing",
-//       },
-//       {
-//         id: 2,
-//         name: "Savdoga oid",
-//       },
-//     ],
-//   },
-//   {
-//     id: 3,
-//     name: "Eski kitoblar",
-//     children: [],
-//   },
-//   {
-//     id: 4,
-//     name: "Darliklar",
-//     children: [],
-//   },
-//   {
-//     id: 5,
-//     name: "Shaxsiy rivojlanishga oid kitoblar",
-//     children: [
-//       {
-//         id: 1,
-//         name: "Miyani rivojlantirish",
-//       },
-//       {
-//         id: 2,
-//         name: "Xotirani yaxshilash",
-//       },
-//     ],
-//   },
-// ];
+const categories = [
+  {
+    id: 1,
+    name: "MacBook",
+    subCategories: [],
+  },
+  {
+    id: 2,
+    name: "Kompyuter",
+    subCategories: [
+      {
+        id: 1,
+        name: "ASUS",
+      },
+      {
+        id: 2,
+        name: "ACER",
+      },
+      {
+        id: 3,
+        name: "HP",
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "Desktop",
+    subCategories: [],
+  },
+  {
+    id: 4,
+    name: "Telefonlar",
+    subCategories: [],
+  },
+  {
+    id: 5,
+    name: "Asessuarlar",
+    subCategories: [
+      {
+        id: 1,
+        name: "Quvvatlagichlar",
+      },
+      {
+        id: 2,
+        name: "Sichqonchalar",
+      },
+    ],
+  },
+];
 
-const categories = computed(()=> categoryStore.categories)
-
-onMounted(() => {
-    categoryStore.getCategoryAll()
-});
 </script>

@@ -3,7 +3,7 @@
     <div class="imgCard h-[200px] overflow-hidden relative">
       <router-link :to="`/shop/${product.id ? product.id : 1}`">
         <img
-          src="https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg"
+          src="https://logodix.com/logo/1206247.jpg"
           alt=""
           class="w-full h-full object-cover cursor-pointer"
         />
