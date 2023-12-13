@@ -3,7 +3,7 @@
     <div class="imgCard h-[200px] overflow-hidden relative">
       <router-link :to="`/shop/${product.id ? product.id : 1}`">
         <img
-          src="https://logodix.com/logo/1206247.jpg"
+          :src="product.image"
           alt=""
           class="w-full h-full object-cover cursor-pointer"
         />
@@ -18,16 +18,16 @@
     >
       <div>
         <router-link
-          :to="`/shop/${product.id ? product.id : 1}`"
+          :to="`/shop/1`"
           class="hover:text-[#F4CE47] duration-150 text-md font-bold line-clamp-1"
         >
-          {{ product.name }} Title
+          {{ product.name }}
         </router-link>
-        <div>{{ product.product_detail?.condition }} Holati</div>
+        <div>{{ product.product_detail?.condition }} </div>
       </div>
       <div class="flex justify-between items-center flex-wrap">
         <div class="font-semibold">
-          {{ numberWithSpaces(product?.product_detail?.price) }} 120 000 so'm
+          {{ numberWithSpaces(product?.product_detail?.price) }} $
         </div>
       </div>
       <div class="flex justify-between items-center">
@@ -55,6 +55,7 @@ interface Props {
   product?: {
     id: number;
     name: string;
+    image:string;
     product_detail?: {
       price: number;
       condition: string;

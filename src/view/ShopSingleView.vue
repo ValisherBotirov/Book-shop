@@ -29,11 +29,17 @@
         </div>
         <div>
           <p class="text-[#333] text-xl mb-6 sx:w-[100%] md:w-[50%]">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-            blanditiis assumenda amet officia consequatur neque. Lorem, ipsum
-            dolor sit amet consectetur adipisicing elit. At facilis dolorum
-            veritatis expedita sequi similique natus nihil cumque perferendis
-            nulla!
+            Apple Silicon M1 chip: MacBook Air 2020 modelida Apple o'zini ishlab chiqgan M1 chipni qo'llab-quvvatlashga o'tgan. Bu yangi chipta odatiy xususiyatlarga ega bo'lib, operatsion tizimning samaradorligini oshiradi va batareya davriyini uzaytiradi.
+
+            8GB RAM (tugagan model uchun): Birinchi marta, MacBook Air 8 gigabayt xotiraga ega. Bu, odatiy yoki muntazam foydalanish uchun kifoya bo'lishi mumkin.
+
+            256GB SSD (tugagan model uchun): Uzlukdagi omborda odatiy modelda 256 gigabayt hajmi mavjud. Bu SSD (xotira kiskasi) tizimni tez ishlatishda va fayllarga tezroq kirishda yordam beradi.
+
+            Retina Display: MacBook Air, qadriy Retina displeyga ega, bu esa yaxshi ko'rsatish va grafikalar uchun yaxshi natijalarni ta'minlashda yordam beradi.
+
+            USB-C portlar: MacBook Air 2020 modeli, faqatgina USB-C portlar bilan ta'minlangan. Bu portlar batareya zaryadi, har birini ishlatish va boshqa ulanmalar bilan ishlash uchun mo'ljallangan.
+
+            Yengil dizayn: MacBook Air 2020 modeli, yengil va hafif dizaynga ega bo'lib, to'g'ri xayotda, o'qish yoki ishda ishlatish uchun mos keladi.
           </p>
         </div>
       </div>

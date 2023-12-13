@@ -6,29 +6,29 @@
       >
         <div>
           <ul>
-            <li class="text-[25px] font-bold mb-2 hover:text-[#F4CE47] cursor-pointer">Информация</li>
-            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Часто задаваемые вопросы</li>
-            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Пункты выдачи</li>
-            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Блог</li>
-            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Наши бренды</li>
+            <li class="text-[25px] font-bold mb-2 hover:text-[#F4CE47] cursor-pointer">Ma`lumot</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Ko'p so'raladigan savollar</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Qabul qilish punktlari</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Blog</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Bizning brendlarimiz</li>
             <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">
-              Публичная оферта (Пользовательское соглашение)
+              Ommaviy taklif (Foydalanuvchi shartnomasi)
             </li>
-            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Оферта для покупок в рассрочку</li>
-            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">О нас</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Bo'lib-bo'lib xarid qilish uchun taklif</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Biz haqimizda</li>
           </ul>
         </div>
         <div>
           <ul>
-            <li class="text-[25px] font-bold mb-2 hover:text-[#F4CE47] cursor-pointer">Для связи</li>
+            <li class="text-[25px] font-bold mb-2 hover:text-[#F4CE47] cursor-pointer">Aloqa uchun</li>
             <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer"><a href="#"><i class="fa-solid fa-phone"></i>  +998 71 200 01 05</a></li>
-            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer"><a href="#"><i class="fa-regular fa-envelope hover:text-[#F4CE47] cursor-pointer"></i>  info@asaxiy.uz</a></li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer"><a href="#"><i class="fa-regular fa-envelope hover:text-[#F4CE47] cursor-pointer"></i> computerservice@gmail.com</a></li>
             <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">
-              <a href="#"> <i class="fa-solid fa-location-dot"></i> улица Ислама Каримова, 49, Ташкент</a>
+              <a href="#"> <i class="fa-solid fa-location-dot"></i> Yunusobod Toshkent | TATU</a>
             </li>
           </ul>
           <ul>
-            <li class="text-[25px] font-bold mb-2 hover:text-[#F4CE47] cursor-pointer">Книжные магазины</li>
+            <li class="text-[25px] font-bold mb-2 hover:text-[#F4CE47] cursor-pointer">Filiallarimiz</li>
             <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer"><a href="#"><i class="fa-solid fa-location-dot"></i> STAR5</a></li>
             <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer"><a href="#"><i class="fa-solid fa-location-dot"></i> MacBock Media</a></li>
             <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">
@@ -38,13 +38,13 @@
         </div>
         <div>
           <ul>
-            <li class="text-[25px] font-bold mb-2 hover:text-[#F4CE47] cursor-pointer">Наши достижения</li>
-            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Премия "Tahsin"</li>
-            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Медаль "Shuhrat"</li>
-            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Медаль "Kelajak bunyodkori"</li>
+            <li class="text-[25px] font-bold mb-2 hover:text-[#F4CE47] cursor-pointer">Bizning yutuqlarimiz</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Tahsin mukofoti</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Shuhrat Medal</li>
+            <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">Yil brendi - 2023</li>
           </ul>
           <ul>
-            <li class="text-[25px] font-bold mb-2 hover:text-[#F4CE47] cursor-pointer">Мы в соц. сетях</li>
+            <li class="text-[25px] font-bold mb-2 hover:text-[#F4CE47] cursor-pointer">Bizni kuzatib boring!</li>
             <li class="text-[17px] hover:text-[#F4CE47] cursor-pointer">
               <!-- <span>{{ t("footer.social") }}:</span> -->
               <div class="flex gap-2 flex-wrap">
@@ -95,7 +95,7 @@
         </div>
         <div>
           <ul class="w-[330px] pb-5">
-            <li class="text-[25px] font-bold mb-2 hover:text-[#F4CE47] cursor-pointer">Виды оплаты</li>
+            <li class="text-[25px] font-bold mb-2 hover:text-[#F4CE47] cursor-pointer">To'lov turlari</li>
             <li class="flex flex-wrap">
               <li class="bg-[#f2f2f7] h-[60px] w-[120px] flex items-center justify-center rounded-lg m-1"><img :src="payme" alt="Payme image" class=""></li>
               <li class="bg-[#f2f2f7] h-[60px] w-[120px] flex items-center justify-center rounded-lg m-1"><img :src="viza" alt="Payme image" class=""></li>

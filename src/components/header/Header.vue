@@ -1,7 +1,7 @@
 <template>
   <div class="w-full fixed z-[999] top-0 backdrop-blur-sm">
     <div
-      class="bg-black drop-shadow-lg sx:rounded-b-0 md:rounded-b-2xl shadow-lg"
+      class="bg-black drop-shadow-lg sx:rounded-b-0 md:rounded-b-2xl shadow-lg py-4"
     >
       <div class="container mx-auto lg:gap-4 flex justify-between items-center">
         <span @click="isOpenSidebar = true" class="md:hidden text-white">
@@ -9,20 +9,21 @@
         </span>
         <RouterLink
           to="/"
-          class="flex items-center gap-1 group"
+          class="flex flex-col items-center relative group"
           :class="
             router.currentRoute.value.path === '/'
               ? 'text-primary'
               : 'text-white'
           "
         >
-          <div class="w-[50px] md:w-[85px]">
-            <img
-              :src="logo"
-              class="w-[100%] md:w-[100%] object-cover"
-              alt="site logo"
-            />
-          </div>
+<!--          <div class="w-[50px] md:w-[85px]">-->
+<!--            <img-->
+<!--              :src="logo"-->
+<!--              class="w-[100%] md:w-[100%] object-cover"-->
+<!--              alt="site logo"-->
+<!--            />-->
+<!--          </div>-->
+          <p class=" text-white text-center font-semibold font-2xl">Computer <br> Service</p>
         </RouterLink>
 
         <div class="hidden md:flex"></div>

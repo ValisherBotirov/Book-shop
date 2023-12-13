@@ -41,7 +41,7 @@ const fakeBanner = [
         id:1,
         productId:1,
         title:"Banner",
-        img:"https://orient.tm/storage/app/uploads/public/f59/886/2ed/thumb__692_0_0_0_auto.jpg"
+        img:"https://cdn.pixabay.com/photo/2017/11/27/21/31/computer-2982270_640.jpg"
 
     },
     {

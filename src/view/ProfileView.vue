@@ -1,6 +1,6 @@
 <template>
-  <div class="container mx-auto min-h-screen">
-    <div class="flex justify-between items-end my-6 sx:mt-[60px] md:mt-10">
+  <div class="container mx-auto min-h-screen !mt-[100px]">
+    <div class="flex justify-between items-end my-6  sx:mt-[60px] md:mt-16">
       <p class="sx:text-2xl md:text-3xl text-primary">Shaxsiy kabinet</p>
       <div>
         <button @click="handleLogout" class="flex gap-2">
@@ -17,7 +17,7 @@
         <div
           class="cursor-pointer bg-[#fff] rounded-full sx:w-[50%] md:w-[100%] sx:mx-auto overflow-hidden"
         >
-          <img :src="profile" alt="profile" class="w-[100%]" />
+          <img src="https://media.licdn.com/dms/image/D4D03AQERie-LqZ7eUw/profile-displayphoto-shrink_800_800/0/1684319861615?e=2147483647&v=beta&t=7c2crZhj0hSMAGrJ5Vq-mpNixNjFELZLJLnwuNhkSro" alt="profile" class="w-[100%]" />
         </div>
       </div>
       <div class="sx:w-[100%] sx:flex sx:justify-center md:w-[100%] lg:w-[40%]">
@@ -29,28 +29,28 @@
             ><i
               class="translation text-amber-500 text-lg cursor-pointer hover:translate-x-[15px] fa-solid fa-arrow-right"
             ></i
-            ><span class="w-[100%] text-left">{{ storageGetUser.fullName }}</span>
+            ><span class="w-[100%] text-left">Valisher Botirov</span>
           </li>
           <li class="flex items-center gap-7">
             <span>Tel</span
             ><i
               class="translation text-amber-500 text-lg cursor-pointer hover:translate-x-[15px] fa-solid fa-arrow-right"
             ></i
-            ><span class="w-[100%] text-left">{{ storageGetUser.username }}</span>
+            ><span class="w-[100%] text-left">94 536 09 98</span>
           </li>
           <li class="flex items-center gap-7">
             <span>Role</span
             ><i
               class="translation text-amber-500 text-lg cursor-pointer hover:translate-x-[15px] fa-solid fa-arrow-right"
             ></i
-            ><span class="w-[100%] text-left">{{ storageGetUser.role }}</span>
+            ><span class="w-[100%] text-left">admin</span>
           </li>
           <li class="flex items-center gap-7">
             <span>Parol</span
             ><i
               class="translation text-amber-500 text-lg cursor-pointer hover:translate-x-[15px] fa-solid fa-arrow-right"
             ></i
-            ><span class="w-[100%] text-left">{{ storageGetUser.role }}</span>
+            ><span class="w-[100%] text-left">v.botirov</span>
           </li>
           <li @click="editModal = true" class="text-[red] cursor-pointer pt-6">
             Ma'lumotlarni o'zgartirish
